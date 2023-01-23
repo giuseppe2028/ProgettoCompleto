@@ -1,14 +1,21 @@
 package com.example.progettocompleto.Contenitori;
 
+import javafx.fxml.FXML;
+
 import java.time.LocalDate;
 
 public class Periodi {
+    private  int id;
     private String categoria;
     private LocalDate dataInizio, dataFine;
-    public Periodi(LocalDate dataInizio,LocalDate dataFine,String categoria){
+    public Periodi(LocalDate dataInizio,LocalDate dataFine,String categoria, int id){
         this.dataFine = dataFine;
         this.dataInizio = dataInizio;
         this.categoria = categoria;
+        this.id=id;
+    }
+    public int getId(){
+        return id;
     }
 
     public String getCategoria() {
@@ -34,4 +41,8 @@ public class Periodi {
     public void setDataFine(LocalDate dataFine) {
         this.dataFine = dataFine;
     }
+@Override
+    public String toString(){
+        return categoria;
+}
 }

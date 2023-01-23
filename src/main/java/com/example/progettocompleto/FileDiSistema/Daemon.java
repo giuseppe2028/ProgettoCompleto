@@ -591,6 +591,39 @@ public class Daemon {
         return false;
     }
 
+    public static Boolean verifyDateProibite(LocalDate dataInizio, LocalDate dataFine, String categoria) throws SQLException {
+        ResultSet rs = null;
+
+        String query = "SELECT * FROM FestivitaFerie WHERE data_inizio=? AND data_fine=? AND categoria=?";
+        PreparedStatement pstm1 = conn.prepareStatement(query);
+
+        pstm1.setDate(1, Date.valueOf(dataInizio));
+        pstm1.setDate(2, Date.valueOf(dataFine));
+        pstm1.setString(3, categoria);
+
+        pstm1.execute();
+        if (rs.next()) {
+            return false;
+        }
+        return true;
+    }
+
+    public static void insertDateProibite(LocalDate dataInizio, LocalDate dataFine, String categoria) {
+        try {
+            String sql = "INSERT INTO FestivitaFerie(ref_datore,categoria,data_inizio,data_fine)values (1001,?,?,?) ";
+            preparedStatement = conn.prepareStatement(sql);
+
+            preparedStatement.setString(1, categoria);
+            preparedStatement.setDate(2, Date.valueOf(dataInizio));
+            preparedStatement.setDate(3, Date.valueOf(dataFine));
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
     public String getTipoTurno(LocalDate data, int matricola) throws SQLException {
         ResultSet rs = null;
         String query = "SELECT tipo_turno FROM Turno WHERE data_turno=? AND ref_impiegato=?";
@@ -657,11 +690,11 @@ public class Daemon {
     public static List<Periodi> getPeriodi() {
         List<Periodi> lista = new ArrayList<>();
         try {
-            String sql = "select data_Inizio,data_Fine,categoria from FestivitaFerie";
+            String sql = "select data_inizio,data_fine,categoria, id from FestivitaFerie";
             preparedStatement = conn.prepareStatement(sql);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                lista.add(new Periodi(resultSet.getDate(1).toLocalDate(), resultSet.getDate(1).toLocalDate(), resultSet.getString(1)));
+                lista.add(new Periodi(resultSet.getDate("data_inizio").toLocalDate(), resultSet.getDate("data_fine").toLocalDate(), resultSet.getString("categoria"), resultSet.getInt("id")));
             }
             return lista;
         } catch (SQLException e) {
@@ -774,6 +807,14 @@ public class Daemon {
             }
 
 
+        }
+        public static void rimuoviPeriodo(int id) throws SQLException {
+            Connection conn = DriverManager.getConnection(URL, username, passwordDBMS);
+            String deleteSQL = "DELETE FROM FestivitaFerie WHERE id=?";
+            PreparedStatement preparedStatement = conn.prepareStatement(deleteSQL);
+            preparedStatement.setInt(1, id);
+
+            preparedStatement.executeUpdate();
         }
 
     }
