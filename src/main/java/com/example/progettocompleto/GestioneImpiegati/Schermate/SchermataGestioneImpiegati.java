@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
-public class SchermataGestioneImpiegati implements Initializable {
+public class SchermataGestioneImpiegati  {
     ControlGestioneImpiegati controlGestioneImpiegati;
     Stage stage= Start.mainStage;
     private Impiegati impiegato;
@@ -35,9 +35,9 @@ public class SchermataGestioneImpiegati implements Initializable {
     public SchermataGestioneImpiegati(ControlGestioneImpiegati controlGestioneImpiegati){
         this.controlGestioneImpiegati=controlGestioneImpiegati;
     }
-    @Override
+
     @FXML
-    public void initialize(URL url, ResourceBundle resourceBundle){
+    public void initialize(){
 
         servizio.getItems().add("1");
         servizio.getItems().add("2");

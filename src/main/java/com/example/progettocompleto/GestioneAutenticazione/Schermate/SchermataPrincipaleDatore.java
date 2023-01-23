@@ -152,14 +152,11 @@ public class SchermataPrincipaleDatore implements Runnable{
 
     }
     @FXML
-    public void clickGestioneFestivitaFerie(){
+    public void clickGestioneFestivitaFerie(ActionEvent e){
  ControlFestivitaFerie controlFestivitaFerie= new ControlFestivitaFerie();
 
     }
-    @FXML
-    public void clickCalendarioComplessivo(){
 
-    }
     @FXML
     public void clickGestioneImpiegati(ActionEvent e){
         ControlGestioneImpiegati controlGestioneImpiegati = new ControlGestioneImpiegati();

@@ -2,39 +2,80 @@ package com.example.progettocompleto.GestioneImpiegati.Schermate;
 
 
 import com.example.progettocompleto.Contenitori.Periodi;
-import com.example.progettocompleto.Contenitori.RigaGiorniProibiti;
+import com.example.progettocompleto.FileDiSistema.Daemon;
 import com.example.progettocompleto.GestioneImpiegati.Control.ControlFestivitaFerie;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.geometry.Insets;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
+import javafx.util.Callback;
 
+import java.sql.SQLException;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.List;
 
 public class SchermataFestivitaFerie {
+    @FXML
+            DatePicker dataIn;
+    @FXML
+            DatePicker dataFi;
+    @FXML
+            ChoiceBox<String> categoriaChoice;
+    private String[] categorie={"festività", "ferie"};
     List<Periodi> periodi;
     private ControlFestivitaFerie controlFestivitaFerie;
     public SchermataFestivitaFerie(ControlFestivitaFerie controlFestivitaFerie, List<Periodi> periodi){
 
         this.periodi = periodi;
         this.controlFestivitaFerie = controlFestivitaFerie;
-        visualizzaTabella ();
+
+
     }
     @FXML
     public void initialize(){
+visualizzaTabella();
 
-    }
-    @FXML
-    private Button bottoneIndietro;
+            dataIn.setDayCellFactory(picker -> new DateCell() {
+                @Override
+                public void updateItem(LocalDate dateC, boolean empty) {
+                    super.updateItem(dateC, empty);
+                    if ((dateC.getDayOfWeek() == DayOfWeek.SUNDAY)||dateC.isBefore(LocalDate.now())) {
+                        setDisable(true);
 
-    @FXML
-    private Button bottoneInvia;
+                    }
+                }
+
+            });
+            dataIn.setOnAction(e->{
+                LocalDate selectedDate = dataIn.getValue();
+                dataFi.setValue(selectedDate);
+                dataFi.setDayCellFactory(picker -> new DateCell() {
+                    @Override
+                    public void updateItem(LocalDate dateC, boolean empty) {
+                        super.updateItem(dateC, empty);
+
+                        if ((dateC.getDayOfWeek() == DayOfWeek.SUNDAY)||dateC.isBefore(LocalDate.now())) {
+                            setDisable(true);
+
+                        }
+
+                    }
+                });
+            });
+
+            categoriaChoice.getItems().addAll(categorie);
+
+        }
+
+
+
 
 
     @FXML
@@ -44,49 +85,97 @@ public class SchermataFestivitaFerie {
     @FXML
     private TableColumn<Periodi,String> categoria;
     @FXML
-    private TableColumn<Periodi,Button> rimuovi;
+    private TableColumn rimuovi;
     @FXML
-    private TableView<RigaGiorniProibiti> tabella;
-    Button rimuoviBottone;
-    private ObservableList<RigaGiorniProibiti> giorniProibitiTabella;
+    private TableView<Periodi> tabella;
+    Periodi periodo;
 
-    private void visualizzaTabella(){
+    private ObservableList<Periodi> giorniProibitiTabella;
+
+    private void visualizzaTabella() {
         giorniProibitiTabella = FXCollections.observableArrayList();
-        for(int i = 0; i<periodi.size(); i++){
-            System.out.println(periodi.get(i).getDataInizio());
-            giorniProibitiTabella.add(new RigaGiorniProibiti(periodi.get(i).getDataInizio(),periodi.get(i).getDataFine(),periodi.get(i).getCategoria(),rimuoviBottone));
+        for (int i = 0; i < periodi.size(); i++) {
+
+            giorniProibitiTabella.add(new Periodi(periodi.get(i).getDataInizio(), periodi.get(i).getDataFine(), periodi.get(i).getCategoria(), periodi.get(i).getId()));
         }
-        System.out.println(giorniProibitiTabella.size());
         dataInizio.setCellValueFactory(new PropertyValueFactory<>("dataInizio"));
         dataFine.setCellValueFactory(new PropertyValueFactory<>("dataFine"));
         categoria.setCellValueFactory(new PropertyValueFactory<>("categoria"));
-        rimuovi.setCellValueFactory(new PropertyValueFactory<>("rimuovi"));
-        rimuovi.setCellFactory(
-                col->{
-                    TableCell<Periodi, Button> cell = new TableCell<Periodi, Button>() {
-                        @Override
-                        protected void updateItem(Button item, boolean empty) {
-                            super.updateItem(item, empty);
-                            if (empty) {
-                                setGraphic(null);
-                            } else {
-                                setGraphic(item);
+
+        Callback<TableColumn<Periodi, String>, TableCell<Periodi, String>> cellFactory = /*(TableColumn<Periodi, String>*/ (param) -> {
+
+
+            final TableCell<Periodi, String> cell = new TableCell<>() {
+
+                @Override
+                public void updateItem(String item, boolean empty) {
+                    //se la cella è vuota non setta i bottoni
+                    super.updateItem(item, empty);
+                    if (empty) {
+                        setGraphic(null);
+                        setText(null);
+                    } else {
+
+                        tabella.setBackground(Background.fill(Color.WHITE));
+                        final Button rimuoviButton = new Button("rimuovi");
+
+                        rimuoviButton.setBackground(Background.fill(Color.AZURE));
+
+                        rimuoviButton.setOnAction((ActionEvent event) -> {
+
+                            periodo = tabella.getSelectionModel().getSelectedItem();
+                            try {
+                                Daemon.rimuoviPeriodo(periodo.getId());
+                                updateTable();
+
+                            } catch (SQLException e) {
+                                throw new RuntimeException(e);
                             }
-                        }
-                    };
-                    return cell;
-                });
+
+
+                        });
+
+                        HBox managebtn = new HBox(rimuoviButton);
+                        managebtn.setStyle("-fx-alignment: center");
+                        HBox.setMargin(rimuoviButton, new Insets(2, 2, 0, 3));
+
+                        setGraphic(managebtn);
+                        setText(null);
+                    }
+
+                }
+
+
+            };
+
+            return cell;
+        };
+        rimuovi.setCellFactory(cellFactory);
+
         tabella.setItems(giorniProibitiTabella);
 
+
     }
+
+
     @FXML
     void clickIndietro(ActionEvent event) {
 
     }
 
     @FXML
-    void clickInvia(ActionEvent event) {
-
+    void clickInvia(ActionEvent event) throws SQLException {
+       LocalDate dataInizio= dataIn.getValue();
+       LocalDate dataFine= dataFi.getValue();
+       String categoria= categoriaChoice.getValue();
+controlFestivitaFerie.clickInvia(dataInizio, dataFine, categoria);
     }
+    public void updateTable() throws SQLException {
+        giorniProibitiTabella.clear();
+        visualizzaTabella();
+        tabella.setItems(giorniProibitiTabella);
+        tabella.refresh();
+    }
+
 
 }

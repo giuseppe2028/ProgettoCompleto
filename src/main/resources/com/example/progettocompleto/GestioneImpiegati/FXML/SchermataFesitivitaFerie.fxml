@@ -19,9 +19,9 @@
             <TableColumn fx:id="rimuovi" prefWidth="150.0" style="-fx-background-radius: 0px 20px  0px 0px;" text="rimuovi" />
         </columns>
       </TableView>
-      <DatePicker layoutX="118.0" layoutY="442.0" prefHeight="37.0" prefWidth="184.0" promptText="Data Inizio" />
-      <DatePicker layoutX="603.0" layoutY="442.0" prefHeight="37.0" prefWidth="184.0" promptText="Data Inizio" />
-      <ChoiceBox layoutX="361.0" layoutY="510.0" prefHeight="37.0" prefWidth="184.0" style="-fx-background-color: #477dae; -fx-opacity: 0.8; -fx-background-radius: 20;" />
+      <DatePicker fx:id="dataIn" layoutX="118.0" layoutY="442.0" prefHeight="37.0" prefWidth="184.0" promptText="Data Inizio" />
+      <DatePicker fx:id="dataFi" layoutX="603.0" layoutY="442.0" prefHeight="37.0" prefWidth="184.0" promptText="Data Inizio" />
+      <ChoiceBox fx:id="categoriaChoice" layoutX="361.0" layoutY="510.0" prefHeight="37.0" prefWidth="184.0" style="-fx-background-color: #477dae; -fx-opacity: 0.8; -fx-background-radius: 20;" />
       <Button fx:id="bottoneIndietro" layoutX="53.0" layoutY="558.0" mnemonicParsing="false" onAction="#clickIndietro" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #477dae;" stylesheets="@../CSS/SchermataFestivitaFerie.css" text="Indietro" textFill="WHITE">
          <font>
             <Font size="25.0" />

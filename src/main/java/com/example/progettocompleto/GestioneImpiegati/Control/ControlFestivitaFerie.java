@@ -10,6 +10,8 @@ import com.example.progettocompleto.FileDiSistema.Util;
 import com.example.progettocompleto.Start;
 import javafx.stage.Stage;
 
+import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 
 public class ControlFestivitaFerie {
@@ -18,6 +20,18 @@ public class ControlFestivitaFerie {
     public ControlFestivitaFerie(){
         periodi = Daemon.getPeriodi();
 
-        Util.setSpecificScene("/com/example/progettocompleto/GestioneImpiegato/FXML/SchermataFesitivitaFerie.fxml", stage, c->new SchermataFestivitaFerie(this,periodi));
+
+        Util.setSpecificScene("/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataFesitivitaFerie.fxml", stage, c->new SchermataFestivitaFerie(this,periodi));
+    }
+
+
+    public void clickInvia(LocalDate dataInizio, LocalDate dataFine, String categoria) throws SQLException {
+        Boolean es=Daemon.verifyDateProibite(dataInizio, dataFine, categoria);
+        if(es){
+            //todo popup errore
+        }else {
+            Daemon.insertDateProibite(dataInizio, dataFine, categoria);
+//todo popup inf.
+        }
     }
 }
