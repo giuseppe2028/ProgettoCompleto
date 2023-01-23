@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1440.0" stylesheets="@../CSS/Calendario.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.GestioneRemoto.GestioneTurni.Schermate.SchermataPianificazioneTurni">
+   <top>
+      <AnchorPane prefHeight="129.0" prefWidth="1440.0" stylesheets="@../CSS/Calendario.css" BorderPane.alignment="CENTER">
+         <children>
+            <ChoiceBox fx:id="selezionaMese" layoutX="1195.0" layoutY="80.0" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 0.5; -fx-background-radius: 10; -fx-border-radius: 10;" />
+            <Button fx:id="bottoneVedi" layoutX="1331.0" layoutY="80.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="81.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 0.5; -fx-background-radius: 10; -fx-border-radius: 10;" text="Vedi">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </top>
+   <left>
+      <GridPane gridLinesVisible="true" prefHeight="590.0" prefWidth="970.0" style="-fx-background-color: white; -fx-border-color: black;" BorderPane.alignment="CENTER">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="172.0" minHeight="10.0" prefHeight="41.344085693359375" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="200.88748168945312" minHeight="10.0" prefHeight="96.15591430664062" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="212.97732543945312" minHeight="10.0" prefHeight="110.41384887695312" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="209.99981689453125" minHeight="10.0" prefHeight="109.08615112304688" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="207.34808349609375" minHeight="10.0" prefHeight="110.3876953125" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="124.85302734375" minHeight="10.0" prefHeight="114.073486328125" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="115.74151611328125" minHeight="10.0" prefHeight="100.426513671875" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label prefHeight="17.0" prefWidth="152.0" style="-fx-alignment: center;" text="Lunedi">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label prefHeight="17.0" prefWidth="152.0" style="-fx-alignment: center;" text="Martedi" GridPane.columnIndex="1">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label prefHeight="17.0" prefWidth="152.0" style="-fx-alignment: center;" text="Mercoledi" GridPane.columnIndex="2">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label prefHeight="17.0" prefWidth="152.0" style="-fx-alignment: center;" text="Giovedi" GridPane.columnIndex="3">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label prefHeight="17.0" prefWidth="152.0" style="-fx-alignment: center;" text="Venerdi" GridPane.columnIndex="4">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label prefHeight="17.0" prefWidth="152.0" style="-fx-alignment: center;" text="Sabato" GridPane.columnIndex="5">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label prefHeight="17.0" prefWidth="152.0" style="-fx-alignment: center;" text="Domenica" textFill="RED" GridPane.columnIndex="6">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="b1" mnemonicParsing="false" onAction="#clickButtonb1" prefHeight="134.0" prefWidth="172.0" text="Button" textAlignment="CENTER" GridPane.rowIndex="1" />
+            <Button fx:id="b2" mnemonicParsing="false" onAction="#clickButtonb2" prefHeight="134.0" prefWidth="172.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button fx:id="b17" mnemonicParsing="false" onAction="#clickButtonb17" prefHeight="134.0" prefWidth="172.0" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Button fx:id="b16" mnemonicParsing="false" onAction="#clickButtonb16" prefHeight="134.0" prefWidth="172.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Button fx:id="b15" mnemonicParsing="false" onAction="#clickButtonb15" prefHeight="134.0" prefWidth="172.0" text="Button" GridPane.rowIndex="3" />
+            <Button fx:id="b14" mnemonicParsing="false" onAction="#clickButtonb14" prefHeight="134.0" prefWidth="172.0" text="Button" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+            <Button fx:id="b13" mnemonicParsing="false" onAction="#clickButtonb13" prefHeight="134.0" prefWidth="172.0" text="Button" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <Button fx:id="b12" mnemonicParsing="false" onAction="#clickButtonb12" prefHeight="134.0" prefWidth="172.0" text="Button" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <Button fx:id="b11" mnemonicParsing="false" onAction="#clickButtonb11" prefHeight="134.0" prefWidth="172.0" text="Button" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Button fx:id="b10" mnemonicParsing="false" onAction="#clickButtonb10" prefHeight="134.0" prefWidth="172.0" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Button fx:id="b9" mnemonicParsing="false" onAction="#clickButtonb9" prefHeight="134.0" prefWidth="172.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button fx:id="b8" mnemonicParsing="false" onAction="#clickButtonb8" prefHeight="134.0" prefWidth="172.0" text="Button" GridPane.rowIndex="2" />
+            <Button fx:id="b7" mnemonicParsing="false" onAction="#clickButtonb7" prefHeight="134.0" prefWidth="172.0" style="-fx-background-color: white;" text="Button" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+            <Button fx:id="b5" mnemonicParsing="false" onAction="#clickButtonb5" prefHeight="134.0" prefWidth="172.0" stylesheets="@../CSS/Calendario.css" text="Button" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <Button fx:id="b4" mnemonicParsing="false" onAction="#clickButtonb4" prefHeight="134.0" prefWidth="172.0" text="Button" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Button fx:id="b3" mnemonicParsing="false" onAction="#clickButtonb3" prefHeight="134.0" prefWidth="172.0" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Button fx:id="b34" mnemonicParsing="false" prefHeight="134.0" prefWidth="172.0" text="Button" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+            <Button fx:id="b33" mnemonicParsing="false" prefHeight="134.0" prefWidth="172.0" text="Button" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+            <Button fx:id="b32" mnemonicParsing="false" prefHeight="134.0" prefWidth="172.0" text="Button" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <Button fx:id="b31" mnemonicParsing="false" prefHeight="134.0" prefWidth="172.0" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <Button fx:id="b30" mnemonicParsing="false" prefHeight="134.0" prefWidth="172.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Button fx:id="b29" mnemonicParsing="false" prefHeight="134.0" prefWidth="172.0" text="Button" GridPane.rowIndex="5" />
+            <Button fx:id="b28" mnemonicParsing="false" prefHeight="134.0" prefWidth="172.0" text="Button" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+            <Button fx:id="b27" mnemonicParsing="false" prefHeight="134.0" prefWidth="172.0" text="Button" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+            <Button fx:id="b26" mnemonicParsing="false" prefHeight="134.0" prefWidth="172.0" text="Button" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <Button fx:id="b25" mnemonicParsing="false" prefHeight="134.0" prefWidth="172.0" text="Button" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Button fx:id="b24" mnemonicParsing="false" prefHeight="134.0" prefWidth="172.0" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <Button fx:id="b23" mnemonicParsing="false" prefHeight="134.0" prefWidth="172.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Button fx:id="b22" mnemonicParsing="false" prefHeight="134.0" prefWidth="172.0" text="Button" GridPane.rowIndex="4" />
+            <Button fx:id="b21" mnemonicParsing="false" onAction="#clickButtonb20" prefHeight="134.0" prefWidth="172.0" text="Button" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+            <Button fx:id="b20" mnemonicParsing="false" onAction="#clickButtonb20" prefHeight="134.0" prefWidth="172.0" text="Button" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+            <Button fx:id="b19" mnemonicParsing="false" onAction="#clickButtonb19" prefHeight="134.0" prefWidth="172.0" text="Button" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <Button fx:id="b18" mnemonicParsing="false" onAction="#clickButtonb18" prefHeight="134.0" prefWidth="172.0" text="Button" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <Button fx:id="b35" mnemonicParsing="false" prefHeight="134.0" prefWidth="172.0" text="Button" GridPane.columnIndex="6" GridPane.rowIndex="5" />
+            <Button fx:id="b6" mnemonicParsing="false" onAction="#clickButtonb6" prefHeight="198.0" prefWidth="239.0" text="Button" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <Button fx:id="b36" mnemonicParsing="false" prefHeight="126.0" prefWidth="187.0" text="Button" GridPane.rowIndex="6" />
+            <Button fx:id="b40" mnemonicParsing="false" prefHeight="126.0" prefWidth="187.0" text="Button" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+            <Button fx:id="b38" mnemonicParsing="false" prefHeight="126.0" prefWidth="187.0" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <Button fx:id="b37" mnemonicParsing="false" prefHeight="126.0" prefWidth="187.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Button fx:id="b43" mnemonicParsing="false" prefHeight="126.0" prefWidth="187.0" text="Button" GridPane.columnIndex="6" GridPane.rowIndex="6" />
+            <Button fx:id="b42" mnemonicParsing="false" prefHeight="126.0" prefWidth="187.0" text="Button" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+            <Button fx:id="b41" mnemonicParsing="false" prefHeight="126.0" prefWidth="187.0" text="Button" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+         </children>
+      </GridPane>
+   </left>
+   <right>
+      <TableView fx:id="tabella" prefHeight="600.0" prefWidth="470.0" stylesheets="@../CSS/Calendario.css" BorderPane.alignment="CENTER">
+         <columns>
+            <TableColumn fx:id="turno" prefWidth="127.241943359375" text="Turno" />
+            <TableColumn fx:id="dipendente" prefWidth="159.758056640625" text="Dipendente" />
+            <TableColumn fx:id="servizio" prefWidth="91.1536865234375" text="Servizio" />
+            <TableColumn fx:id="ruolo" prefWidth="93.0360107421875" text="Ruolo" />
+         </columns>
+      </TableView>
+   </right>
+</BorderPane>
