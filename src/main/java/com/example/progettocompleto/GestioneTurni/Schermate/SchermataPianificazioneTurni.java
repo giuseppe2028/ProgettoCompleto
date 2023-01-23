@@ -1,8 +1,8 @@
 package com.example.progettocompleto.GestioneTurni.Schermate;
 
-import com.example.GestioneRemoto.Contenitori.PropostaTurno;
-import com.example.GestioneRemoto.Contenitori.RigaPropostaTurnazione;
-import com.example.GestioneRemoto.FileDiSistema.Daemon;
+
+import com.example.progettocompleto.Contenitori.PropostaTurno;
+import com.example.progettocompleto.Contenitori.RigaPropostaTurnazione;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

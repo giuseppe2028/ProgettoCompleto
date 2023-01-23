@@ -1,8 +1,9 @@
 package com.example.progettocompleto.GestioneTurni.Control;
 
-import com.example.GestioneRemoto.Contenitori.PropostaTurno;
-import com.example.GestioneRemoto.FileDiSistema.Daemon;
-import com.example.GestioneRemoto.FileDiSistema.Util;
+
+import com.example.progettocompleto.Contenitori.PropostaTurno;
+import com.example.progettocompleto.FileDiSistema.Daemon;
+import com.example.progettocompleto.FileDiSistema.Util;
 import com.example.progettocompleto.GestioneTurni.Schermate.SchermataPianificazioneTurni;
 import javafx.stage.Stage;
 

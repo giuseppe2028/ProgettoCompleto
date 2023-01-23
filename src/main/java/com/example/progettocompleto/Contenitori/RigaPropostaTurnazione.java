@@ -1,4 +1,4 @@
-package com.example.GestioneRemoto.Contenitori;
+package com.example.progettocompleto.Contenitori;
 
 public class RigaPropostaTurnazione {
     private String turno;
