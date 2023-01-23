@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="640.0" prefWidth="900.0" stylesheets="@../CSS/SchermataRegistrazioneImpiegato.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.GestioneRemoto.GestioneImpiegati.Schermate.SchermataRegistrazioneImpiegato">
+<AnchorPane prefHeight="640.0" prefWidth="900.0" stylesheets="@../CSS/SchermataRegistrazioneImpiegato.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.progettocompleto.GestioneImpiegati.Schermate.SchermataRegistrazioneImpiegato">
     <children>
         <TextField fx:id="nome" alignment="CENTER" layoutX="23.0" layoutY="113.0" prefHeight="25.0" prefWidth="240.0" promptText="Nome" style="-fx-background-radius: 30; -fx-opacity: 1;" stylesheets="@../CSS/SchermataTimbraturaEntrata.css">
             <font>

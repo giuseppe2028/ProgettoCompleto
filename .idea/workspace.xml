@@ -4,8 +4,41 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7933b5f-9b64-4c50-8359-5242a146b696" name="Changes" comment=".">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Schermate/SchermataGestioneImpiegati.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Schermate/SchermataGestioneImpiegati.java" afterDir="false" />
+    <list default="true" id="a7933b5f-9b64-4c50-8359-5242a146b696" name="Changes" comment="tutto ok">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Start.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Start.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneAutenticazione/FXML/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneAutenticazione/FXML/Login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneAutenticazione/FXML/SchermataPrincipaleAmministrativo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneAutenticazione/FXML/SchermataPrincipaleAmministrativo.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneAutenticazione/FXML/SchermataPrincipaleDatore.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneAutenticazione/FXML/SchermataPrincipaleDatore.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneAutenticazione/FXML/SchermataPrincipaleImpiegato.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneAutenticazione/FXML/SchermataPrincipaleImpiegato.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneAutenticazione/FXML/SchermataRecuperoPassword.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneAutenticazione/FXML/SchermataRecuperoPassword.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataCalendarioImpiegati.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataCalendarioImpiegati.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataDisattivaImpiegato.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataDisattivaImpiegato.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataFesitivitaFerie.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataFesitivitaFerie.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataGestioneImpiegati.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataGestioneImpiegati.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataRegistrazioneImpiegato.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataRegistrazioneImpiegato.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataRichiesteSciopero.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataRichiesteSciopero.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataTimbraturaImpiegato.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataTimbraturaImpiegato.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataVisualizzaImpiegato.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataVisualizzaImpiegato.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataVisualizzaStipendio.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataVisualizzaStipendio.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneProfilo/FXML/SchermataModificaPassword.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneProfilo/FXML/SchermataModificaPassword.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneProfilo/FXML/SchermataModificaProfilo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneProfilo/FXML/SchermataModificaProfilo.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneProfilo/FXML/SchermataTimbraturaRemoto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneProfilo/FXML/SchermataTimbraturaRemoto.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneProfilo/FXML/SchermataVisualizzaProfilo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneProfilo/FXML/SchermataVisualizzaProfilo.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneProfilo/FXML/SchermataVisualizzaStipendio.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneProfilo/FXML/SchermataVisualizzaStipendio.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/FXML/SchermataCongedoLutto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/FXML/SchermataCongedoLutto.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/FXML/SchermataCongedoParentale.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/FXML/SchermataCongedoParentale.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/FXML/SchermataGestioneRichieste.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/FXML/SchermataGestioneRichieste.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiestaCambioTurno.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiestaCambioTurno.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiestaFerie.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiestaFerie.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiestaMalattia.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiestaMalattia.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiestaMaternita.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiestaMaternita.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiestaPermesso.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiestaPermesso.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiestaSciopero.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiestaSciopero.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiesteRicevute.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiesteRicevute.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneTurni/FXML/Calendario.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneTurni/FXML/Calendario.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +88,11 @@
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
@@ -90,7 +128,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1674466363428</updated>
-      <workItem from="1674466365946" duration="8367000" />
+      <workItem from="1674466365946" duration="10154000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <created>1674474604861</created>
@@ -99,14 +137,47 @@
       <option name="project" value="LOCAL" />
       <updated>1674474604861</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary=".">
+      <created>1674475052401</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1674475052401</updated>
+    </task>
+    <task id="LOCAL-00003" summary=".">
+      <created>1674475094773</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1674475094773</updated>
+    </task>
+    <task id="LOCAL-00004" summary="tutto ok">
+      <created>1674475230427</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1674475230427</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="." />
-    <option name="LAST_COMMIT_MESSAGE" value="." />
+    <MESSAGE value="tutto ok" />
+    <option name="LAST_COMMIT_MESSAGE" value="tutto ok" />
   </component>
 </project>

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="bottone" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="900.0" stylesheets="@../CSS/SchermataPrincipaleImpiegato.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.GestioneRemoto.GestioneAutenticazione.Schermate.SchermataPrincipaleAmministrativo">
+<AnchorPane fx:id="bottone" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="900.0" stylesheets="@../CSS/SchermataPrincipaleImpiegato.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.progettocompleto.GestioneAutenticazione.Schermate.SchermataPrincipaleAmministrativo">
     <children>
         <AnchorPane fx:id="rettangoloUP" layoutY="-2.0" prefHeight="60.0" prefWidth="900.0">
             <children>

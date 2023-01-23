@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.GestioneRemoto.GestioneRichieste.Schermate.SchermataRichiesteRicevute">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.progettocompleto.GestioneRichieste.Schermate.SchermataRichiesteRicevute">
     <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#006f9ca0" height="104.0" layoutX="-1.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" width="902.0" />
         <Button layoutX="24.0" layoutY="594.0" mnemonicParsing="false" style="-fx-background-color: rgba(0, 110, 157, 0.6);" text="indietro" />

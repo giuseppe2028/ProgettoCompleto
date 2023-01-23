@@ -25,7 +25,7 @@ public class Start extends Application {
         orologio.start();
         mainStage = stage;
         Parent root;
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/GestioneRemoto/GestioneAutenticazione/FXML/Login.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/progettocompleto/GestioneAutenticazione/FXML/Login.fxml"));
         root = fxmlLoader.load();
         Scene scene = new Scene(root);
         stage.setScene(scene);

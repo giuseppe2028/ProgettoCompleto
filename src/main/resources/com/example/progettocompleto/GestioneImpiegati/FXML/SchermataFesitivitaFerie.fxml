@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="640.0" prefWidth="900.0" style="-fx-background-radius: 15px 0px 0px; -fx-text-fill: white;" stylesheets="@../CSS/SchermataFestivitaFerie.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.GestioneRemoto.GestioneImpiegato.Schermate.SchermataFestivitaFerie">
+<AnchorPane prefHeight="640.0" prefWidth="900.0" style="-fx-background-radius: 15px 0px 0px; -fx-text-fill: white;" stylesheets="@../CSS/SchermataFestivitaFerie.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.progettocompleto.GestioneImpiegati.Schermate.SchermataFestivitaFerie">
    <children>
       <TableView fx:id="tabella" layoutX="53.0" layoutY="72.0" prefHeight="345.0" prefWidth="800.0" style="-fx-background-radius: 20;">
         <columns>

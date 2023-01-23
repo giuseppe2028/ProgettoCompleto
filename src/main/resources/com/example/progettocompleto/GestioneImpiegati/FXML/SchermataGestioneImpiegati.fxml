@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="640.0" prefWidth="900.0" stylesheets="@../CSS/SchermataFestivitaFerie.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.GestioneRemoto.GestioneImpiegati.Schermate.SchermataGestioneImpiegati">
+<AnchorPane prefHeight="640.0" prefWidth="900.0" stylesheets="@../CSS/SchermataFestivitaFerie.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.progettocompleto.GestioneImpiegati.Schermate.SchermataGestioneImpiegati">
     <children>
         <TableView fx:id="tabella" layoutX="50.0" layoutY="158.0" prefHeight="450.0" prefWidth="800.0" style="-fx-background-radius: 20;">
             <columns>

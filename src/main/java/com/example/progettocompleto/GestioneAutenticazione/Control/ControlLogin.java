@@ -36,7 +36,7 @@ public class ControlLogin {
         if(Daemon.verifyCredenziali(matricola,password)){
             if(datiProfilo.get(6).equals("Datore")){
                 new EntityUtente((ArrayList<Object>) datiProfilo);
-                SchermataPrincipaleDatore schermataPrincipaleDatore =  Util.setSpecificScene("/com/example/GestioneRemoto/GestioneAutenticazione/FXML/SchermataPrincipaleDatore.fxml", stage, c -> new SchermataPrincipaleDatore(this, (ArrayList<Object>) datiProfilo));
+                SchermataPrincipaleDatore schermataPrincipaleDatore =  Util.setSpecificScene("/com/example/progettocompleto/GestioneAutenticazione/FXML/SchermataPrincipaleDatore.fxml", stage, c -> new SchermataPrincipaleDatore(this, (ArrayList<Object>) datiProfilo));
                 Thread thread = new Thread(schermataPrincipaleDatore);
                 thread.start();
 

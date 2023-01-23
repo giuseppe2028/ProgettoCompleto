@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.GestioneRemoto.GestioneRichieste.Schermate.SchermataGestioneRichieste">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.progettocompleto.GestioneRichieste.Schermate.SchermataGestioneRichieste">
     <children>
         <Button fx:id="richiestaFerieButton" layoutX="418.0" layoutY="24.0" mnemonicParsing="false" onAction="#clickRichiestaFerie" prefHeight="18.0" prefWidth="118.0" style="-fx-background-color: #D2D2D2; -fx-border-color: #808080; -fx-effect: dropshadow(gaussian, #808080, 10, 0, 0, 0);" text="Richiesta Ferie" />
         <Button layoutX="252.0" layoutY="24.0" mnemonicParsing="false" onAction="#clickRichiestaPermesso" style="-fx-background-color: #D2D2D2; -fx-border-color: #808080; -fx-effect: dropshadow(gaussian, #808080, 10, 0, 0, 0);;" text="Richiesta Permesso" />
