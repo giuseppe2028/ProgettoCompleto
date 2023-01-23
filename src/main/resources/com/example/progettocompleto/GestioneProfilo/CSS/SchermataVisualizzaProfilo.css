@@ -1,0 +1,61 @@
+#rett1{
+
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 20, 0.0 , 0.0 , 7.0 );
+
+}
+#rett2{
+
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 20, 0.0 , 0.0 , 7.0 );
+
+}
+#rett3{
+
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 20, 0.0 , 0.0 , 7.0 );
+
+}
+
+#rett4{
+
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 20, 0.0 , 0.0 , 7.0 );
+
+}
+
+#rett5{
+
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 20, 0.0 , 0.0 , 7.0 );
+
+}  #rett6{
+
+       -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 20, 0.0 , 0.0 , 7.0 );
+
+   }  #info{
+          -fx-font-family: 'Inter';
+          -fx-font-style: normal;
+          -fx-font-weight: 700;
+          -fx-font-size: 28px;
+          -fx-line-height: 38px;
+          -fx-text-fill: #000000;
+      }
+#nomeLabel{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 23px;
+    line-height: 28px;
+}
+#modificaDatiButton{
+    -fx-background-color: rgba(0, 110, 157, 0.6);
+    -fx-border-radius: 30px;
+    -fx-font-size: 10;
+}
+#indietroButton{
+    -fx-background-color: rgba(0, 110, 157, 0.6);
+    -fx-border-radius: 30px;
+    -fx-font-size: 10;
+}
+#modificaPasswordButton{
+    -fx-background-color: rgba(0, 110, 157, 0.6);
+    -fx-border-radius: 50px;
+    -fx-font-size: 10;
+
+}

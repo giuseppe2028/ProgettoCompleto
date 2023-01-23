@@ -1,0 +1,118 @@
+#bottoneIndietro{
+    /* -fx-background-color: #5526475; */
+    -fx-background-color: #477dae;
+    -fx-background-radius: 35;
+}
+
+.check-box .box{
+    -fx-background-color: white;
+    -fx-border-radius: 100px;
+}
+#servizio{
+    -fx-border-radius: 30px;
+    -fx-background-color: #deefff;
+    -fx-border-color: black;
+    -fx-border-width: 0.5;
+}
+
+#ruolo{
+    -fx-border-radius: 30px;
+    -fx-background-color: #deefff;
+    -fx-border-color: black;
+    -fx-border-width: 0.5;
+}
+
+#codiceFiscale{
+    -fx-border-radius: 30px;
+    -fx-background-color: #deefff;
+    -fx-border-color: black;
+    -fx-border-width: 0.5;
+}
+
+#nome{
+    -fx-border-radius: 30px;
+    -fx-background-color: #deefff;
+    -fx-border-color: black;
+    -fx-border-width: 0.5;
+}
+#cognome{
+    -fx-border-radius: 30px;
+    -fx-background-color: #deefff;
+    -fx-border-color: black;
+    -fx-border-width: 0.5;
+}
+#IBAN{
+    -fx-border-radius: 30px;
+    -fx-background-color: #deefff;
+    -fx-border-color: black;
+    -fx-border-width: 0.5;
+}
+#mailPersonale{
+    -fx-border-radius: 30px;
+    -fx-background-color: #deefff;
+    -fx-border-color: black;
+    -fx-border-width: 0.5;
+}
+#indirizzoResidenza{
+    -fx-border-radius: 30px;
+    -fx-background-color: #deefff;
+    -fx-border-color: black;
+    -fx-border-width: 0.5;
+}
+#reddito{
+    -fx-border-radius: 30px;
+    -fx-background-color: #deefff;
+    -fx-border-color: black;
+    -fx-border-width: 0.5;
+}
+
+* {
+    -fx-primary-color: #526475;
+    -fx-secondary-color: #4B6EAF;
+    -fx-light-grey-color: #d1d1d1;
+
+    -fx-focus-color: -fx-secondary-color;
+}
+.date-picker .arrow-button {
+    -fx-background-color: -fx-primary-color;
+    -fx-background-radius: 0;
+}
+.date-picker .arrow-button:hover {
+    -fx-background-color: -fx-secondary-color;
+}
+.date-picker .arrow-button .arrow {
+    -fx-background-color: white;
+}
+.date-picker .cell {
+    -fx-background-color: white;
+}
+.date-picker .cell:hover {
+    -fx-background-color: -fx-light-grey-color;
+}
+.date-picker .cell:focused {
+    -fx-background-color: -fx-light-grey-color;
+}
+.date-picker .selected {
+    -fx-background-color: -fx-primary-color;
+    -fx-text-fill: white;
+}
+.date-picker .selected:focused {
+    -fx-background-color: -fx-primary-color;
+    -fx-text-fill: white;
+}
+.date-picker-popup  {
+    -fx-border-color: transparent;
+}
+.date-picker-popup .month-year-pane {
+    -fx-background-color: -fx-primary-color;
+}
+.date-picker-popup .month-year-pane .label {
+    -fx-text-fill: white;
+}
+.date-picker-popup .week-number-cell {
+    -fx-text-fill: -fx-secondary-color;
+}
+.date-picker-popup .spinner .button .left-arrow,
+.date-picker-popup .spinner .button .right-arrow {
+    -fx-background-color: white;
+}

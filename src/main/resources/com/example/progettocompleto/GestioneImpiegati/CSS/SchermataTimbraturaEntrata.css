@@ -1,0 +1,38 @@
+#bottoneTimbra{
+    -fx-background-color: #526475;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);
+    -fx-background-radius: 18;
+
+}
+
+#bottoneIndietro{
+    -fx-background-color: #526475;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);
+    -fx-background-radius: 18;
+
+}
+
+#sfondoRettangolo{
+    -fx-background-color: #526475;
+}
+
+#nome{
+    -fx-border-radius: 30px;
+    -fx-background-color: #deefff;
+    -fx-border-color: black;
+    -fx-border-width: 0.5;
+}
+
+#cognome{
+    -fx-border-radius: 30px;
+    -fx-background-color: #deefff;
+    -fx-border-color: black;
+    -fx-border-width: 0.5;
+}
+
+#matricola{
+    -fx-border-radius: 30px;
+    -fx-background-color: #deefff;
+    -fx-border-color: black;
+    -fx-border-width: 0.5;
+}

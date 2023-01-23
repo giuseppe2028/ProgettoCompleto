@@ -1,0 +1,111 @@
+#sfondoRettangolo{
+    -fx-background-color: #526475;
+}
+
+#bottoneConferma{
+    -fx-background-color: #3B8BC5;
+}
+
+#bottoneIndietro{
+    -fx-background-color: #3B8BC5;
+}
+
+#motivazione{
+    -fx-background-color: #87cefa;
+    -fx-prompt-text-fill: "black";
+    -fx-opacity: 0.2;
+    -fx-background-radius: 30;
+}
+
+#calendario{
+    -fx-background-color: #3B8BC5;
+    -fx-background-radius: 8;
+}
+
+#ora{
+    -fx-background-color: #7fffd4;
+}
+
+#minuto{
+    -fx-background-color: #7fffd4;
+}
+
+#secondo{
+    -fx-background-color: #7fffd4;
+}
+* {
+    -fx-primary-color: #526475;
+    -fx-secondary-color: #4B6EAF;
+    -fx-light-grey-color: #d1d1d1;
+
+    -fx-focus-color: -fx-secondary-color;
+}
+
+.date-picker .arrow-button {
+    -fx-background-color: -fx-primary-color;
+    -fx-background-radius: 0;
+}
+.date-picker .arrow-button:hover {
+    -fx-background-color: -fx-secondary-color;
+}
+.date-picker .arrow-button .arrow {
+    -fx-background-color: white;
+}
+.date-picker .cell {
+    -fx-background-color: white;
+}
+.date-picker .cell:hover {
+    -fx-background-color: -fx-light-grey-color;
+}
+.date-picker .cell:focused {
+    -fx-background-color: -fx-light-grey-color;
+}
+.date-picker .selected {
+    -fx-background-color: -fx-primary-color;
+    -fx-text-fill: white;
+}
+.date-picker .selected:focused {
+    -fx-background-color: -fx-primary-color;
+    -fx-text-fill: white;
+}
+.date-picker-popup  {
+    -fx-border-color: transparent;
+}
+.date-picker-popup .month-year-pane {
+    -fx-background-color: -fx-primary-color;
+}
+.date-picker-popup .month-year-pane .label {
+    -fx-text-fill: white;
+}
+.date-picker-popup .week-number-cell {
+    -fx-text-fill: -fx-secondary-color;
+}
+.date-picker-popup .spinner .button .left-arrow,
+.date-picker-popup .spinner .button .right-arrow {
+    -fx-background-color: white;
+}
+#minuto{
+    -fx-background-radius: 30;
+    -fx-background-color: 30;
+}
+#bottoneIndietro{
+    -fx-background-color: #526475;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);
+    -fx-background-radius: 18;
+}
+#bottoneConferma{
+    -fx-background-color: #526475;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);
+    -fx-background-radius: 18;
+
+}
+#ore{
+    -fx-background-color:  #477dae;
+    -fx-opacity: 0.8;
+    -fx-background-radius: 20;
+}
+#minuti{
+    -fx-background-color:  #477dae;
+    -fx-opacity: 0.8;
+    -fx-background-radius: 20;
+}
