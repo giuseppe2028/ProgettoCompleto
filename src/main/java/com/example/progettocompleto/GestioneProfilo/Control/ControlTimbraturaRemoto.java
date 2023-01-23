@@ -18,7 +18,7 @@ public class ControlTimbraturaRemoto {
     int matricola= EntityUtente.getMatricola();
 
     public void clickTimbraEntrata(){
-        Util.setSpecificScene("/com/example/GestioneRemoto/GestioneProfilo/FXML/SchermataTimbraturaRemoto.fxml", stage, c-> new SchermataTimbraturaRemoto(this, matricola));
+        Util.setSpecificScene("/com/example/progettocompleto/GestioneProfilo/FXML/SchermataTimbraturaRemoto.fxml", stage, c-> new SchermataTimbraturaRemoto(this, matricola));
     }
 
     public void clickConferma(LocalDate data, LocalTime orario, int matricola) throws SQLException {

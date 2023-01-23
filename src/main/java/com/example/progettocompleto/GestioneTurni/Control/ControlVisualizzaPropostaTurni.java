@@ -18,7 +18,7 @@ public class ControlVisualizzaPropostaTurni {
 public ControlVisualizzaPropostaTurni(){
     List<PropostaTurno> prostaTurni = Daemon.getPropostaTurni();
 //aggiungere all'ODD questo metodo
-    Util.setScene("/com/example/GestioneRemoto/GestioneTurni/FXML/Calendario.fxml",new Stage(), c-> new SchermataPianificazioneTurni(prostaTurni));
+    Util.setScene("/com/example/progettocompleto/GestioneTurni/FXML/Calendario.fxml",new Stage(), c-> new SchermataPianificazioneTurni(prostaTurni));
 }
 
 

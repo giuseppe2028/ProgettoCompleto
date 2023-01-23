@@ -20,7 +20,7 @@ public class ControlRichiesteSciopero {
     public void clickRichiestaSciopero() {
         List<Richiesta> richiesteSciopero= new ArrayList<>();
         richiesteSciopero= Daemon.getRichiesteSciopero(matricola);
-        Util.setSpecificScene("/com/example/GestioneRemoto/GestioneImpiegati/FXML/SchermataRichiesteSciopero.fxml", stage, c-> new SchermataRichiesteSciopero(this));
+        Util.setSpecificScene("/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataRichiesteSciopero.fxml", stage, c-> new SchermataRichiesteSciopero(this));
     }
 }
 

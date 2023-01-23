@@ -38,14 +38,14 @@ public class ControlVisualizzaProfilo {
       }*/
     public void clickVisualizzaProfilo() {
         datiProfilo = EntityUtente.getDatiProfilo();
-        SchermataVisualizzaProfilo schermataVisualizzaProfilo1= Util.setSpecificScene("/com/example/GestioneRemoto/GestioneProfilo/FXML/SchermataVisualizzaProfilo.fxml", stage, c->new SchermataVisualizzaProfilo(this, (ArrayList<Object>) datiProfilo));
+        SchermataVisualizzaProfilo schermataVisualizzaProfilo1= Util.setSpecificScene("/com/example/progettocompleto/GestioneProfilo/FXML/SchermataVisualizzaProfilo.fxml", stage, c->new SchermataVisualizzaProfilo(this, (ArrayList<Object>) datiProfilo));
     }
 
     public void clickModifica(){
-        Util.setScene("/com/example/GestioneRemoto/GestioneProfilo/FXML/SchermataModificaProfilo.fxml", stage, c-> new SchermataModificaProfilo(this));
+        Util.setScene("/com/example/progettocompleto/GestioneProfilo/FXML/SchermataModificaProfilo.fxml", stage, c-> new SchermataModificaProfilo(this));
     }
     public void clickModificaPassword(){
-        Util.setScene("/com/example/GestioneRemoto/GestioneProfilo/FXML/SchermataModificaPassword.fxml", stage, c-> new SchermataModificaPassword(this));
+        Util.setScene("/com/example/progettocompleto/GestioneProfilo/FXML/SchermataModificaPassword.fxml", stage, c-> new SchermataModificaPassword(this));
     }
     public boolean verifyPassword(String nuovapass, String confpass) {
         boolean isValid = nuovapass.length() <= 30;
@@ -93,7 +93,7 @@ public class ControlVisualizzaProfilo {
     /* public void clickIndietro(){
         List<Object> dati = EntityUtente.getDatiProfilo();
          ControlLogin c1= new ControlLogin();
-     Util.setSpecificScene("/com/example/GestioneRemoto/GestioneAutenticazione/FXML/SchermataPrincipaleDatore.fxml", stage, c->new SchermataPrincipaleDatore(c1,dati ));
+     Util.setSpecificScene("/com/example/progettocompleto/GestioneAutenticazione/FXML/SchermataPrincipaleDatore.fxml", stage, c->new SchermataPrincipaleDatore(c1,dati ));
      }*/
     public boolean verifyInsert(String recapito, String iban){
         boolean isValid= recapito.length()<=12;
@@ -115,7 +115,7 @@ public class ControlVisualizzaProfilo {
                 a.showAndWait();
                 ArrayList<Object> datiProfilo;
                 datiProfilo=(ArrayList<Object>) EntityUtente.getDatiProfilo();
-                Util.setSpecificScene("/com/example/GestioneRemoto/GestioneAutenticazione/FXML/SchermataVisualizzaProfilo.fxml", stage, c-> new SchermataVisualizzaProfilo(this,datiProfilo ));
+                Util.setSpecificScene("/com/example/progettocompleto/GestioneAutenticazione/FXML/SchermataVisualizzaProfilo.fxml", stage, c-> new SchermataVisualizzaProfilo(this,datiProfilo ));
             }else {
                 Alert a= new Alert(Alert.AlertType.ERROR);
                 a.setTitle("Errore");

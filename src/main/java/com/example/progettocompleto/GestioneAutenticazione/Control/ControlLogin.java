@@ -43,7 +43,7 @@ public class ControlLogin {
             }
             else if(datiProfilo.get(6).equals("IMPIEGATO")){
                 new EntityUtente((ArrayList<Object>) datiProfilo);
-                SchermataPrincipaleImpiegato schermataPrincipaleImpiegato =  Util.setSpecificScene("/com/example/GestioneRemoto/GestioneAutenticazione/FXML/SchermataPrincipaleImpiegato.fxml", stage, c -> new SchermataPrincipaleImpiegato(this, (ArrayList<Object>) datiProfilo));
+                SchermataPrincipaleImpiegato schermataPrincipaleImpiegato =  Util.setSpecificScene("/com/example/progettocompleto/GestioneAutenticazione/FXML/SchermataPrincipaleImpiegato.fxml", stage, c -> new SchermataPrincipaleImpiegato(this, (ArrayList<Object>) datiProfilo));
                 Thread thread = new Thread(schermataPrincipaleImpiegato);
                 thread.start();
 
@@ -52,7 +52,7 @@ public class ControlLogin {
             else{
                 new EntityUtente((ArrayList<Object>) datiProfilo);
 
-                SchermataPrincipaleAmministrativo schermataPrincipaleAmministrativo =  Util.setSpecificScene("/com/example/GestioneRemoto/GestioneAutenticazione/FXML/SchermataPrincipaleAmministrativo.fxml", stage, c -> new SchermataPrincipaleAmministrativo(this, (ArrayList<Object>) datiProfilo));
+                SchermataPrincipaleAmministrativo schermataPrincipaleAmministrativo =  Util.setSpecificScene("/com/example/progettocompleto/GestioneAutenticazione/FXML/SchermataPrincipaleAmministrativo.fxml", stage, c -> new SchermataPrincipaleAmministrativo(this, (ArrayList<Object>) datiProfilo));
                 Thread thread = new Thread(schermataPrincipaleAmministrativo);
                 thread.start();
             }
@@ -64,7 +64,7 @@ public class ControlLogin {
 
     }
     public void clickRecuperaPassword(ActionEvent e){
-        Util.setScene("/com/example/GestioneRemoto/GestioneAutenticazione/FXML/SchermataRecuperoPassword.fxml",stage,c-> new SchermataRecuperoPassword(this));
+        Util.setScene("/com/example/progettocompleto/GestioneAutenticazione/FXML/SchermataRecuperoPassword.fxml",stage,c-> new SchermataRecuperoPassword(this));
     }
     //metodo che parte dalla Schermata Recupera Password
     public void clickIndietro(){

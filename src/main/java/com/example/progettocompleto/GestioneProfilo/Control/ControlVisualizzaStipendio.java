@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 public class ControlVisualizzaStipendio {
     private Stage stage = Start.mainStage;
     public void clickVisualizzaStipendio() {
-        SchermataVisualizzaStipendio schermataVisualizzaStipendio= Util.setSpecificScene("/com/example/GestioneRemoto/GestioneProfilo/FXML/SchermataVisualizzaStipendio.fxml", stage, c-> new SchermataVisualizzaStipendio(this) );
+        SchermataVisualizzaStipendio schermataVisualizzaStipendio= Util.setSpecificScene("/com/example/progettocompleto/GestioneProfilo/FXML/SchermataVisualizzaStipendio.fxml", stage, c-> new SchermataVisualizzaStipendio(this) );
     }
 }
 

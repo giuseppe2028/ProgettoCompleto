@@ -18,6 +18,6 @@ public class ControlFestivitaFerie {
     public ControlFestivitaFerie(){
         periodi = Daemon.getPeriodi();
 
-        Util.setSpecificScene("/com/example/GestioneRemoto/GestioneImpiegato/FXML/SchermataFesitivitaFerie.fxml", stage, c->new SchermataFestivitaFerie(this,periodi));
+        Util.setSpecificScene("/com/example/progettocompleto/GestioneImpiegato/FXML/SchermataFesitivitaFerie.fxml", stage, c->new SchermataFestivitaFerie(this,periodi));
     }
 }

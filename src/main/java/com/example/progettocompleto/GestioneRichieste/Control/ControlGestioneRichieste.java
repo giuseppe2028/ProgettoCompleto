@@ -22,11 +22,11 @@ import java.util.List;
 public class ControlGestioneRichieste {
 
     public void clickCongedoLutto() {
-        Util.setScene("/com/example/GestioneRemoto/GestioneRichieste/FXML/SchermataCongedoLutto.fxml", stage, c -> new SchermataCongedoLutto(this));
+        Util.setScene("/com/example/progettocompleto/GestioneRichieste/FXML/SchermataCongedoLutto.fxml", stage, c -> new SchermataCongedoLutto(this));
     }
 
     public void clickRichiestaPermesso() {
-        Util.setScene("/com/example/GestioneRemoto/GestioneRichieste/FXML/SchermataRichiestaPermesso.fxml", stage, c -> new SchermataRichiestaPermesso(this));
+        Util.setScene("/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiestaPermesso.fxml", stage, c -> new SchermataRichiestaPermesso(this));
     }
 
 
@@ -40,7 +40,7 @@ public class ControlGestioneRichieste {
     private Stage stage = Start.mainStage;
 
     public void clickGestioneRichieste() {
-        Util.setSpecificScene("/com/example/GestioneRemoto/GestioneRichieste/FXML/SchermataGestioneRichieste.fxml", stage, c -> new SchermataGestioneRichieste(this));
+        Util.setSpecificScene("/com/example/progettocompleto/GestioneRichieste/FXML/SchermataGestioneRichieste.fxml", stage, c -> new SchermataGestioneRichieste(this));
     }
 
 
@@ -89,12 +89,12 @@ public class ControlGestioneRichieste {
             }
 
         }
-        Util.setSpecificScene("/com/example/GestioneRemoto/GestioneRichieste/FXML/SchermataRichiestaFerie.fxml", stage, c -> new SchermataRichiestaFerie(this, dateI, dateF));
+        Util.setSpecificScene("/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiestaFerie.fxml", stage, c -> new SchermataRichiestaFerie(this, dateI, dateF));
     }
 
     /*
     public void clickRichiestaPermesso() {
-      Util.setScene("/com/example/GestioneRemoto/GestioneRichieste/FXML/SchermataRichiestaPermesso.fxml", stage, c-> new SchermataRichiestaPermesso(this));
+      Util.setScene("/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiestaPermesso.fxml", stage, c-> new SchermataRichiestaPermesso(this));
     }
    public void clickInviaPermesso(LocalDate data, String oraInizio, String minutiInizio, String oraFine, String minutiFine){
         int matricola= EntityUtente.getMatricola();
@@ -118,7 +118,7 @@ public class ControlGestioneRichieste {
     }
 */
     public void clickRichiestaSciopero() {
-        Util.setScene("/com/example/GestioneRemoto/GestioneRichieste/FXML/SchermataRichiestaSciopero.fxml", stage, c -> new SchermataRichiestaSciopero(this));
+        Util.setScene("/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiestaSciopero.fxml", stage, c -> new SchermataRichiestaSciopero(this));
     }
     public void clickInviaSciopero(LocalDate data, String motivazione, String svolgimento){
         int matricola= EntityUtente.getMatricola();
@@ -136,7 +136,7 @@ public class ControlGestioneRichieste {
     }
 
     public void clickCongedoParentale(){
-        Util.setScene("/com/example/GestioneRemoto/GestioneRichieste/FXML/SchermataCongedoParentale.fxml", stage, c-> new SchermataCongedoParentale(this));
+        Util.setScene("/com/example/progettocompleto/GestioneRichieste/FXML/SchermataCongedoParentale.fxml", stage, c-> new SchermataCongedoParentale(this));
     }
 
     public void clickInviaParentale(LocalDate dataInizio, LocalDate dataFine, InputStream file){
@@ -154,7 +154,7 @@ public class ControlGestioneRichieste {
 
 
     public void clickRichiestaMaternita() {
-        Util.setScene("/com/example/GestioneRemoto/GestioneRichieste/FXML/SchermataRichiestaMaternita.fxml", stage, c -> new SchermataRichiestaMaternita(this));
+        Util.setScene("/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiestaMaternita.fxml", stage, c -> new SchermataRichiestaMaternita(this));
     }
 
 
@@ -163,7 +163,7 @@ public class ControlGestioneRichieste {
 Daemon.insertMaternita(matricola, dataInizio, dataFine, file);
     }
     public void clickRichiestaMalattia() {
-        Util.setScene("/com/example/GestioneRemoto/GestioneRichieste/FXML/SchermataRichiestaMalattia.fxml", stage, c -> new SchermataRichiestaMalattia(this));
+        Util.setScene("/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiestaMalattia.fxml", stage, c -> new SchermataRichiestaMalattia(this));
     }
 
     public void clickInviaMalattia(LocalDate dataInizio, LocalDate dataFine, String motivazione, InputStream file) {
@@ -180,7 +180,7 @@ public void clickRichiestaCambio(){
         List<Object> turni= Daemon.getTurni(matricola);
 
 
-        Util.setScene("/com/example/GestioneRemoto/GestioneRichieste/FXML/SchermataRichiestaCambioTurno.fxml", stage, c-> new SchermataRichiestaCambioTurno(this, turni, matricola));
+        Util.setScene("/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiestaCambioTurno.fxml", stage, c-> new SchermataRichiestaCambioTurno(this, turni, matricola));
 }
 
     public void clickConferma(LocalDate turnoOrigine, LocalDate turnoDestinazione, String turnoDesiderato, int matricola, String turnoPrecedente) {

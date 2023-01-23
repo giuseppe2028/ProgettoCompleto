@@ -10,6 +10,6 @@ public class ControlRichiesteRicevute {
     private Stage stage = Start.mainStage;
 
     public void clickRichiesteRicevute() {
-        Util.setSpecificScene("/com/example/GestioneRemoto/GestioneRichieste/FXML/SchermataRichiesteRicevute.fxml", stage, c-> new SchermataRichiesteRicevute(this));
+        Util.setSpecificScene("/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiesteRicevute.fxml", stage, c-> new SchermataRichiesteRicevute(this));
     }
 }

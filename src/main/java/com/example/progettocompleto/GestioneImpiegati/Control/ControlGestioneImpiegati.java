@@ -17,35 +17,35 @@ import java.util.stream.Collectors;
 public class ControlGestioneImpiegati {
     Stage stage = Start.mainStage;
     public ControlGestioneImpiegati(){
-        Util.setScene("/com/example/GestioneRemoto/GestioneImpiegati/FXML/SchermataGestioneImpiegati.fxml",stage, c->new SchermataGestioneImpiegati(this));
+        Util.setScene("/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataGestioneImpiegati.fxml",stage, c->new SchermataGestioneImpiegati(this));
     }
 
     public void clickVisualizzaDati(Impiegati impiegato, int servizio) {
         List<Object> imp=  Daemon.getDatiProfilo(impiegato.getMatricola());
         imp.add(servizio);
-        Util.setSpecificScene("/com/example/GestioneRemoto/GestioneImpiegati/FXML/SchermataVisualizzaImpiegato.fxml", stage, c->new SchermataVisualizzaImpiegato(this, imp) );
+        Util.setSpecificScene("/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataVisualizzaImpiegato.fxml", stage, c->new SchermataVisualizzaImpiegato(this, imp) );
     }
 
     public void clickVisualizzaStipendio() {
         //TODO query al db, fattelo tu
-        Util.setSpecificScene("/com/example/GestioneRemoto/GestioneImpiegato/FXML/SchermataVisualizzaStipendio.fxml", stage, c-> new SchermataVisualizzaStipendio(this));
+        Util.setSpecificScene("/com/example/progettocompleto/GestioneImpiegato/FXML/SchermataVisualizzaStipendio.fxml", stage, c-> new SchermataVisualizzaStipendio(this));
     }
 
     public void clickTimbraturaImpiegato() {
-        Util.setSpecificScene("/com/example/GestioneRemoto/GestioneImpiegato/FXML/SchermataTimbraturaImpiegato.fxml", stage, c-> new SchermataTimbraturaImpiegato(this, EntityUtente.getMatricola()));
+        Util.setSpecificScene("/com/example/progettocompleto/GestioneImpiegato/FXML/SchermataTimbraturaImpiegato.fxml", stage, c-> new SchermataTimbraturaImpiegato(this, EntityUtente.getMatricola()));
     }
 
     public void clickRegistra() {
-        Util.setScene("/com/example/GestioneRemoto/GestioneImpiegati/FXML/SchermataRegistrazioneImpiegato.fxml", stage, c-> new SchermataRegistrazioneImpiegato(this));
+        Util.setScene("/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataRegistrazioneImpiegato.fxml", stage, c-> new SchermataRegistrazioneImpiegato(this));
 
     }
 
    /* public void clickDisattiva() {
-        Util.setScene("/com/example/GestioneRemoto/GestioneImpiegati/FXML/SchermataDisattivaImpiegato.fxml", stage, c-> new SchermataDisattivaImpiegato(this));
+        Util.setScene("/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataDisattivaImpiegato.fxml", stage, c-> new SchermataDisattivaImpiegato(this));
     }*/
 
     public void clickTimbraturaImpiegato(int matricola) {
-        Util.setSpecificScene("com/example/GestioneRemoto/GestioneImpiegati/FXML/SchermataTimbraturaImpiegato.fxml", stage, c-> new SchermataTimbraturaImpiegato(this, matricola));
+        Util.setSpecificScene("com/example/progettocompleto/GestioneImpiegati/FXML/SchermataTimbraturaImpiegato.fxml", stage, c-> new SchermataTimbraturaImpiegato(this, matricola));
     }
     public void clickIndietro(String fxml){
         Util.ritorno(fxml);
