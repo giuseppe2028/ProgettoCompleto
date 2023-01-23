@@ -350,10 +350,10 @@ private void visualizzaTabellaFiltrata(int servizio, String ruolo){
 public void clickRegistraImpiegato(ActionEvent e){
     controlGestioneImpiegati.clickRegistra();
 }
-
+/*
 public void clickDisattiva(ActionEvent e){
     controlGestioneImpiegati.clickDisattiva();
-}
+}*/
     public void clickRichiesteSciopero(ActionEvent e){
         ControlRichiesteSciopero controlRichiesteSciopero= new ControlRichiesteSciopero();
         controlRichiesteSciopero.clickRichiestaSciopero();
