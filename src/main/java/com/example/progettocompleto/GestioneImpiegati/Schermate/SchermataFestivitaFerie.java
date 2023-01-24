@@ -23,67 +23,66 @@ import java.util.List;
 
 public class SchermataFestivitaFerie {
     @FXML
-            DatePicker dataIn;
+    DatePicker dataIn;
     @FXML
-            DatePicker dataFi;
+    DatePicker dataFi;
     @FXML
-            ChoiceBox<String> categoriaChoice;
-    private String[] categorie={"festività", "ferie"};
+    ChoiceBox<String> categoriaChoice;
+    private String[] categorie = {"festività", "ferie"};
     List<Periodi> periodi;
     private ControlFestivitaFerie controlFestivitaFerie;
-    public SchermataFestivitaFerie(ControlFestivitaFerie controlFestivitaFerie, List<Periodi> periodi){
+
+    public SchermataFestivitaFerie(ControlFestivitaFerie controlFestivitaFerie, List<Periodi> periodi) {
 
         this.periodi = periodi;
         this.controlFestivitaFerie = controlFestivitaFerie;
 
 
     }
-    @FXML
-    public void initialize(){
-visualizzaTabella();
 
-            dataIn.setDayCellFactory(picker -> new DateCell() {
+    @FXML
+    public void initialize() {
+        visualizzaTabella();
+
+        dataIn.setDayCellFactory(picker -> new DateCell() {
+            @Override
+            public void updateItem(LocalDate dateC, boolean empty) {
+                super.updateItem(dateC, empty);
+                if ((dateC.getDayOfWeek() == DayOfWeek.SUNDAY) || dateC.isBefore(LocalDate.now())) {
+                    setDisable(true);
+
+                }
+            }
+
+        });
+        dataIn.setOnAction(e -> {
+            LocalDate selectedDate = dataIn.getValue();
+            dataFi.setValue(selectedDate);
+            dataFi.setDayCellFactory(picker -> new DateCell() {
                 @Override
                 public void updateItem(LocalDate dateC, boolean empty) {
                     super.updateItem(dateC, empty);
-                    if ((dateC.getDayOfWeek() == DayOfWeek.SUNDAY)||dateC.isBefore(LocalDate.now())) {
+
+                    if ((dateC.getDayOfWeek() == DayOfWeek.SUNDAY) || dateC.isBefore(LocalDate.now())) {
                         setDisable(true);
 
                     }
+
                 }
-
             });
-            dataIn.setOnAction(e->{
-                LocalDate selectedDate = dataIn.getValue();
-                dataFi.setValue(selectedDate);
-                dataFi.setDayCellFactory(picker -> new DateCell() {
-                    @Override
-                    public void updateItem(LocalDate dateC, boolean empty) {
-                        super.updateItem(dateC, empty);
+        });
 
-                        if ((dateC.getDayOfWeek() == DayOfWeek.SUNDAY)||dateC.isBefore(LocalDate.now())) {
-                            setDisable(true);
+        categoriaChoice.getItems().addAll(categorie);
 
-                        }
-
-                    }
-                });
-            });
-
-            categoriaChoice.getItems().addAll(categorie);
-
-        }
-
-
-
+    }
 
 
     @FXML
-    private TableColumn<Periodi,String> dataInizio;
+    private TableColumn<Periodi, String> dataInizio;
     @FXML
-    private TableColumn<Periodi,String> dataFine;
+    private TableColumn<Periodi, String> dataFine;
     @FXML
-    private TableColumn<Periodi,String> categoria;
+    private TableColumn<Periodi, String> categoria;
     @FXML
     private TableColumn rimuovi;
     @FXML
@@ -125,6 +124,7 @@ visualizzaTabella();
 
                             periodo = tabella.getSelectionModel().getSelectedItem();
                             try {
+                                //TODO va nella control
                                 Daemon.rimuoviPeriodo(periodo.getId());
                                 updateTable();
 
@@ -158,18 +158,16 @@ visualizzaTabella();
     }
 
 
-    @FXML
-    void clickIndietro(ActionEvent event) {
 
-    }
 
     @FXML
     void clickInvia(ActionEvent event) throws SQLException {
-       LocalDate dataInizio= dataIn.getValue();
-       LocalDate dataFine= dataFi.getValue();
-       String categoria= categoriaChoice.getValue();
-controlFestivitaFerie.clickInvia(dataInizio, dataFine, categoria);
+        LocalDate dataInizio = dataIn.getValue();
+        LocalDate dataFine = dataFi.getValue();
+        String categoria = categoriaChoice.getValue();
+        controlFestivitaFerie.clickInvia(dataInizio, dataFine, categoria);
     }
+
     public void updateTable() throws SQLException {
         giorniProibitiTabella.clear();
         visualizzaTabella();
@@ -177,5 +175,11 @@ controlFestivitaFerie.clickInvia(dataInizio, dataFine, categoria);
         tabella.refresh();
     }
 
+    public void clickIndietro(ActionEvent e) {
 
+            controlFestivitaFerie.clickIndietro("/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataPrincipaleDatore.fxml");
+
+
+
+    }
 }

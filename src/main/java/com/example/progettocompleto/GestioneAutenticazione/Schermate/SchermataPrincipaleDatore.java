@@ -1,7 +1,5 @@
 package com.example.progettocompleto.GestioneAutenticazione.Schermate;
 
-
-
 import com.example.progettocompleto.FileDiSistema.Daemon;
 import com.example.progettocompleto.FileDiSistema.DatePicker;
 import com.example.progettocompleto.GestioneAutenticazione.Control.ControlLogin;
@@ -12,17 +10,12 @@ import com.example.progettocompleto.Start;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
 import java.io.*;
-import java.sql.Blob;
-import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -45,42 +38,15 @@ public class SchermataPrincipaleDatore implements Runnable{
     Label matricola;
     @FXML
     Label ruolo;
-    String data;
 
     @FXML
     ImageView Iconlogout;
     @FXML
-    ImageView IconNotification;
-    @FXML
     Label dataCorrente;
 
-
-
-    @FXML
-    private AnchorPane bottone;
-
-    @FXML
-    private Button notifiche;
-
-    @FXML
-    private Button gestioneProfilo;
-
-    @FXML
-    private Button timbratura;
-    @FXML
-    private ImageView IconGestioneProfilo;
-    @FXML
-    private ImageView Iconatimbratura;
-    @FXML
-    private Button logout;
     @FXML
     private ImageView immagineView;
 
-    @FXML
-    private AnchorPane rettangoloUP;
-
-    @FXML
-    private AnchorPane sfondoDropDownButton;
     @FXML
     MenuButton menuButtonGestioneProfilo = new MenuButton();
     @FXML
@@ -147,8 +113,8 @@ public class SchermataPrincipaleDatore implements Runnable{
 
     @FXML
     public void clickVisualizzaProfilo(ActionEvent e){
-        ControlVisualizzaProfilo controlVisualizzaProfilo1=new ControlVisualizzaProfilo();
-        controlVisualizzaProfilo1.clickVisualizzaProfilo();
+        ControlVisualizzaProfilo controlVisualizzaProfilo=new ControlVisualizzaProfilo();
+
 
     }
     @FXML

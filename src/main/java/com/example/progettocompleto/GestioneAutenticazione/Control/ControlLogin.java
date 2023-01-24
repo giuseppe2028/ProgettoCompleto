@@ -22,11 +22,7 @@ public class ControlLogin {
     private int matricola;
     private ErrorMex errorMex;
     private String mail, password;
-    public void create(int matricola,String password){
-        this.matricola = matricola;
-        this.password = password;
 
-    }
     //TODO il DBMS andra modificato secondo quanto specificato nei sequence
     public void clickLogin(ActionEvent e) throws IOException {
 
@@ -63,7 +59,7 @@ public class ControlLogin {
         }
 
     }
-    public void clickRecuperaPassword(ActionEvent e){
+    public void clickRecuperaPassword(){
         Util.setScene("/com/example/progettocompleto/GestioneAutenticazione/FXML/SchermataRecuperoPassword.fxml",stage,c-> new SchermataRecuperoPassword(this));
     }
     //metodo che parte dalla Schermata Recupera Password
@@ -73,6 +69,8 @@ public class ControlLogin {
     }
     //metodo che parte dalla Schermata Recupera Password
     public void clickInvia(String mailText){
+        //TODO verify mail personale
+        //todo updatePassword(nuovaPassword, mailPassword)
         //setto tutte l'invio per la mail
         JavaMail javaMail = new JavaMail();
         //genero la password

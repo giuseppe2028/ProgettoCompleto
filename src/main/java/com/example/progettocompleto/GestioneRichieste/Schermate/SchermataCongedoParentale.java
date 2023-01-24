@@ -26,10 +26,7 @@ public class SchermataCongedoParentale {
     public SchermataCongedoParentale(ControlGestioneRichieste controlGestioneRichieste){
         this.controlGestioneRichieste=controlGestioneRichieste;
     }
-    public void clickIndietro(ActionEvent e)
-    {
-        Util.ritorno("/com/example/GestioneRemoto/GestioneRichieste/FXML/SchermataGestioneRichieste.fxml");
-    }
+
     public void initialize() {
         dataIn.setDayCellFactory(picker -> new DateCell() {
             @Override
@@ -59,21 +56,21 @@ public class SchermataCongedoParentale {
             });
         });
     }
-
     @FXML
     public void clickCertificato(ActionEvent e) {
 
         FileChooser fileChooser =new FileChooser();
         file = fileChooser.showOpenDialog(Start.mainStage);
-
     }
-
-
     public void clickInvia(ActionEvent e ) throws FileNotFoundException {
 
         LocalDate dataInizio= dataIn.getValue();
         LocalDate dataFine= dataFi.getValue();
         FileInputStream inputStream = new FileInputStream(file);
         controlGestioneRichieste.clickInviaParentale(dataInizio, dataFine, inputStream);
+    }
+    public void clickIndietro(ActionEvent e)
+    {
+        Util.ritorno("/com/example/GestioneRemoto/GestioneRichieste/FXML/SchermataGestioneRichieste.fxml");
     }
 }

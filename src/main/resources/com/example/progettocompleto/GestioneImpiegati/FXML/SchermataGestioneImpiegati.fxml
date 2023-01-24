@@ -21,7 +21,7 @@
         </TableView>
         <Button fx:id="bottoneVisualizzaCalendario" layoutX="710.0" layoutY="111.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="139.0" text="Visualizza Calendario" />
         <Button fx:id="bottoneAggiungiImpiegato" layoutX="450.0" layoutY="112.0" mnemonicParsing="false" onAction="#clickRegistraImpiegato" text="Registra Impiegato" />
-        <Button fx:id="bottoneDisattivaImpiegato" layoutX="583.0" layoutY="112.0" mnemonicParsing="false" onAction="#clickDisattiva" text="Disattiva Impiegato" />
+        <Button fx:id="bottoneDisattivaImpiegato" layoutX="583.0" layoutY="112.0" mnemonicParsing="false"  text="Disattiva Impiegato" />
         <ChoiceBox fx:id="ruolo" layoutX="50.0" layoutY="112.0" prefWidth="110.0" style="-fx-background-color: #477dae; -fx-background-radius: 20; -fx-opacity: 0.8;" />
         <ChoiceBox fx:id="servizio" layoutX="175.0" layoutY="112.0" prefWidth="110.0" style="-fx-background-color: #477dae; -fx-opacity: 0.8; -fx-background-radius: 20;" />
         <Button fx:id="bottoneVisualizza" layoutX="294.0" layoutY="112.0" mnemonicParsing="false" prefWidth="110.0" text="Visualizza" />

@@ -71,7 +71,7 @@ public class SchermataGestioneImpiegati  {
            }
 
         });
-
+//todo ORROREEEE!!!!
         //lista = Daemon.getImpiegati(servizio.getValue(),ruolo.getValue());
         listaTabella = FXCollections.observableArrayList();
         //lista = Daemon.getImpiegati("Impiegato");
@@ -108,7 +108,7 @@ public class SchermataGestioneImpiegati  {
                         final Hyperlink timbra = new Hyperlink("timbra");
                         visualizzaDati.setOnAction((ActionEvent event) -> {
                             impiegato = tabella.getSelectionModel().getSelectedItem();
-                            controlGestioneImpiegati.clickVisualizzaDati(impiegato, impiegato.getServizio());
+                            controlGestioneImpiegati.clickVisualizzaDati( impiegato.getMatricola());
 
                         });
                         visualizzaStipendio.setOnAction((ActionEvent event)->{
@@ -187,14 +187,6 @@ public class SchermataGestioneImpiegati  {
        // Util.setScene("/com/example/GestioneRemoto/GestioneAutenticazione/FXML/SchermataPrincipaleDatore.fxml",stage);
         Util.ritorno("/com/example/GestioneRemoto/GestioneAutenticazione/FXML/SchermataPrincipaleDatore.fxml");
     }
-/*private List<Impiegati> visualizzaTabellaServizio(int filtro){
-        List<Impiegati> listaFiltrata ;
-    //    listaFiltrata = lista.stream().filter(s->)
-
-}
-*/
-
-
 private void visualizzaTabellaRuolo(String filtro){
 List<Impiegati> listaFiltrata = lista.stream().filter(s-> s.getRuolo().startsWith(filtro)).collect(Collectors.toList());
     listaTabella = FXCollections.observableArrayList();
@@ -231,7 +223,7 @@ List<Impiegati> listaFiltrata = lista.stream().filter(s-> s.getRuolo().startsWit
                     final Hyperlink timbra = new Hyperlink("timbra");
                     visualizzaDati.setOnAction((ActionEvent event) -> {
                         impiegato = tabella.getSelectionModel().getSelectedItem();
-                        controlGestioneImpiegati.clickVisualizzaDati(impiegato, impiegato.getServizio());
+                        controlGestioneImpiegati.clickVisualizzaDati(impiegato.getMatricola());
 
                     });
                     visualizzaStipendio.setOnAction((ActionEvent event)->{
@@ -307,7 +299,7 @@ private void visualizzaTabellaFiltrata(int servizio, String ruolo){
                     final Hyperlink timbra = new Hyperlink("timbra");
                     visualizzaDati.setOnAction((ActionEvent event) -> {
                         impiegato = tabella.getSelectionModel().getSelectedItem();
-                        controlGestioneImpiegati.clickVisualizzaDati(impiegato, impiegato.getServizio());
+                        controlGestioneImpiegati.clickVisualizzaDati( impiegato.getMatricola());
 
                     });
                     visualizzaStipendio.setOnAction((ActionEvent event)->{
@@ -357,5 +349,8 @@ public void clickDisattiva(ActionEvent e){
     public void clickRichiesteSciopero(ActionEvent e){
         ControlRichiesteSciopero controlRichiesteSciopero= new ControlRichiesteSciopero();
         controlRichiesteSciopero.clickRichiestaSciopero();
+    }
+    public void clickCalendario(ActionEvent e){
+        controlGestioneImpiegati.clickCalendario();
     }
 }

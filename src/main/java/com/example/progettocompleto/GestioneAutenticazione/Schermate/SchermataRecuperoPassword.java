@@ -16,24 +16,15 @@ public class SchermataRecuperoPassword {
 
     private ControlLogin controlLogin;
 
-    public void setControlLogin(ControlLogin controlLogin){
-        this.controlLogin = controlLogin;
-    }
-    private Label label = new Label();
-    private Stage stage;
+
     public SchermataRecuperoPassword(ControlLogin controlLogin){
     this.controlLogin = controlLogin;
     }
-    private Scene scene;
-    private Parent root;
+
     @FXML
-    private TextField mailText = new TextField();
-    @FXML
-    private Pane rettangolo = new Pane();
-    @FXML
-    Button bottoneInvia = new Button();
-    @FXML
-    Button bottoneIndietro = new Button();
+    private TextField mailText;
+
+
 
     @FXML
     public void clickIndietro(ActionEvent e){
@@ -41,7 +32,7 @@ public class SchermataRecuperoPassword {
     }
     @FXML
     public void clickInvia(ActionEvent e) throws Exception {
-
+//TOdo compila mail personale
        controlLogin.clickInvia(mailText.getText());
 
     }
