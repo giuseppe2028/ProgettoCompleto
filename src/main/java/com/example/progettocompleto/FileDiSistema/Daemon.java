@@ -81,7 +81,7 @@ public class Daemon {
                     InputStream inputStream = new ByteArrayInputStream(byteArr);
                     ritorno.add(inputStream);*/
                     ritorno.add(resultSet.getString("sesso"));
-                    ritorno.add(resultSet.getInt("servizio"));
+                //    ritorno.add(resultSet.getInt("servizio"));
 
 
                 }
@@ -130,8 +130,8 @@ public class Daemon {
         }
     }
 
-    public static boolean modificaDati(Double recapito, String indirizzo, String iban, String mail, InputStream path) {
-        int matricola = EntityUtente.getMatricola();
+    public static boolean updateDatiProfilo(Double recapito, String indirizzo, String iban, String mail, InputStream path, int matricola) {
+
 
         try {
             String query = "UPDATE Utente SET indirizzo_residenza=?, recapito_telefonico=?, IBAN=?, mail_personale=?, foto_profilo=?  WHERE matricola=?";
@@ -151,20 +151,21 @@ public class Daemon {
             return false;
         }
     }
+public static boolean verifyPassword2(String vecpass, int matricola) throws SQLException {
+        resultSet=null;
+        String sql = "SELECT password FROM Utente WHERE password=? AND matricola=?";
+    if(resultSet.next()) {
+        PreparedStatement pstm = conn.prepareStatement(sql);
+        pstm.setString(1, vecpass);
+        pstm.setInt(2, matricola);
+        resultSet = pstm.executeQuery();
+        return true;
+    }return false;
+}
 
-    public static boolean modificaPassword(String vecpass, String nuovapass) {
-        ResultSet rs;
-        int matricola = EntityUtente.getMatricola();
-
-        try {
-            String sql = "SELECT password FROM Utente WHERE password=? AND matricola=?";
-            PreparedStatement pstm = conn.prepareStatement(sql);
-            pstm.setString(1, vecpass);
-            pstm.setInt(2, matricola);
-            rs = pstm.executeQuery();
-
-
-            if (rs.next()) {
+public static boolean updatePassword(int matricola, String nuovapass) throws SQLException {
+        resultSet=null;
+            if (resultSet.next()) {
                 String query = "UPDATE Utente SET password=? WHERE matricola=?";
                 PreparedStatement pstm1 = conn.prepareStatement(query);
                 pstm1.setString(1, nuovapass);
@@ -172,11 +173,10 @@ public class Daemon {
                 pstm1.execute();
                 return true;
             }
-        } catch (SQLException a) {
-            return false;
-        }
         return false;
     }
+
+
 
 
     public static void delete(int ID_richiesta) throws SQLException {
@@ -620,6 +620,50 @@ public class Daemon {
             throw new RuntimeException(e);
         }
     }
+//TODO aggiungere la union con l'amministrativo
+    public static int getGiorniFerie(int matricola) throws SQLException {
+        ResultSet rs = null;
+        String query = "SELECT giorni_ferie_rimanenti FROM Impiegato WHERE matricola=?";
+        PreparedStatement pstm1 = conn.prepareStatement(query);
+
+        pstm1.setInt(1, matricola);
+        pstm1.execute();
+        if (rs.next()) {
+            return rs.getInt("giorni_ferie_rimanenti");
+        }
+        return 0;
+    }
+
+    public static void insertRichiestaFerie(int matricola, LocalDate dI, LocalDate dF) {
+        try {
+            String sql = "INSERT INTO Richiesta(ref_impiegato,categoria,stato,data_inizio,data_fine,ora_inizio,ora_fine,svolgimento,motivazione,tipologia,matricola_destinazione,tipo_turno_origine,tipo_turno_destinazione,data_turno_origine,data_turno_destinazione,allegato)values (?,'ferie','accettata',?,?,'','','','','',0,'','','1970-01-01','1970-01-01',null) ";
+            preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setInt(1, matricola);
+            preparedStatement.setDate(2, Date.valueOf(dI));
+            preparedStatement.setDate(3, Date.valueOf(dF));
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void updateGiorniFerie(int matricola, int giorniInseriti) {
+        //TODO
+    }
+
+    public static int getOrePermesso(int matricola) throws SQLException {
+        ResultSet rs = null;
+        String query = "SELECT ore_permesso_rimanenti FROM Impiegato WHERE matricola=?";
+        PreparedStatement pstm1 = conn.prepareStatement(query);
+
+        pstm1.setInt(1, matricola);
+        pstm1.execute();
+        if (rs.next()) {
+            return rs.getInt("ore_permesso_rimanenti");
+        }
+        return 0;
+    }
 
 
     public String getTipoTurno(LocalDate data, int matricola) throws SQLException {
@@ -636,15 +680,16 @@ public class Daemon {
     }
 
 
-//todo CONTROLLA IL METODO
-    public static void insertTimbratura(LocalDate data, LocalTime orario, int matricola, String tipoTurno, LocalDate dataTurno) {
+
+    public static void insertTimbratura(LocalDate data, LocalTime orario, int matricola, String tipoTurno, String motivazione) {
         try {
-            String sql = "INSERT INTO Timbratura(ref_impiegato,tipo_timbratura,data_timbratura,ora)values (?,?,?,?,?) ";
+            String sql = "INSERT INTO Timbratura(ref_data, ref_impiegato,tipo_timbratura,motivazione, ora)values (?,?,?,?,?) ";
             preparedStatement = conn.prepareStatement(sql);
-            preparedStatement.setInt(1, matricola);
-            preparedStatement.setString(2, tipoTurno);
-            preparedStatement.setDate(3, Date.valueOf(data));
-            preparedStatement.setTime(4, Time.valueOf((orario)));
+            preparedStatement.setDate(1, Date.valueOf(data));
+            preparedStatement.setInt(2, matricola);
+            preparedStatement.setString(3, tipoTurno);
+            preparedStatement.setString(4, motivazione);
+            preparedStatement.setTime(5, Time.valueOf(orario));
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {

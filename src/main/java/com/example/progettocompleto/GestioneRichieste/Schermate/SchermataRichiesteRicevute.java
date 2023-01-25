@@ -98,10 +98,8 @@ public class SchermataRichiesteRicevute {
 
                             richiesta =  richiesteTableView.getSelectionModel().getSelectedItem();
                             try {
-                                //TODO nella control
-                                Daemon.accettaCambioTurno(richiesta.getId());
-                                Daemon.updateTurni(richiesta.getRef_impiegato(),richiesta.getMatricola_destinazione());
-                                // TODO: 21/01/23  pop up
+                                controlRichiesteRicevute.clickAccetta(richiesta.getId(),richiesta.getRef_impiegato(),richiesta.getMatricola_destinazione());
+
                                 updateTable();
 
                             } catch (SQLException e) {
@@ -114,9 +112,8 @@ public class SchermataRichiesteRicevute {
 
                             richiesta = richiesteTableView.getSelectionModel().getSelectedItem();
                             try {
-                                //TODO nella control
-                               Daemon.rifiutaCambioTurno(richiesta.getId());
-                                updateTable();
+                                controlRichiesteRicevute.clickRifiuta(richiesta.getId());
+                                 updateTable();
 
                             } catch (SQLException e) {
                                 throw new RuntimeException(e);

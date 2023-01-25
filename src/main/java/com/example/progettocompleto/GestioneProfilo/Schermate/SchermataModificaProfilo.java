@@ -44,8 +44,10 @@ public class SchermataModificaProfilo  {
 
     private ControlVisualizzaProfilo controlVisualizzaProfilo;
 
+
     public SchermataModificaProfilo(ControlVisualizzaProfilo controlVisualizzaProfilo) {
         this.controlVisualizzaProfilo = controlVisualizzaProfilo;
+
     }
 
     public void initialize() throws IOException {
@@ -56,9 +58,6 @@ public class SchermataModificaProfilo  {
         is.close();
     }
 
-    public void clickModifica(ActionEvent e) {
-        controlVisualizzaProfilo.clickModifica();
-    }
 
     public void clickSalva(ActionEvent e) throws IOException {
         Double recapito = Double.valueOf((recapitoField.getText()));
@@ -70,14 +69,12 @@ public class SchermataModificaProfilo  {
         String path = foto.getUrl().substring(5);
         FileInputStream inputStream = new FileInputStream(path);
 
-
         List<Object> datiModificati = new ArrayList<>();
         datiModificati.add(recapito);
         datiModificati.add(iban);
         datiModificati.add(indi);
         datiModificati.add(mail);
 
-        controlVisualizzaProfilo.compila(datiModificati);
         controlVisualizzaProfilo.clickSalva(datiModificati, inputStream);
     }
 

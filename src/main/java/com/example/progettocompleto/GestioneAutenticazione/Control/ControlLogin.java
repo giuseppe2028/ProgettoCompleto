@@ -24,7 +24,7 @@ public class ControlLogin {
     private String mail, password;
 
     //TODO il DBMS andra modificato secondo quanto specificato nei sequence
-    public void clickLogin(ActionEvent e) throws IOException {
+    public ControlLogin(int matricola, String password) throws IOException {
 
 
         List<Object> datiProfilo = Daemon.getDatiProfilo(matricola);

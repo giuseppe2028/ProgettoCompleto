@@ -9,6 +9,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
+import java.sql.SQLException;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.List;
@@ -92,22 +93,22 @@ public class SchermataRichiestaFerie {
     }
 
     public void clickIndietro(ActionEvent e) {
-        Util.ritorno("/com/example/GestioneRemoto/GestioneRichieste/FXML/SchermataGestioneRichieste.fxml");
+        Util.ritorno("/com/example/progettocompleto/GestioneRichieste/FXML/SchermataGestioneRichieste.fxml");
     }
 
-/*
-    public void clickInvia(ActionEvent e) {
+
+    public void clickInvia(ActionEvent e) throws SQLException {
         LocalDate dataInizio = dataInizioDatePicker.getValue();
         ;
         LocalDate dataFine = dataFineDatePicker.getValue();
 
         controlGestioneRichieste.clickInviaFerie(dataInizio, dataFine);
-    }/*
+    }
     public void clickIndietro(){
        // controlGestioneRichieste.clickIndietro();
 
     }
-*/
+
 
 }
 

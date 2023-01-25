@@ -67,10 +67,10 @@ public class SchermataGestioneRichieste  {
     @FXML
     private TableColumn editCol;
     Richiesta richiesta;
-    int matricola;
-   public SchermataGestioneRichieste(ControlGestioneRichieste controlGestioneRichieste, int matricola){
+
+   public SchermataGestioneRichieste(ControlGestioneRichieste controlGestioneRichieste){
     this.controlGestioneRichieste=controlGestioneRichieste;
-    this.matricola=matricola;
+
    }
 
 
@@ -78,9 +78,7 @@ public class SchermataGestioneRichieste  {
 
            loadDate();
 
-
-
-        datafCol.setCellFactory(column -> {
+           datafCol.setCellFactory(column -> {
             return new TableCell<Richiesta, LocalDate>() {
                 @Override
                 protected void updateItem(LocalDate item, boolean empty) {
@@ -196,8 +194,8 @@ public class SchermataGestioneRichieste  {
 
                              richiesta =  richiesteTableView.getSelectionModel().getSelectedItem();
                             try {
-                                //TODO nella control
-                                Daemon.delete(richiesta.getId());
+                                controlGestioneRichieste.clickElimina(richiesta.getId());
+
                                 updateTable();
 
                             } catch (SQLException e) {
@@ -245,6 +243,7 @@ public class SchermataGestioneRichieste  {
     public void clickCongedoLutto(ActionEvent e ){
        controlGestioneRichieste.clickCongedoLutto();
     }
+
 public void clickRichiestaMaternita(ActionEvent e) {
     String sesso = EntityUtente.getSesso();
     if (sesso.equals("F")) {

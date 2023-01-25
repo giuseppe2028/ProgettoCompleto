@@ -43,7 +43,7 @@ public class EntityUtente {
         // this.inputStream= (InputStream) arrayList.get(11);
         this.sesso = (String) arrayList.get(11);
         ;
-        this.servizio = (Integer) arrayList.get(12);
+      //  this.servizio = (Integer) arrayList.get(12);
 
     }
 
@@ -62,7 +62,7 @@ public class EntityUtente {
         lista.add(recapito_telefonico);
         lista.add(mail_personale);
         lista.add(inputStream);
-        lista.add(servizio);
+      //  lista.add(servizio);
 
         return lista;
     }
@@ -70,6 +70,10 @@ public class EntityUtente {
     public static int getMatricola() {
         return matricola;
     }
+
+
+
+
 
     public String toString() {
         String a = matricola + nome + cognome + cf + data_nascita + foto_profilo + indirizzo_residenza + ruolo + mail + password + IBAN + recapito_telefonico + mail_personale;

@@ -3,13 +3,16 @@ package com.example.progettocompleto.GestioneProfilo.Schermate;
 
 
 
+import com.example.progettocompleto.FileDiSistema.EntityUtente;
 import com.example.progettocompleto.GestioneProfilo.Control.ControlVisualizzaProfilo;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
+import org.w3c.dom.Entity;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 
 public class SchermataModificaPassword {
@@ -45,13 +48,12 @@ public class SchermataModificaPassword {
     }
 
 
-    public void clickconfermaPassword(ActionEvent e) throws IOException {
-
+    public void clickconfermaPassword(ActionEvent e) throws IOException, SQLException {
+int matricola= EntityUtente.getMatricola();
         String vecpass= vecchiaPassword.getText();
         String nuovapass= nuovaPassword.getText();
         String confpass= confermaNuovaPassword.getText();
-        controlVisualizzaProfilo.compila(vecpass,nuovapass,confpass);
-        controlVisualizzaProfilo.clickConferma(e,vecpass,nuovapass,confpass);
+        controlVisualizzaProfilo.clickConferma(vecpass,nuovapass,confpass, matricola);
 
     }
     public void clickIndietro(ActionEvent e){
