@@ -1,9 +1,6 @@
 package com.example.progettocompleto.FileDiSistema;
 
-import com.example.progettocompleto.Contenitori.Impiegati;
-import com.example.progettocompleto.Contenitori.Periodi;
-import com.example.progettocompleto.Contenitori.PropostaTurno;
-import com.example.progettocompleto.Contenitori.Richiesta;
+import com.example.progettocompleto.Contenitori.*;
 
 import java.io.InputStream;
 import java.sql.*;
@@ -84,6 +81,7 @@ public class Daemon {
                     InputStream inputStream = new ByteArrayInputStream(byteArr);
                     ritorno.add(inputStream);*/
                     ritorno.add(resultSet.getString("sesso"));
+                    ritorno.add(resultSet.getInt("servizio"));
 
 
                 }
@@ -561,7 +559,7 @@ public class Daemon {
 
         return false;
     }
-
+//verifica se è già stata timbrata l'entrata per quel turno
     public static boolean verifyTimbratura(LocalDate data, LocalTime orario, int matricola) throws SQLException {
         ResultSet rs = null;
 
@@ -637,29 +635,16 @@ public class Daemon {
         return null;
     }
 
-    //TODO mmmmmmmm in realtà la ref_data è quella LocalDate.now()
-    public static LocalDate getDataTurno(LocalDate data, int matricola) throws SQLException {
-        ResultSet rs = null;
-        String query = "SELECT ref_data FROM Timbratura WHERE data_turno=? AND ref_impiegato=?";
-        PreparedStatement pstm1 = conn.prepareStatement(query);
-        pstm1.setDate(1, Date.valueOf(data));
-        pstm1.setInt(2, matricola);
-        pstm1.execute();
-        if (rs.next()) {
-            return rs.getDate("ref_data").toLocalDate();
-        }
-        return null;
-    }
 
+//todo CONTROLLA IL METODO
     public static void insertTimbratura(LocalDate data, LocalTime orario, int matricola, String tipoTurno, LocalDate dataTurno) {
         try {
-            String sql = "INSERT INTO Timbratura(ref_data,ref_impiegato,tipo_timbratura,data_timbratura,ora)values (?,?,?,?,?) ";
+            String sql = "INSERT INTO Timbratura(ref_impiegato,tipo_timbratura,data_timbratura,ora)values (?,?,?,?,?) ";
             preparedStatement = conn.prepareStatement(sql);
-            preparedStatement.setDate(1, Date.valueOf(dataTurno));
-            preparedStatement.setInt(2, matricola);
-            preparedStatement.setString(3, tipoTurno);
-            preparedStatement.setDate(4, Date.valueOf(data));
-            preparedStatement.setTime(5, Time.valueOf((orario)));
+            preparedStatement.setInt(1, matricola);
+            preparedStatement.setString(2, tipoTurno);
+            preparedStatement.setDate(3, Date.valueOf(data));
+            preparedStatement.setTime(4, Time.valueOf((orario)));
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
@@ -816,6 +801,30 @@ public class Daemon {
 
             preparedStatement.executeUpdate();
         }
+
+    public static Stipendio getStipendio(int matricola, String mese, int anno){
+
+        try {
+            String sql = "select * from Stipendio where ref_impiegato = ? and mese = ? and anno = ?";
+            preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setInt(1,matricola);
+            preparedStatement.setString(2,mese);
+            preparedStatement.setInt(3,anno);
+            resultSet = preparedStatement.executeQuery();
+            if(resultSet.next()){
+                return new Stipendio(resultSet.getInt(1),resultSet.getString(2),resultSet.getInt(3),resultSet.getInt(4),resultSet.getInt(5),resultSet.getDouble(6),resultSet.getDouble(7),resultSet.getInt(8),resultSet.getInt(9),resultSet.getBoolean(10),resultSet.getDouble(11),resultSet.getDouble(12),resultSet.getDouble(13),resultSet.getInt(14),resultSet.getDouble(15));
+            }else{
+                System.out.println("nessun Stipendio caricato");
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
+
+
 
     }
 

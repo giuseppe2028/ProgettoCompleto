@@ -22,6 +22,8 @@ import java.util.List;
 
 public class ControlVisualizzaProfilo {
     private Stage stage = Start.mainStage;
+
+    //TODO update l'entity
     Parent root;
     private int matricola;
     private boolean esito;
@@ -36,12 +38,13 @@ public class ControlVisualizzaProfilo {
     /*  public controlVisualizzaProfilo(){
 
       }*/
-    public void clickVisualizzaProfilo() {
+    public ControlVisualizzaProfilo() {
         datiProfilo = EntityUtente.getDatiProfilo();
-        SchermataVisualizzaProfilo schermataVisualizzaProfilo1= Util.setSpecificScene("/com/example/progettocompleto/GestioneProfilo/FXML/SchermataVisualizzaProfilo.fxml", stage, c->new SchermataVisualizzaProfilo(this, (ArrayList<Object>) datiProfilo));
+        Util.setScene("/com/example/progettocompleto/GestioneProfilo/FXML/SchermataVisualizzaProfilo.fxml", stage, c->new SchermataVisualizzaProfilo(this, (ArrayList<Object>) datiProfilo));
     }
 
     public void clickModifica(){
+        //getMatricola()
         Util.setScene("/com/example/progettocompleto/GestioneProfilo/FXML/SchermataModificaProfilo.fxml", stage, c-> new SchermataModificaProfilo(this));
     }
     public void clickModificaPassword(){
@@ -75,6 +78,9 @@ public class ControlVisualizzaProfilo {
         }
 
     }
+
+
+
     public void compila(String vecchia, String nuova, String conferma){
         this.vecchia=vecchia;
         this.nuova=nuova;

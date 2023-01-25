@@ -20,7 +20,7 @@ import java.util.List;
 
 
 public class ControlGestioneRichieste {
-
+int matricola;
     public void clickCongedoLutto() {
         Util.setScene("/com/example/progettocompleto/GestioneRichieste/FXML/SchermataCongedoLutto.fxml", stage, c -> new SchermataCongedoLutto(this));
     }
@@ -40,7 +40,8 @@ public class ControlGestioneRichieste {
     private Stage stage = Start.mainStage;
 
     public void clickGestioneRichieste() {
-        Util.setSpecificScene("/com/example/progettocompleto/GestioneRichieste/FXML/SchermataGestioneRichieste.fxml", stage, c -> new SchermataGestioneRichieste(this));
+        matricola=EntityUtente.getMatricola();
+        Util.setSpecificScene("/com/example/progettocompleto/GestioneRichieste/FXML/SchermataGestioneRichieste.fxml", stage, c -> new SchermataGestioneRichieste(this, matricola));
     }
 
 
@@ -94,6 +95,7 @@ public class ControlGestioneRichieste {
 
     /*
     public void clickRichiestaPermesso() {
+    int matricola=EntityUtente.getMatricola();
       Util.setScene("/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiestaPermesso.fxml", stage, c-> new SchermataRichiestaPermesso(this));
     }
    public void clickInviaPermesso(LocalDate data, String oraInizio, String minutiInizio, String oraFine, String minutiFine){
@@ -103,9 +105,11 @@ public class ControlGestioneRichieste {
         LocalDateTime inizio = LocalDateTime.of(data, LocalTime.of(Integer.parseInt(oraInizio), Integer.parseInt(minutiInizio)));
         LocalDateTime fine = LocalDateTime.of(data, LocalTime.of(Integer.parseInt(oraFine), Integer.parseInt(minutiFine)));
         Duration duration = Duration.between(inizio, fine);
+        //non minuti ma ore
         long minutiInseriti = duration.toMinutes();
         System.out.println("I minuti inseriti sono: " + minutiInseriti);
         if(orePermesso>= minutiInseriti){
+        //TODO inserire l'insert richiesta e l'update
             Alert a= new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("Richiesta accettata");
             a.showAndWait();
@@ -178,14 +182,13 @@ Daemon.insertMaternita(matricola, dataInizio, dataFine, file);
 public void clickRichiestaCambio(){
         int matricola= EntityUtente.getMatricola();
         List<Object> turni= Daemon.getTurni(matricola);
-
-
         Util.setScene("/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiestaCambioTurno.fxml", stage, c-> new SchermataRichiestaCambioTurno(this, turni, matricola));
 }
 
     public void clickConferma(LocalDate turnoOrigine, LocalDate turnoDestinazione, String turnoDesiderato, int matricola, String turnoPrecedente) {
         int servizio=Daemon.getServizio(matricola);
         List<Integer> matricole=Daemon.getMatricoleDestinazione(turnoDestinazione, turnoDesiderato, servizio);
+        //TODO inserire l'insert nelle richieste ricevute
         for(int i=0; i<matricole.size();++i){
             System.out.println(matricole.get(i));
         }

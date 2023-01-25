@@ -58,14 +58,14 @@ public class SchermataPrincipaleAmministrativo extends SchermataPrincipaleImpieg
     @FXML
     public void clickVisualizzaProfilo(ActionEvent e){
         ControlVisualizzaProfilo controlVisualizzaProfilo=new ControlVisualizzaProfilo();
-        controlVisualizzaProfilo.clickVisualizzaProfilo();
+
 
 
     }
     @FXML
     public void clickVisualizzaStipendio(ActionEvent e){
         ControlVisualizzaStipendio controlVisualizzaStipendio= new ControlVisualizzaStipendio();
-        controlVisualizzaStipendio.clickVisualizzaStipendio();
+
     }
     @FXML
     public void clickGestioneImpiegati(ActionEvent e){
@@ -74,7 +74,7 @@ public class SchermataPrincipaleAmministrativo extends SchermataPrincipaleImpieg
     }
     public void clickTimbraEntrata(ActionEvent e){
         ControlTimbraturaRemoto controlTimbraturaRemoto= new ControlTimbraturaRemoto();
-        controlTimbraturaRemoto.clickTimbraEntrata();
+
     }
     @FXML
     public void clickTurnazioneTrimestrale(ActionEvent e){

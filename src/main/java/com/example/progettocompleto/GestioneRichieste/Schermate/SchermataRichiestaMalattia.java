@@ -72,10 +72,10 @@ public class SchermataRichiestaMalattia {
         @FXML
         public void clickCertificato(ActionEvent e) {
 
-                            FileChooser fileChooser =new FileChooser();
-                            file = fileChooser.showOpenDialog(Start.mainStage);
+        FileChooser fileChooser =new FileChooser();
+        file = fileChooser.showOpenDialog(Start.mainStage);
 
-                        }
+    }
 
     public void clickInvia(ActionEvent e) throws IOException {
         LocalDate dataInizio = dataIn.getValue();
@@ -83,6 +83,5 @@ public class SchermataRichiestaMalattia {
        String motivazione= motivazioneL.getText();
         FileInputStream inputStream = new FileInputStream(file);
         controlGestioneRichieste.clickInviaMalattia(dataInizio,dataFine,motivazione,inputStream);
-
     }
 }
