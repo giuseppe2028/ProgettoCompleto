@@ -16,6 +16,7 @@ import java.util.List;
 public class ControlVisualizzaPropostaTurni {
 
 public ControlVisualizzaPropostaTurni(){
+    //todo aggiusare l'if da inserire
     List<PropostaTurno> prostaTurni = Daemon.getPropostaTurni();
 //aggiungere all'ODD questo metodo
     Util.setScene("/com/example/progettocompleto/GestioneTurni/FXML/Calendario.fxml",new Stage(), c-> new SchermataPianificazioneTurni(prostaTurni));

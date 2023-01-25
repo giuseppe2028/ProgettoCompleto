@@ -25,7 +25,7 @@ public class ControlTimbraturaRemoto {
 
     public void clickConferma(LocalDate data, LocalTime orario,String motivazione ) throws SQLException {
         matricola= EntityUtente.getMatricola();
-        Boolean es= Daemon.controlloTimbr(data, matricola);
+        Boolean es= Daemon.controlloTurno(data, matricola);
         if (es) {
             Boolean esito = Daemon.verifyTimbratura(data, orario, matricola);
             if (esito) {

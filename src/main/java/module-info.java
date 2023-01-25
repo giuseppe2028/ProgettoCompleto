@@ -24,6 +24,7 @@ module com.example.progettocompleto {
     exports com.example.progettocompleto.GestioneProfilo.Schermate;
     exports com.example.progettocompleto.GestioneRichieste.Control;
     opens com.example.progettocompleto.GestioneRichieste.Control to javafx.fxml;
+    opens com.example.progettocompleto.Popup to  javafx.fxml;
 
 
 

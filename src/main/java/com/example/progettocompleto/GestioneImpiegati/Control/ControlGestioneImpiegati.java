@@ -1,11 +1,13 @@
 package com.example.progettocompleto.GestioneImpiegati.Control;
 
 import com.example.progettocompleto.Contenitori.Impiegati;
+import com.example.progettocompleto.FileDiSistema.ControlInterface;
 import com.example.progettocompleto.FileDiSistema.Daemon;
 import com.example.progettocompleto.FileDiSistema.EntityUtente;
 import com.example.progettocompleto.FileDiSistema.Util;
 import com.example.progettocompleto.GestioneImpiegati.Schermate.*;
 import com.example.progettocompleto.GestioneTurni.Schermate.SchermataPianificazioneTurni;
+import com.example.progettocompleto.Popup.PopupErrore;
 import com.example.progettocompleto.Start;
 import javafx.stage.Stage;
 
@@ -15,9 +17,9 @@ import java.time.LocalTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ControlGestioneImpiegati {
+public class ControlGestioneImpiegati implements ControlInterface {
     Stage stage = Start.mainStage;
-    public ControlGestioneImpiegati(){
+    public ControlGestioneImpiegati() {
         Util.setScene("/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataGestioneImpiegati.fxml",stage, c->new SchermataGestioneImpiegati(this));
     }
 
@@ -52,7 +54,7 @@ public class ControlGestioneImpiegati {
     }
 
     public void clickConferma(LocalDate data, LocalTime orario, int matricola) throws SQLException {
-        if (Daemon.controlloTimbr(data, matricola)) {
+        if (Daemon.controlloTurno(data, matricola)) {
             if (Daemon.verifyTimbratura(data, orario, matricola)) {
                 //todo popup errore
             } else {
@@ -71,11 +73,14 @@ public class ControlGestioneImpiegati {
     public void clickRegistra(String nome, String cognome,long recapito, String mailPersonale,String indirizzo,String iban,int servizio, String ruolo,char sesso, boolean reperibile,LocalDate dataNascita,String coficeFiscale){
         System.out.println(nome+cognome+mailPersonale+iban+indirizzo+servizio+ruolo+sesso+reperibile+dataNascita.toString());
         //prendo la matricola massima
+        Stage stage1=new Stage();
         int matricola = Daemon.getMaxMatricola()+1;
         String mail = nome+"."+cognome+"@azienda.it";
         String password = nome+cognome+"123";
         Daemon.updateImpiegato(matricola,nome,cognome,sesso,coficeFiscale,dataNascita,indirizzo,recapito,mailPersonale,iban,mail,password,ruolo,reperibile,servizio,LocalDate.now(),null,26,30,6,false,null);
-        //mettere che viene inserita la mail
+        Util.setScenePopup("/com/example/progettocompleto/Popup/FXML/PopUpErrore.fxml",stage1,c-> new PopupErrore("Succhiami la ciolla", this,stage1));
+        stage1.show();
+        //todo mettere che viene inserita la mail
     }
     List<Impiegati> listaFiltrata;
     public List<Impiegati> filtra(String ruolo, int servizio,List<Impiegati> lista){
@@ -102,5 +107,9 @@ public class ControlGestioneImpiegati {
 
     public void clickCalendario() {
 
+    }
+    @Override
+    public void clickOK(){
+        System.out.println("Suca");
     }
 }

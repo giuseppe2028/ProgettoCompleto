@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rettangolo" prefHeight="200.0" prefWidth="300.0" stylesheets="@../CSS/PopUpErrore.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.progetto2.Control.ControlTimbratura">
+<AnchorPane fx:id="rettangolo" prefHeight="200.0" prefWidth="300.0" stylesheets="@../CSS/PopUpErrore.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.progettocompleto.Popup.PopupErrore">
    <children>
       <Button fx:id="bottoneOK" focusTraversable="false" layoutX="194.0" layoutY="153.0" mnemonicParsing="false" onAction="#clickOK" prefHeight="30.0" prefWidth="85.0" text="OK" textFill="#b51212" />
       <AnchorPane fx:id="area" layoutX="1.0" layoutY="1.0" prefHeight="50.0" prefWidth="300.0">
