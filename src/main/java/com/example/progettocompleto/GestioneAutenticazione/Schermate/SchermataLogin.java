@@ -57,7 +57,7 @@ public class SchermataLogin {
     public void clickLogin(ActionEvent e) throws IOException {
        /* ControlLogin controlLogin= new ControlLogin(matricola, password);
         controlLogin.create(Integer.parseInt(matricola.getText()), passwordField.getText());*/
-        controlLogin.clickLogin(e);
+        controlLogin.clickLogin();
       //  if(matricola.getText() === null){
 
         }

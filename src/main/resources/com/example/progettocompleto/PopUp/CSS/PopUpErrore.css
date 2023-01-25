@@ -1,0 +1,18 @@
+#rettangolo{
+    -fx-border-color: #808080;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);
+    -fx-opacity: 0.7;
+    -fx-border-color: white;
+}
+
+#OK{
+    -fx-background-color: #526475;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);
+}
+
+#area{
+    -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);
+    -fx-opacity: 0.7;
+    -fx-border-color: white;
+}

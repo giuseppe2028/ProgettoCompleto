@@ -179,6 +179,29 @@ public class Daemon {
     }
 
 
+    public static boolean verifyMailPersonale( String  mailPersonale) throws SQLException{
+        ResultSet rs = null;
+        //da amministrativo e da impiegato
+
+        String query = "SELECT * FROM Amministrativo WHERE mail_Personale=?";
+        PreparedStatement prepareStatement = conn.prepareStatement(query);
+        prepareStatement.setString(1, mailPersonale);
+        prepareStatement.execute();
+        if (rs.next()) {
+            return true;
+        }
+        return false;
+    }
+
+
+    public static void updatePassword3(String nuovaPassword,String mailPersonale ){
+        String query = "UPDATE  SET stato='in sospeso' WHERE id=?";
+
+
+    }
+
+
+
     public static void delete(int ID_richiesta) throws SQLException {
         Connection conn = DriverManager.getConnection(URL, username, passwordDBMS);
         String deleteSQL = "DELETE FROM Richiesta WHERE id = ?";

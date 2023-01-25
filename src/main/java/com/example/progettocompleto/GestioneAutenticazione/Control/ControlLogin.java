@@ -7,11 +7,14 @@ import com.example.progettocompleto.GestioneAutenticazione.Schermate.SchermataPr
 import com.example.progettocompleto.GestioneAutenticazione.Schermate.SchermataPrincipaleDatore;
 import com.example.progettocompleto.GestioneAutenticazione.Schermate.SchermataPrincipaleImpiegato;
 import com.example.progettocompleto.GestioneAutenticazione.Schermate.SchermataRecuperoPassword;
+import com.example.progettocompleto.PopUp.PopupErrore;
+import com.example.progettocompleto.PopUp.PopupInformazione;
 import com.example.progettocompleto.Start;
 import javafx.event.ActionEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,71 +26,95 @@ public class ControlLogin {
     private ErrorMex errorMex;
     private String mail, password;
 
+    private String mailPersonale;
+
+
+
     //TODO il DBMS andra modificato secondo quanto specificato nei sequence
-    public void clickLogin(ActionEvent e) throws IOException {
+    public void clickLogin() throws IOException {
 
 
         List<Object> datiProfilo = Daemon.getDatiProfilo(matricola);
 
-        if(Daemon.verifyCredenziali(matricola,password)){
-            if(datiProfilo.get(6).equals("Datore")){
+        if (Daemon.verifyCredenziali(matricola, password)) {
+            if (datiProfilo.get(6).equals("Datore")) {
                 new EntityUtente((ArrayList<Object>) datiProfilo);
-                SchermataPrincipaleDatore schermataPrincipaleDatore =  Util.setSpecificScene("/com/example/progettocompleto/GestioneAutenticazione/FXML/SchermataPrincipaleDatore.fxml", stage, c -> new SchermataPrincipaleDatore(this, (ArrayList<Object>) datiProfilo));
+                SchermataPrincipaleDatore schermataPrincipaleDatore = Util.setSpecificScene("/com/example/progettocompleto/GestioneAutenticazione/FXML/SchermataPrincipaleDatore.fxml", stage, c -> new SchermataPrincipaleDatore(this, (ArrayList<Object>) datiProfilo));
                 Thread thread = new Thread(schermataPrincipaleDatore);
                 thread.start();
 
-            }
-            else if(datiProfilo.get(6).equals("IMPIEGATO")){
+            } else if (datiProfilo.get(6).equals("IMPIEGATO")) {
                 new EntityUtente((ArrayList<Object>) datiProfilo);
-                SchermataPrincipaleImpiegato schermataPrincipaleImpiegato =  Util.setSpecificScene("/com/example/progettocompleto/GestioneAutenticazione/FXML/SchermataPrincipaleImpiegato.fxml", stage, c -> new SchermataPrincipaleImpiegato(this, (ArrayList<Object>) datiProfilo));
+                SchermataPrincipaleImpiegato schermataPrincipaleImpiegato = Util.setSpecificScene("/com/example/progettocompleto/GestioneAutenticazione/FXML/SchermataPrincipaleImpiegato.fxml", stage, c -> new SchermataPrincipaleImpiegato(this, (ArrayList<Object>) datiProfilo));
                 Thread thread = new Thread(schermataPrincipaleImpiegato);
                 thread.start();
 
 
-            }
-            else{
+            } else {
                 new EntityUtente((ArrayList<Object>) datiProfilo);
 
-                SchermataPrincipaleAmministrativo schermataPrincipaleAmministrativo =  Util.setSpecificScene("/com/example/progettocompleto/GestioneAutenticazione/FXML/SchermataPrincipaleAmministrativo.fxml", stage, c -> new SchermataPrincipaleAmministrativo(this, (ArrayList<Object>) datiProfilo));
+                SchermataPrincipaleAmministrativo schermataPrincipaleAmministrativo = Util.setSpecificScene("/com/example/progettocompleto/GestioneAutenticazione/FXML/SchermataPrincipaleAmministrativo.fxml", stage, c -> new SchermataPrincipaleAmministrativo(this, (ArrayList<Object>) datiProfilo));
                 Thread thread = new Thread(schermataPrincipaleAmministrativo);
                 thread.start();
             }
-        }
-        else{
+        } else {
             //todo modificare il popUp errore
             errorMex = new ErrorMex("Dati inseriti non corretti");
         }
 
     }
-    public void clickRecuperaPassword(){
-        Util.setScene("/com/example/progettocompleto/GestioneAutenticazione/FXML/SchermataRecuperoPassword.fxml",stage,c-> new SchermataRecuperoPassword(this));
+
+    public void clickRecuperaPassword() {
+        Util.setScene("/com/example/progettocompleto/GestioneAutenticazione/FXML/SchermataRecuperoPassword.fxml", stage, c -> new SchermataRecuperoPassword(this));
     }
+
     //metodo che parte dalla Schermata Recupera Password
-    public void clickIndietro(){
+    public void clickIndietro() {
         //Util.setScene("/com/example/progettogaga/SchermataLogin.fxml",stage,c-> new SchermataLogin());
 
     }
+
     //metodo che parte dalla Schermata Recupera Password
-    public void clickInvia(String mailText){
+    public void clickInvia(String mailText) throws SQLException {
         //TODO verify mail personale
         //todo updatePassword(nuovaPassword, mailPassword)
-        //setto tutte l'invio per la mail
-        JavaMail javaMail = new JavaMail();
-        //genero la password
-        String password = generaPassword();
-        //metto l'inserimento della mail:
-        javaMail.setTesto("Ecco la tua nuova password:"+password);
-        javaMail.setOggetto("Recupero password");
-        //invio la mail:
-        messaggio = new Messaggio("La nuova password è stata inviata");
-        try {
-            JavaMail.sendMail(mailText);
-        } catch (Exception ex) {
-            throw new RuntimeException(ex);
-        }
-        //creo il generatore di password:
 
+        if (Daemon.verifyMailPersonale(mailPersonale)) {
+//dovrò mettere in seguito lo show SchermataLogin
+            //genero la password
+            String password = generaPassword();
+
+Daemon
+            //setto tutte l'invio per la mail
+            JavaMail javaMail = new JavaMail();
+
+            //metto l'inserimento della mail:
+            javaMail.setTesto("Ecco la tua nuova password:" + password);
+            javaMail.setOggetto("Recupero password");
+
+            //invio la mail:
+            messaggio = new Messaggio("La nuova password è stata inviata");
+
+            //creo il generatore di password:
+
+            try {
+                JavaMail.sendMail(mailText);
+            } catch (Exception ex) {
+                throw new RuntimeException(ex);
+            }
+
+
+
+
+            Util.setScene("/com/example/progettocompleto/PopUp/FXML/PopUpInformazione.fxml", stage, c-> new PopupInformazione("Controlla la tua mail, la nuova password è stata inviata"));
+            //ovvimente sopra da' errore perchè si deve sistemare la cosa delle control;
+        } else {
+            System.out.println("Non è verificata la mail personale");
+        Util.setScene("/com/example/progettocompleto/PopUp/FXML/PopUpErrore.fxml", stage, c-> new PopupErrore("La mail inserita non è corretta!"));
+            //ovvimente sopra da' errore perchè si deve sistemare la cosa delle control;
+        }
     }
+
     public void clickLogout(ActionEvent e){
         //TODO implementare clickLogout
         //Util.setScene("/com/example/progetto2/Autenticazione/FXML/Login.fxml", stage, c-> );
@@ -101,6 +128,10 @@ public class ControlLogin {
             passwordGenerata += caratteri.charAt(randomIndexCharInAlphabet);
         }
         return passwordGenerata;
+    }
+
+    public void clickOK(){
+
     }
 
 }
