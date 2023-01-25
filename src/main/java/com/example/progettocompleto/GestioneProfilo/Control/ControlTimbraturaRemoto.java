@@ -15,9 +15,10 @@ import java.time.LocalTime;
 
 public class ControlTimbraturaRemoto {
     Stage stage= Start.mainStage;
-    int matricola= EntityUtente.getMatricola();
+    int matricola;
 
-    public void clickTimbraEntrata(){
+    public  ControlTimbraturaRemoto(){
+        matricola= EntityUtente.getMatricola();
         Util.setSpecificScene("/com/example/progettocompleto/GestioneProfilo/FXML/SchermataTimbraturaRemoto.fxml", stage, c-> new SchermataTimbraturaRemoto(this, matricola));
     }
 

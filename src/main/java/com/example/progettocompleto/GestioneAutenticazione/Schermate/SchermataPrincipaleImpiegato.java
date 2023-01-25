@@ -1,8 +1,5 @@
 package com.example.progettocompleto.GestioneAutenticazione.Schermate;
 
-
-
-
 import com.example.progettocompleto.FileDiSistema.Daemon;
 import com.example.progettocompleto.FileDiSistema.DatePicker;
 import com.example.progettocompleto.GestioneAutenticazione.Control.ControlLogin;
@@ -21,7 +18,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.DateFormat;
@@ -60,16 +56,7 @@ public class SchermataPrincipaleImpiegato implements Runnable {
     private ImageView ImmagineProfilo;
     @FXML
     private AnchorPane bottone;
-    @FXML
-    private Button notifiche;
-    @FXML
-    private Button gestioneProfilo;
-    @FXML
-    private Button timbratura;
-    @FXML
-    private ImageView IconGestioneProfilo;
-    @FXML
-    private ImageView Iconatimbratura;
+
     @FXML
     private Button logout;
     @FXML
@@ -145,7 +132,7 @@ public class SchermataPrincipaleImpiegato implements Runnable {
     @FXML
     public void clickVisualizzaProfilo(ActionEvent e){
         ControlVisualizzaProfilo controlVisualizzaProfilo=new ControlVisualizzaProfilo();
-        controlVisualizzaProfilo.clickVisualizzaProfilo();
+
 
 
     }
@@ -160,18 +147,18 @@ public class SchermataPrincipaleImpiegato implements Runnable {
     @FXML
     public void clickGestioneRichieste(ActionEvent e){
         ControlGestioneRichieste controlGestioneRichieste= new ControlGestioneRichieste();
-        controlGestioneRichieste.clickGestioneRichieste();
+
     }
 
     @FXML
     public void clickVisualizzaStipendio(ActionEvent e){
         ControlVisualizzaStipendio controlVisualizzaStipendio= new ControlVisualizzaStipendio();
-        controlVisualizzaStipendio.clickVisualizzaStipendio();
+
     }
 
     public void clickTimbraEntrata(ActionEvent e){
         ControlTimbraturaRemoto controlTimbraturaRemoto= new ControlTimbraturaRemoto();
-        controlTimbraturaRemoto.clickTimbraEntrata();
+
     }
 
 }

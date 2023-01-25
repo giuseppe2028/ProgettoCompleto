@@ -32,7 +32,7 @@ public SchermataRichiestaCambioTurno(ControlGestioneRichieste controlGestioneRic
 }
     public void clickIndietro(ActionEvent e)
     {
-        Util.ritorno("/com/example/GestioneRemoto/GestioneRichieste/FXML/SchermataGestioneRichieste.fxml");
+        Util.ritorno("/com/example/progettocompleto/GestioneRichieste/FXML/SchermataGestioneRichieste.fxml");
     }
     public void initialize() {
     turnoOri.setText("");
@@ -67,7 +67,7 @@ public void clickConferma(ActionEvent e){
     LocalDate turnoOrigine= selezionaTurnoOrigine();
     LocalDate turnoDestinazione= selezionaTurnoDestinazione();
     LocalDate turnoDestinazione1=  dataDestinazione.getValue();
-    System.out.println(turnoDestinazione1);
+
     String turnoDesiderato= selezionaTurnoDesiderato();
     String turnoPrecedente= turnoOri.getText();
 

@@ -45,7 +45,9 @@ public class SchermataRichiesteRicevute {
     @FXML
     private TableColumn editCol;
     Richiesta richiesta;
-    public SchermataRichiesteRicevute(ControlRichiesteRicevute ontrolRichiesteRicevute){
+
+    public SchermataRichiesteRicevute(ControlRichiesteRicevute controlRichiesteRicevute){
+
         this.controlRichiesteRicevute=controlRichiesteRicevute;
 
     }
@@ -96,6 +98,7 @@ public class SchermataRichiesteRicevute {
 
                             richiesta =  richiesteTableView.getSelectionModel().getSelectedItem();
                             try {
+                                //TODO nella control
                                 Daemon.accettaCambioTurno(richiesta.getId());
                                 Daemon.updateTurni(richiesta.getRef_impiegato(),richiesta.getMatricola_destinazione());
                                 // TODO: 21/01/23  pop up
@@ -111,6 +114,7 @@ public class SchermataRichiesteRicevute {
 
                             richiesta = richiesteTableView.getSelectionModel().getSelectedItem();
                             try {
+                                //TODO nella control
                                Daemon.rifiutaCambioTurno(richiesta.getId());
                                 updateTable();
 

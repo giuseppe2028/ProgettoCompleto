@@ -49,15 +49,19 @@ public class SchermataLogin {
 
 
     @FXML
-    public void clickRecuperaPass(ActionEvent e) throws IOException {
-        controlLogin.clickRecuperaPassword(e);
+    public void clickRecuperaPassword(ActionEvent e) throws IOException {
+        controlLogin.clickRecuperaPassword();
     }
-    //DIRE NELL'ODD CHE NON METTIAMO IL METODO INSERSCI CREDENZIALI PER NON PREMERE IL TASTO INVIO
+
     @FXML
     public void clickLogin(ActionEvent e) throws IOException {
-        controlLogin.create(Integer.parseInt(matricola.getText()), passwordField.getText());
+       /* ControlLogin controlLogin= new ControlLogin(matricola, password);
+        controlLogin.create(Integer.parseInt(matricola.getText()), passwordField.getText());*/
         controlLogin.clickLogin(e);
-    }
+      //  if(matricola.getText() === null){
+
+        }
+
     @FXML
     public void clickCalendario(ActionEvent e){
         // Util.setScene("/com/example/progettogaga/Calendario/Calendario.fxml", stage, c -> new Calendario());

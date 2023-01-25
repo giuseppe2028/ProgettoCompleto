@@ -5,6 +5,7 @@ import com.example.progettocompleto.FileDiSistema.Daemon;
 import com.example.progettocompleto.FileDiSistema.EntityUtente;
 import com.example.progettocompleto.FileDiSistema.Util;
 import com.example.progettocompleto.GestioneImpiegati.Schermate.*;
+import com.example.progettocompleto.GestioneTurni.Schermate.SchermataPianificazioneTurni;
 import com.example.progettocompleto.Start;
 import javafx.stage.Stage;
 
@@ -20,9 +21,8 @@ public class ControlGestioneImpiegati {
         Util.setScene("/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataGestioneImpiegati.fxml",stage, c->new SchermataGestioneImpiegati(this));
     }
 
-    public void clickVisualizzaDati(Impiegati impiegato, int servizio) {
-        List<Object> imp=  Daemon.getDatiProfilo(impiegato.getMatricola());
-        imp.add(servizio);
+    public void clickVisualizzaDati(int matricola) {
+        List<Object> imp=  Daemon.getDatiProfilo(matricola);
         Util.setSpecificScene("/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataVisualizzaImpiegato.fxml", stage, c->new SchermataVisualizzaImpiegato(this, imp) );
     }
 
@@ -52,15 +52,14 @@ public class ControlGestioneImpiegati {
     }
 
     public void clickConferma(LocalDate data, LocalTime orario, int matricola) throws SQLException {
-        Boolean es=Daemon.controlloTimbr(data, matricola);
-        if (es) {
-            Boolean esito = Daemon.verifyTimbratura(data, orario, matricola);
-            if (esito) {
+        if (Daemon.controlloTimbr(data, matricola)) {
+            if (Daemon.verifyTimbratura(data, orario, matricola)) {
                 //todo popup errore
             } else {
+                //todo da fare
                 String tipoTurno= Daemon.getTurno(data, matricola);
-                LocalDate dataTurno= Daemon.getDataTurno(data, matricola);
-                Daemon.insertTimbratura(data, orario, matricola, tipoTurno, dataTurno);
+               // LocalDate dataTurno= Daemon.getDataTurno(data, matricola);
+              //  Daemon.insertTimbratura(data, orario, matricola, tipoTurno, dataTurno);
                 //todo popup informazione
             }
         }else {
@@ -69,13 +68,14 @@ public class ControlGestioneImpiegati {
     }
 
 
-    public void compila(String nome, String cognome,long recapito, String mailPersonale,String indirizzo,String iban,int servizio, String ruolo,char sesso, boolean reperibile,LocalDate dataNascita,String coficeFiscale){
+    public void clickRegistra(String nome, String cognome,long recapito, String mailPersonale,String indirizzo,String iban,int servizio, String ruolo,char sesso, boolean reperibile,LocalDate dataNascita,String coficeFiscale){
         System.out.println(nome+cognome+mailPersonale+iban+indirizzo+servizio+ruolo+sesso+reperibile+dataNascita.toString());
         //prendo la matricola massima
         int matricola = Daemon.getMaxMatricola()+1;
         String mail = nome+"."+cognome+"@azienda.it";
         String password = nome+cognome+"123";
         Daemon.updateImpiegato(matricola,nome,cognome,sesso,coficeFiscale,dataNascita,indirizzo,recapito,mailPersonale,iban,mail,password,ruolo,reperibile,servizio,LocalDate.now(),null,26,30,6,false,null);
+        //mettere che viene inserita la mail
     }
     List<Impiegati> listaFiltrata;
     public List<Impiegati> filtra(String ruolo, int servizio,List<Impiegati> lista){
@@ -98,5 +98,9 @@ public class ControlGestioneImpiegati {
         }
 
         return listaDaritornare;
+    }
+
+    public void clickCalendario() {
+
     }
 }

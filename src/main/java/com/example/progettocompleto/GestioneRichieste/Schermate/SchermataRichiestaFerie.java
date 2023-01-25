@@ -58,30 +58,30 @@ public class SchermataRichiestaFerie {
             rettangolo1.getChildren().add(a);
         }
         dataInizioDatePicker.setDayCellFactory(picker -> new DateCell() {
-                        @Override
-                        public void updateItem(LocalDate dateC, boolean empty) {
-                            super.updateItem(dateC, empty);
-                            for(int k = 0; k < dataI.size(); ++k){
-                                LocalDate start = dataI.get(k);
-                                LocalDate end = dataF.get(k);
-                                if ((dateC.isAfter(start) && dateC.isBefore(end))||(dateC.getDayOfWeek() == DayOfWeek.SUNDAY)||dateC.isBefore(LocalDate.now())) {
-                                    setDisable(true);
-                                    return;
-                                }
-                            }
-                        }
-                });
-        dataInizioDatePicker.setOnAction(e->{
+            @Override
+            public void updateItem(LocalDate dateC, boolean empty) {
+                super.updateItem(dateC, empty);
+                for (int k = 0; k < dataI.size(); ++k) {
+                    LocalDate start = dataI.get(k);
+                    LocalDate end = dataF.get(k);
+                    if ((dateC.isAfter(start) && dateC.isBefore(end)) || (dateC.getDayOfWeek() == DayOfWeek.SUNDAY) || dateC.isBefore(LocalDate.now())) {
+                        setDisable(true);
+                        return;
+                    }
+                }
+            }
+        });
+        dataInizioDatePicker.setOnAction(e -> {
             LocalDate selectedDate = dataInizioDatePicker.getValue();
             dataFineDatePicker.setValue(selectedDate);
             dataFineDatePicker.setDayCellFactory(picker -> new DateCell() {
                 @Override
                 public void updateItem(LocalDate dateC, boolean empty) {
                     super.updateItem(dateC, empty);
-                    for(int k = 0; k < dataI.size(); ++k){
+                    for (int k = 0; k < dataI.size(); ++k) {
                         LocalDate start = dataI.get(k);
                         LocalDate end = dataF.get(k);
-                        if ((dateC.isAfter(start) && dateC.isBefore(end))||(dateC.getDayOfWeek() == DayOfWeek.SUNDAY)||dateC.isBefore(LocalDate.now())||dateC.isBefore(selectedDate)) {
+                        if ((dateC.isAfter(start) && dateC.isBefore(end)) || (dateC.getDayOfWeek() == DayOfWeek.SUNDAY) || dateC.isBefore(LocalDate.now()) || dateC.isBefore(selectedDate)) {
                             setDisable(true);
                             return;
                         }
@@ -89,25 +89,25 @@ public class SchermataRichiestaFerie {
                 }
             });
         });
-            }
-            public void clickIndietro(ActionEvent e)
-            {
-                Util.ritorno("/com/example/GestioneRemoto/GestioneRichieste/FXML/SchermataGestioneRichieste.fxml");
-            }
-}
+    }
 
-     /*
-    public void clickInvia(ActionEvent e){
-        LocalDate dataInizio = dataInizioDatePicker.getValue();;
+    public void clickIndietro(ActionEvent e) {
+        Util.ritorno("/com/example/GestioneRemoto/GestioneRichieste/FXML/SchermataGestioneRichieste.fxml");
+    }
+
+/*
+    public void clickInvia(ActionEvent e) {
+        LocalDate dataInizio = dataInizioDatePicker.getValue();
+        ;
         LocalDate dataFine = dataFineDatePicker.getValue();
 
-    controlGestioneRichieste.clickInviaFerie(dataInizio, dataFine);
-    }
+        controlGestioneRichieste.clickInviaFerie(dataInizio, dataFine);
+    }/*
     public void clickIndietro(){
        // controlGestioneRichieste.clickIndietro();
 
     }
 */
 
-
+}
 

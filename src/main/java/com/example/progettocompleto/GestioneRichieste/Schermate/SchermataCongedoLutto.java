@@ -29,7 +29,7 @@ public SchermataCongedoLutto(ControlGestioneRichieste controlGestioneRichieste){
 
     public void clickIndietro(ActionEvent e)
     {
-        Util.ritorno("/com/example/GestioneRemoto/GestioneRichieste/FXML/SchermataGestioneRichieste.fxml");
+        Util.ritorno("/com/example/progettocompleto/GestioneRichieste/FXML/SchermataGestioneRichieste.fxml");
     }
     public void initialize() {
         dataIn.setDayCellFactory(picker -> new DateCell() {

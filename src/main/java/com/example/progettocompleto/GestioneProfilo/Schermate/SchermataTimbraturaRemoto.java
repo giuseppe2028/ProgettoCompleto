@@ -42,26 +42,25 @@ public class SchermataTimbraturaRemoto {
             }
         });
     }
+    //TODO unico compila
     public LocalDate compila(){
         LocalDate dataArrivo= datePicker.getValue();
         return dataArrivo;
     }
-    public LocalTime compila2(){
+    public int compila2(){
         //   LocalTime[] orario = new LocalTime[2];
         LocalTime orario = LocalTime.parse(ore.getValue());
         //orario[1] = LocalTime.parse(minuti.getValue());
-        return orario;
+        return Integer.parseInt(ore.getValue());
     }
-    public LocalTime compila3(){
+    public int compila3(){
         //   LocalTime[] orario = new LocalTime[2];
-        LocalTime orario = LocalTime.parse(minuti.getValue());
         //orario[1] = LocalTime.parse(minuti.getValue());
-        return orario;
+        return Integer.parseInt(minuti.getValue());
     }
     public void clickConferma(ActionEvent e) throws SQLException {
         LocalDate data = compila();
-        LocalTime orario = compila2();
-        LocalTime minutiOrario=compila3();
+        LocalTime orario = LocalTime.of(compila2(), compila3());
         controlTimbraturaRemoto.clickConferma(data, orario, matricola);
     }
 

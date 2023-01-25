@@ -67,9 +67,10 @@ public class SchermataGestioneRichieste  {
     @FXML
     private TableColumn editCol;
     Richiesta richiesta;
-   public SchermataGestioneRichieste(ControlGestioneRichieste controlGestioneRichieste){
+    int matricola;
+   public SchermataGestioneRichieste(ControlGestioneRichieste controlGestioneRichieste, int matricola){
     this.controlGestioneRichieste=controlGestioneRichieste;
-
+    this.matricola=matricola;
    }
 
 
@@ -122,7 +123,7 @@ public class SchermataGestioneRichieste  {
 
     }
 
-
+//TODO getRichieste prima di schermtata richieste
 
     public void loadDate() throws SQLException {
         richiesteList = FXCollections.observableArrayList();
@@ -195,6 +196,7 @@ public class SchermataGestioneRichieste  {
 
                              richiesta =  richiesteTableView.getSelectionModel().getSelectedItem();
                             try {
+                                //TODO nella control
                                 Daemon.delete(richiesta.getId());
                                 updateTable();
 
@@ -266,6 +268,6 @@ public void clickRichiestaCambio(ActionEvent e){
     }
 public void clickRichiesteRicevute(ActionEvent e){
     ControlRichiesteRicevute controlRichiesteRicevute=new ControlRichiesteRicevute();
-    controlRichiesteRicevute.clickRichiesteRicevute();
+
 }
 }

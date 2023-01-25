@@ -71,25 +71,6 @@ public class SchermataVisualizzaProfilo {
         im = new Image(is);
         ImmagineProfilo.setImage(im);
         is.close();
-       /* Image im;
-        InputStream is = (InputStream) datiProfilo.get(11);
-        System.out.println(is);
-        im = new Image(is);
-        ImmagineProfilo.setImage(im);
-        is.close();
-*/
-
-     // String c= (String) datiProfilo.get(11);
-      //ByteArrayInputStream clob= (ByteArrayInputStream) datiProfilo.get(11);
-       // byte[] byteArr = clob.getBytes(1, (int) clob.length());
-       // byte[] byteArr= clob.readAllBytes();
-       // InputStream inputStream= new FileInputStream(c);
-       // InputStream inputStream = new ByteArrayInputStream(byteArr);
-       // ImmagineProfilo.setImage(new Image(inputStream));
-
-
-
-
 
     }
 
@@ -109,7 +90,7 @@ controlVisualizzaProfilo.clickModificaPassword();
    }
 
 
-        public void clickModifica (ActionEvent event){
+        public void clickModifica(ActionEvent event){
             controlVisualizzaProfilo.clickModifica();
         }
 
