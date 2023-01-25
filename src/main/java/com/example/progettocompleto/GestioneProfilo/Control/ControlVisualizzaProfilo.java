@@ -9,14 +9,12 @@ import com.example.progettocompleto.GestioneProfilo.Schermate.SchermataModificaP
 import com.example.progettocompleto.GestioneProfilo.Schermate.SchermataModificaProfilo;
 import com.example.progettocompleto.GestioneProfilo.Schermate.SchermataVisualizzaProfilo;
 import com.example.progettocompleto.Start;
-import javafx.event.ActionEvent;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,7 +42,6 @@ public class ControlVisualizzaProfilo {
     }
 
     public void clickModifica(){
-        //getMatricola()
         Util.setScene("/com/example/progettocompleto/GestioneProfilo/FXML/SchermataModificaProfilo.fxml", stage, c-> new SchermataModificaProfilo(this));
     }
     public void clickModificaPassword(){
@@ -55,12 +52,12 @@ public class ControlVisualizzaProfilo {
         return isValid && nuovapass.equals(confpass);
     }
 
-    public void clickConferma(ActionEvent e, String vecpass, String nuovapass, String confpass) throws IOException {
+    public void clickConferma( String vecpass, String nuovapass, String confpass, int matricola) throws IOException, SQLException {
 
         if (verifyPassword(nuovapass, confpass)) {
-            boolean modificata = Daemon.modificaPassword(vecpass, nuovapass);
-            if (modificata) {
 
+            if (Daemon.verifyPassword2(vecpass, matricola)) {
+                Daemon.updatePassword(matricola, nuovapass);
                 Alert a= new Alert(Alert.AlertType.INFORMATION);
                 a.setContentText("Password cambiata con successo!");
                 a.showAndWait();
@@ -80,27 +77,11 @@ public class ControlVisualizzaProfilo {
     }
 
 
-
-    public void compila(String vecchia, String nuova, String conferma){
-        this.vecchia=vecchia;
-        this.nuova=nuova;
-        this.conferma=conferma;
-    }
-    public void compila(List datiModificati){
-
-        this.datiModificati= datiModificati;
-
-    }
-
     public void clickOK(){
 //TODO implementare
 
     }
-    /* public void clickIndietro(){
-        List<Object> dati = EntityUtente.getDatiProfilo();
-         ControlLogin c1= new ControlLogin();
-     Util.setSpecificScene("/com/example/progettocompleto/GestioneAutenticazione/FXML/SchermataPrincipaleDatore.fxml", stage, c->new SchermataPrincipaleDatore(c1,dati ));
-     }*/
+
     public boolean verifyInsert(String recapito, String iban){
         boolean isValid= recapito.length()<=12;
         boolean isVali= iban.length()>26 ;
@@ -113,9 +94,9 @@ public class ControlVisualizzaProfilo {
         String mail= datiModificati.get(3).toString();
 
         if(verifyInsert(recapito, iban)){
-            boolean modificata= Daemon.modificaDati(Double.valueOf(recapito), iban, indi, mail, path);
+            int matricola = EntityUtente.getMatricola();
 
-            if(modificata){
+            if(Daemon.updateDatiProfilo(Double.valueOf(recapito), iban, indi, mail, path, matricola)){
                 Alert a= new Alert(Alert.AlertType.INFORMATION);
                 a.setContentText("Dati cambiati con successo!");
                 a.showAndWait();

@@ -44,35 +44,19 @@ public SchermataRichiestaCambioTurno(ControlGestioneRichieste controlGestioneRic
         });
        turno.getItems().addAll(shift);
     }
-public LocalDate selezionaTurnoOrigine(){
-    LocalDate turnoOrigine= dataOrigine.getValue();
-    //restituisce il turno di quella data
-    String turno= Daemon.getTurno(turnoOrigine, matricola);
-    System.out.println(turno);
-    turnoOri.setText(turno);
-    return turnoOrigine;
-}
 
-public LocalDate selezionaTurnoDestinazione(){
-    LocalDate turnoDestinazione= dataDestinazione.getValue();
-    return turnoDestinazione;
-}
-public String selezionaTurnoDesiderato(){
 
-    String turnoDesiderato= turno.getValue();
-    return turnoDesiderato;
-}
+
 
 public void clickConferma(ActionEvent e){
-    LocalDate turnoOrigine= selezionaTurnoOrigine();
-    LocalDate turnoDestinazione= selezionaTurnoDestinazione();
-    LocalDate turnoDestinazione1=  dataDestinazione.getValue();
+    LocalDate turnoOrigine= dataOrigine.getValue();
+    LocalDate turnoDestinazione= dataDestinazione.getValue();
 
-    String turnoDesiderato= selezionaTurnoDesiderato();
+    String turnoDesiderato= turno.getValue();
     String turnoPrecedente= turnoOri.getText();
 
 
-    controlGestioneRichieste.clickConferma(turnoOrigine, turnoDestinazione, turnoDesiderato, matricola, turnoPrecedente);
+    controlGestioneRichieste.clickConferma(turnoOrigine, turnoDestinazione, turnoDesiderato, turnoPrecedente);
 
 }
 

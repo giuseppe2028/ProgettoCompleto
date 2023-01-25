@@ -47,7 +47,7 @@ public class SchermataPrincipaleAmministrativo extends SchermataPrincipaleImpieg
     @FXML
     public void clickGestioneRichieste(ActionEvent e){
         ControlGestioneRichieste controlGestioneRichieste= new ControlGestioneRichieste();
-        controlGestioneRichieste.clickGestioneRichieste();
+
     }
     public void clickTimbraturaImpiegati(){
 

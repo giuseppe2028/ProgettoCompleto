@@ -17,12 +17,14 @@ public class ControlTimbraturaRemoto {
     Stage stage= Start.mainStage;
     int matricola;
 
+
     public  ControlTimbraturaRemoto(){
-        matricola= EntityUtente.getMatricola();
-        Util.setSpecificScene("/com/example/progettocompleto/GestioneProfilo/FXML/SchermataTimbraturaRemoto.fxml", stage, c-> new SchermataTimbraturaRemoto(this, matricola));
+
+        Util.setSpecificScene("/com/example/progettocompleto/GestioneProfilo/FXML/SchermataTimbraturaRemoto.fxml", stage, c-> new SchermataTimbraturaRemoto(this));
     }
 
-    public void clickConferma(LocalDate data, LocalTime orario, int matricola) throws SQLException {
+    public void clickConferma(LocalDate data, LocalTime orario,String motivazione ) throws SQLException {
+        matricola= EntityUtente.getMatricola();
         Boolean es= Daemon.controlloTimbr(data, matricola);
         if (es) {
             Boolean esito = Daemon.verifyTimbratura(data, orario, matricola);
@@ -30,8 +32,7 @@ public class ControlTimbraturaRemoto {
                 //todo popup errore
             } else {
                 String tipoTurno= Daemon.getTurno(data, matricola);
-                LocalDate dataTurno= Daemon.getDataTurno(data, matricola);
-                Daemon.insertTimbratura(data, orario, matricola, tipoTurno, dataTurno);
+                Daemon.insertTimbratura(data, orario, matricola, tipoTurno, motivazione);
                 //todo popup informazione
             }
         }else {

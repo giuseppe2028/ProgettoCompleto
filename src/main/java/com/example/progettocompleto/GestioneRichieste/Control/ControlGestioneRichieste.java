@@ -12,7 +12,8 @@ import javafx.scene.control.skin.TableRowSkin;
 import javafx.stage.Stage;
 
 import java.io.InputStream;
-import java.time.LocalDate;
+import java.sql.SQLException;
+import java.time.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +30,12 @@ int matricola;
         Util.setScene("/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiestaPermesso.fxml", stage, c -> new SchermataRichiestaPermesso(this));
     }
 
+    public void clickElimina(int id) throws SQLException {
+        //TODO popup conferma
+        Daemon.delete(id);
+        //TODO popup info.
+    }
+
 
     public class CustomTableRowSkin<T> extends TableRowSkin<T> {
         public CustomTableRowSkin(TableRow<T> tableRow) {
@@ -39,14 +46,14 @@ int matricola;
 
     private Stage stage = Start.mainStage;
 
-    public void clickGestioneRichieste() {
-        matricola=EntityUtente.getMatricola();
-        Util.setSpecificScene("/com/example/progettocompleto/GestioneRichieste/FXML/SchermataGestioneRichieste.fxml", stage, c -> new SchermataGestioneRichieste(this, matricola));
+    public ControlGestioneRichieste() {
+
+        Util.setSpecificScene("/com/example/progettocompleto/GestioneRichieste/FXML/SchermataGestioneRichieste.fxml", stage, c -> new SchermataGestioneRichieste(this));
     }
 
 
-    /*
-    public void clickInviaFerie(LocalDate dI, LocalDate dF){
+
+    public void clickInviaFerie(LocalDate dI, LocalDate dF) throws SQLException {
        int matricola= EntityUtente.getMatricola();
         Period periodo = Period.between(dI, dF);
         int giorniInseriti = periodo.getDays();
@@ -56,10 +63,10 @@ int matricola;
              Alert a= new Alert(Alert.AlertType.ERROR);
              a.setContentText("Il periodo selezionato corrisponde con i giorni proibiti");
              a.showAndWait();
-    }
-}
+            }
+        }
 
-        int giorniFerie =Daemon.getGiorniFerie(matricola);
+       int giorniFerie =Daemon.getGiorniFerie(matricola);
         if (giorniFerie>= giorniInseriti){
          Daemon.insertRichiestaFerie(matricola, dI, dF);
          Daemon.updateGiorniFerie(matricola, giorniInseriti);
@@ -73,7 +80,7 @@ int matricola;
     }
 
     }
-*/
+
     public void clickRichiestaFerie() {
         List<LocalDate> giorniPro = Daemon.getGiorniProibiti();
         System.out.println(giorniPro.size());
@@ -93,12 +100,8 @@ int matricola;
         Util.setSpecificScene("/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiestaFerie.fxml", stage, c -> new SchermataRichiestaFerie(this, dateI, dateF));
     }
 
-    /*
-    public void clickRichiestaPermesso() {
-    int matricola=EntityUtente.getMatricola();
-      Util.setScene("/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiestaPermesso.fxml", stage, c-> new SchermataRichiestaPermesso(this));
-    }
-   public void clickInviaPermesso(LocalDate data, String oraInizio, String minutiInizio, String oraFine, String minutiFine){
+
+   public void clickInviaPermesso(LocalDate data, String oraInizio, String minutiInizio, String oraFine, String minutiFine) throws SQLException {
         int matricola= EntityUtente.getMatricola();
         //TODO aggiungere i controlli sulla data
         int orePermesso= Daemon.getOrePermesso(matricola);
@@ -120,7 +123,7 @@ int matricola;
         }
 
     }
-*/
+
     public void clickRichiestaSciopero() {
         Util.setScene("/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiestaSciopero.fxml", stage, c -> new SchermataRichiestaSciopero(this));
     }
@@ -133,9 +136,6 @@ int matricola;
         a.setContentText("Richiesta inoltrata");
         a.showAndWait();
         //TODO inserire la richiesta in sciopero DBMS
-
-
-
 
     }
 
@@ -185,7 +185,8 @@ public void clickRichiestaCambio(){
         Util.setScene("/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiestaCambioTurno.fxml", stage, c-> new SchermataRichiestaCambioTurno(this, turni, matricola));
 }
 
-    public void clickConferma(LocalDate turnoOrigine, LocalDate turnoDestinazione, String turnoDesiderato, int matricola, String turnoPrecedente) {
+    public void clickConferma(LocalDate turnoOrigine, LocalDate turnoDestinazione, String turnoDesiderato,  String turnoPrecedente) {
+        int matricola= EntityUtente.getMatricola();
         int servizio=Daemon.getServizio(matricola);
         List<Integer> matricole=Daemon.getMatricoleDestinazione(turnoDestinazione, turnoDesiderato, servizio);
         //TODO inserire l'insert nelle richieste ricevute

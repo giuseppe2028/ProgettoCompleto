@@ -25,10 +25,8 @@ public class SchermataLogin {
     private Button bottoneLogin;
 
     @FXML
-    private TextField matricola;
+   TextField matricola;
 
-    @FXML
-    private TextField mail;
 
 
     @FXML
@@ -40,9 +38,7 @@ public class SchermataLogin {
     private PasswordField passwordField;
     private ControlLogin controlLogin;
 
-    public SchermataLogin() {
-        controlLogin = new ControlLogin();
-    }
+
 
     @FXML
     Hyperlink passwordDimenticata = new Hyperlink();
@@ -55,10 +51,12 @@ public class SchermataLogin {
 
     @FXML
     public void clickLogin(ActionEvent e) throws IOException {
-       /* ControlLogin controlLogin= new ControlLogin(matricola, password);
-        controlLogin.create(Integer.parseInt(matricola.getText()), passwordField.getText());*/
-        controlLogin.clickLogin();
-      //  if(matricola.getText() === null){
+        String password= passwordField.getText();
+        int matricola1= Integer.parseInt(matricola.getText());
+        ControlLogin controlLogin= new ControlLogin(matricola1, password);
+
+
+
 
         }
 
