@@ -1,12 +1,17 @@
-package com.example.progettocompleto.PopUp;
+package com.example.progettocompleto.Popup;
 
-import com.example.progetto2.Control.ControlTimbratura;
-import com.example.progetto2.Start;
+import com.example.progettocompleto.FileDiSistema.ControlInterface;
+import com.example.progettocompleto.FileDiSistema.Util;
 import com.example.progettocompleto.Start;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
+
+import java.io.IOException;
 
 
 
@@ -18,7 +23,7 @@ import javafx.stage.Stage;
 
 
 public class PopupErrore {
-    Stage stage = Start.mainStage;
+    private Stage stage;
     private String message;
 
 
@@ -30,7 +35,7 @@ public class PopupErrore {
     @FXML
     Label messaggioErrore;
 
-    ControlTimbratura controlTimbratura;
+    private ControlInterface controlInterface;
 @FXML
 public void initialize(){
     intestazione.setText("Errore");
@@ -39,8 +44,9 @@ public void initialize(){
 
 
 
-    public PopupErrore(String message, ControlTimbratura controlTimbratura) {
-        this. controlTimbratura=new ControlTimbratura();
+    public PopupErrore(String message, ControlInterface controlInterface,Stage stage) {
+        this.stage = stage;
+        this.controlInterface = controlInterface;
         //this.controlTimbratura = controlTimbratura;
         this.message = message;
     }
@@ -50,8 +56,7 @@ public void initialize(){
     @FXML
     public void clickOK(ActionEvent event)  {
         stage.close();
-        controlTimbratura.clickOK();
-
+        controlInterface.clickOK();
     }
 
 

@@ -1,0 +1,610 @@
+Index: src/main/java/com/example/progettocompleto/GestioneAutenticazione/Schermate/SchermataLogin.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.progettocompleto.GestioneAutenticazione.Schermate;\n\n\nimport com.example.progettocompleto.Start;\nimport com.example.progettocompleto.GestioneAutenticazione.Control.ControlLogin;\nimport javafx.event.ActionEvent;\nimport javafx.fxml.FXML;\nimport javafx.scene.control.Button;\nimport javafx.scene.control.Hyperlink;\nimport javafx.scene.control.PasswordField;\nimport javafx.scene.control.TextField;\nimport javafx.scene.image.Image;\nimport javafx.scene.layout.AnchorPane;\nimport javafx.stage.Stage;\n\nimport java.io.ByteArrayInputStream;\nimport java.io.IOException;\nimport java.io.InputStream;\nimport java.util.List;\n\npublic class SchermataLogin {\n    private Stage stage = Start.mainStage;\n    //test\n    @FXML\n    private Button bottoneLogin;\n\n    @FXML\n    private TextField matricola;\n\n    @FXML\n    private TextField mail;\n\n\n    @FXML\n    private AnchorPane rettangolo;\n\n    @FXML\n    private AnchorPane sfondo;\n    @FXML\n    private PasswordField passwordField;\n    private ControlLogin controlLogin;\n\n    public SchermataLogin() {\n        controlLogin = new ControlLogin();\n    }\n\n    @FXML\n    Hyperlink passwordDimenticata = new Hyperlink();\n\n\n    @FXML\n    public void clickRecuperaPassword(ActionEvent e) throws IOException {\n        controlLogin.clickRecuperaPassword();\n    }\n\n    @FXML\n    public void clickLogin(ActionEvent e) throws IOException {\n       /* ControlLogin controlLogin= new ControlLogin(matricola, password);\n        controlLogin.create(Integer.parseInt(matricola.getText()), passwordField.getText());*/\n        controlLogin.clickLogin(e);\n      //  if(matricola.getText() === null){\n\n        }\n\n    @FXML\n    public void clickCalendario(ActionEvent e){\n        // Util.setScene(\"/com/example/progettogaga/Calendario/Calendario.fxml\", stage, c -> new Calendario());\n    }\n    @FXML\n    public void show(){\n        //TODO implementare show\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/progettocompleto/GestioneAutenticazione/Schermate/SchermataLogin.java b/src/main/java/com/example/progettocompleto/GestioneAutenticazione/Schermate/SchermataLogin.java
+--- a/src/main/java/com/example/progettocompleto/GestioneAutenticazione/Schermate/SchermataLogin.java	(revision 38fb533bda47a6e07057b118bed1519c3dba124f)
++++ b/src/main/java/com/example/progettocompleto/GestioneAutenticazione/Schermate/SchermataLogin.java	(date 1674644510909)
+@@ -40,9 +40,6 @@
+     private PasswordField passwordField;
+     private ControlLogin controlLogin;
+ 
+-    public SchermataLogin() {
+-        controlLogin = new ControlLogin();
+-    }
+ 
+     @FXML
+     Hyperlink passwordDimenticata = new Hyperlink();
+@@ -55,8 +52,8 @@
+ 
+     @FXML
+     public void clickLogin(ActionEvent e) throws IOException {
+-       /* ControlLogin controlLogin= new ControlLogin(matricola, password);
+-        controlLogin.create(Integer.parseInt(matricola.getText()), passwordField.getText());*/
++       ControlLogin controlLogin= new ControlLogin(matricola, password);
++        controlLogin.create(Integer.parseInt(matricola.getText()), passwordField.getText());
+         controlLogin.clickLogin(e);
+       //  if(matricola.getText() === null){
+ 
+Index: src/main/java/com/example/progettocompleto/GestioneTurni/Control/ControlVisualizzaPropostaTurni.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.progettocompleto.GestioneTurni.Control;\n\n\nimport com.example.progettocompleto.Contenitori.PropostaTurno;\nimport com.example.progettocompleto.FileDiSistema.Daemon;\nimport com.example.progettocompleto.FileDiSistema.Util;\nimport com.example.progettocompleto.GestioneTurni.Schermate.SchermataPianificazioneTurni;\nimport javafx.stage.Stage;\n\nimport java.time.LocalDate;\nimport java.util.ArrayList;\nimport java.util.List;\n\n\n\npublic class ControlVisualizzaPropostaTurni {\n\npublic ControlVisualizzaPropostaTurni(){\n    List<PropostaTurno> prostaTurni = Daemon.getPropostaTurni();\n//aggiungere all'ODD questo metodo\n    Util.setScene(\"/com/example/progettocompleto/GestioneTurni/FXML/Calendario.fxml\",new Stage(), c-> new SchermataPianificazioneTurni(prostaTurni));\n}\n\n\n\n}\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/progettocompleto/GestioneTurni/Control/ControlVisualizzaPropostaTurni.java b/src/main/java/com/example/progettocompleto/GestioneTurni/Control/ControlVisualizzaPropostaTurni.java
+--- a/src/main/java/com/example/progettocompleto/GestioneTurni/Control/ControlVisualizzaPropostaTurni.java	(revision 38fb533bda47a6e07057b118bed1519c3dba124f)
++++ b/src/main/java/com/example/progettocompleto/GestioneTurni/Control/ControlVisualizzaPropostaTurni.java	(date 1674636813422)
+@@ -16,6 +16,7 @@
+ public class ControlVisualizzaPropostaTurni {
+ 
+ public ControlVisualizzaPropostaTurni(){
++    //todo aggiusare l'if da inserire
+     List<PropostaTurno> prostaTurni = Daemon.getPropostaTurni();
+ //aggiungere all'ODD questo metodo
+     Util.setScene("/com/example/progettocompleto/GestioneTurni/FXML/Calendario.fxml",new Stage(), c-> new SchermataPianificazioneTurni(prostaTurni));
+Index: src/main/java/com/example/progettocompleto/GestioneImpiegati/Control/ControlGestioneImpiegati.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.progettocompleto.GestioneImpiegati.Control;\n\nimport com.example.progettocompleto.Contenitori.Impiegati;\nimport com.example.progettocompleto.FileDiSistema.Daemon;\nimport com.example.progettocompleto.FileDiSistema.EntityUtente;\nimport com.example.progettocompleto.FileDiSistema.Util;\nimport com.example.progettocompleto.GestioneImpiegati.Schermate.*;\nimport com.example.progettocompleto.GestioneTurni.Schermate.SchermataPianificazioneTurni;\nimport com.example.progettocompleto.Start;\nimport javafx.stage.Stage;\n\nimport java.sql.SQLException;\nimport java.time.LocalDate;\nimport java.time.LocalTime;\nimport java.util.List;\nimport java.util.stream.Collectors;\n\npublic class ControlGestioneImpiegati {\n    Stage stage = Start.mainStage;\n    public ControlGestioneImpiegati(){\n        Util.setScene(\"/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataGestioneImpiegati.fxml\",stage, c->new SchermataGestioneImpiegati(this));\n    }\n\n    public void clickVisualizzaDati(int matricola) {\n        List<Object> imp=  Daemon.getDatiProfilo(matricola);\n        Util.setSpecificScene(\"/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataVisualizzaImpiegato.fxml\", stage, c->new SchermataVisualizzaImpiegato(this, imp) );\n    }\n\n    public void clickVisualizzaStipendio() {\n        //TODO query al db, fattelo tu\n        Util.setSpecificScene(\"/com/example/progettocompleto/GestioneImpiegato/FXML/SchermataVisualizzaStipendio.fxml\", stage, c-> new SchermataVisualizzaStipendio(this));\n    }\n\n    public void clickTimbraturaImpiegato() {\n        Util.setSpecificScene(\"/com/example/progettocompleto/GestioneImpiegato/FXML/SchermataTimbraturaImpiegato.fxml\", stage, c-> new SchermataTimbraturaImpiegato(this, EntityUtente.getMatricola()));\n    }\n\n    public void clickRegistra() {\n        Util.setScene(\"/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataRegistrazioneImpiegato.fxml\", stage, c-> new SchermataRegistrazioneImpiegato(this));\n\n    }\n\n   /* public void clickDisattiva() {\n        Util.setScene(\"/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataDisattivaImpiegato.fxml\", stage, c-> new SchermataDisattivaImpiegato(this));\n    }*/\n\n    public void clickTimbraturaImpiegato(int matricola) {\n        Util.setSpecificScene(\"com/example/progettocompleto/GestioneImpiegati/FXML/SchermataTimbraturaImpiegato.fxml\", stage, c-> new SchermataTimbraturaImpiegato(this, matricola));\n    }\n    public void clickIndietro(String fxml){\n        Util.ritorno(fxml);\n    }\n\n    public void clickConferma(LocalDate data, LocalTime orario, int matricola) throws SQLException {\n        if (Daemon.controlloTimbr(data, matricola)) {\n            if (Daemon.verifyTimbratura(data, orario, matricola)) {\n                //todo popup errore\n            } else {\n                //todo da fare\n                String tipoTurno= Daemon.getTurno(data, matricola);\n               // LocalDate dataTurno= Daemon.getDataTurno(data, matricola);\n              //  Daemon.insertTimbratura(data, orario, matricola, tipoTurno, dataTurno);\n                //todo popup informazione\n            }\n        }else {\n            //todo popup errore\n        }\n    }\n\n\n    public void clickRegistra(String nome, String cognome,long recapito, String mailPersonale,String indirizzo,String iban,int servizio, String ruolo,char sesso, boolean reperibile,LocalDate dataNascita,String coficeFiscale){\n        System.out.println(nome+cognome+mailPersonale+iban+indirizzo+servizio+ruolo+sesso+reperibile+dataNascita.toString());\n        //prendo la matricola massima\n        int matricola = Daemon.getMaxMatricola()+1;\n        String mail = nome+\".\"+cognome+\"@azienda.it\";\n        String password = nome+cognome+\"123\";\n        Daemon.updateImpiegato(matricola,nome,cognome,sesso,coficeFiscale,dataNascita,indirizzo,recapito,mailPersonale,iban,mail,password,ruolo,reperibile,servizio,LocalDate.now(),null,26,30,6,false,null);\n        //mettere che viene inserita la mail\n    }\n    List<Impiegati> listaFiltrata;\n    public List<Impiegati> filtra(String ruolo, int servizio,List<Impiegati> lista){\n        List<Impiegati> listaDaritornare;\n        if(servizio == 0 && ruolo == null){\n            return Daemon.getImpiegati();\n        }\n        if(servizio != 0){\n            listaFiltrata = lista.stream().filter(s-> s.getServizio() == servizio).toList();\n            return listaFiltrata;\n        }\n        else{\n            listaDaritornare = lista;\n        }\n        if(ruolo != null){\n            listaFiltrata = lista.stream().filter(s-> s.getRuolo().startsWith(ruolo)).collect(Collectors.toList());\n            return listaFiltrata;\n        }else{\n            listaDaritornare = lista;\n        }\n\n        return listaDaritornare;\n    }\n\n    public void clickCalendario() {\n\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/progettocompleto/GestioneImpiegati/Control/ControlGestioneImpiegati.java b/src/main/java/com/example/progettocompleto/GestioneImpiegati/Control/ControlGestioneImpiegati.java
+--- a/src/main/java/com/example/progettocompleto/GestioneImpiegati/Control/ControlGestioneImpiegati.java	(revision 38fb533bda47a6e07057b118bed1519c3dba124f)
++++ b/src/main/java/com/example/progettocompleto/GestioneImpiegati/Control/ControlGestioneImpiegati.java	(date 1674643983250)
+@@ -6,6 +6,7 @@
+ import com.example.progettocompleto.FileDiSistema.Util;
+ import com.example.progettocompleto.GestioneImpiegati.Schermate.*;
+ import com.example.progettocompleto.GestioneTurni.Schermate.SchermataPianificazioneTurni;
++import com.example.progettocompleto.Popup.PopupErrore;
+ import com.example.progettocompleto.Start;
+ import javafx.stage.Stage;
+ 
+@@ -52,7 +53,7 @@
+     }
+ 
+     public void clickConferma(LocalDate data, LocalTime orario, int matricola) throws SQLException {
+-        if (Daemon.controlloTimbr(data, matricola)) {
++        if (Daemon.controlloTurno(data, matricola)) {
+             if (Daemon.verifyTimbratura(data, orario, matricola)) {
+                 //todo popup errore
+             } else {
+@@ -75,7 +76,8 @@
+         String mail = nome+"."+cognome+"@azienda.it";
+         String password = nome+cognome+"123";
+         Daemon.updateImpiegato(matricola,nome,cognome,sesso,coficeFiscale,dataNascita,indirizzo,recapito,mailPersonale,iban,mail,password,ruolo,reperibile,servizio,LocalDate.now(),null,26,30,6,false,null);
+-        //mettere che viene inserita la mail
++        new PopupErrore("Succhiami la ciolla", this::clickOK);
++        //todo mettere che viene inserita la mail
+     }
+     List<Impiegati> listaFiltrata;
+     public List<Impiegati> filtra(String ruolo, int servizio,List<Impiegati> lista){
+@@ -103,4 +105,7 @@
+     public void clickCalendario() {
+ 
+     }
++    public void clickOK(){
++        System.out.println("Suca");
++    }
+ }
+\ No newline at end of file
+Index: src/main/resources/com/example/progettocompleto/Popup/CSS/PopUpInformazione.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/com/example/progettocompleto/Popup/CSS/PopUpInformazione.css b/src/main/resources/com/example/progettocompleto/Popup/CSS/PopUpInformazione.css
+new file mode 100644
+--- /dev/null	(date 1674643430684)
++++ b/src/main/resources/com/example/progettocompleto/Popup/CSS/PopUpInformazione.css	(date 1674643430684)
+@@ -0,0 +1,20 @@
++#rettangolo{
++    -fx-border-color: #808080;
++    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);
++    -fx-border-radius: 25;
++    -fx-opacity: 0.7;
++    -fx-border-color: white;
++}
++
++#OK{
++    -fx-background-color: #526475;
++    -fx-background-radius: 25;
++    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);
++}
++
++#area{
++    -fx-background-color: white;
++    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);
++    -fx-opacity: 0.6;
++    -fx-border-color: white;
++}
+\ No newline at end of file
+Index: src/main/java/com/example/progettocompleto/GestioneProfilo/Control/ControlTimbraturaRemoto.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.progettocompleto.GestioneProfilo.Control;\n\n\n\nimport com.example.progettocompleto.FileDiSistema.Daemon;\nimport com.example.progettocompleto.FileDiSistema.EntityUtente;\nimport com.example.progettocompleto.FileDiSistema.Util;\nimport com.example.progettocompleto.GestioneProfilo.Schermate.SchermataTimbraturaRemoto;\nimport com.example.progettocompleto.Start;\nimport javafx.stage.Stage;\n\nimport java.sql.SQLException;\nimport java.time.LocalDate;\nimport java.time.LocalTime;\n\npublic class ControlTimbraturaRemoto {\n    Stage stage= Start.mainStage;\n    int matricola;\n\n    public  ControlTimbraturaRemoto(){\n        matricola= EntityUtente.getMatricola();\n        Util.setSpecificScene(\"/com/example/progettocompleto/GestioneProfilo/FXML/SchermataTimbraturaRemoto.fxml\", stage, c-> new SchermataTimbraturaRemoto(this, matricola));\n    }\n\n    public void clickConferma(LocalDate data, LocalTime orario, int matricola) throws SQLException {\n        Boolean es= Daemon.controlloTimbr(data, matricola);\n        if (es) {\n            Boolean esito = Daemon.verifyTimbratura(data, orario, matricola);\n            if (esito) {\n                //todo popup errore\n            } else {\n                String tipoTurno= Daemon.getTurno(data, matricola);\n                LocalDate dataTurno= Daemon.getDataTurno(data, matricola);\n                Daemon.insertTimbratura(data, orario, matricola, tipoTurno, dataTurno);\n                //todo popup informazione\n            }\n        }else {\n            //todo popup errore\n        }\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/progettocompleto/GestioneProfilo/Control/ControlTimbraturaRemoto.java b/src/main/java/com/example/progettocompleto/GestioneProfilo/Control/ControlTimbraturaRemoto.java
+--- a/src/main/java/com/example/progettocompleto/GestioneProfilo/Control/ControlTimbraturaRemoto.java	(revision 38fb533bda47a6e07057b118bed1519c3dba124f)
++++ b/src/main/java/com/example/progettocompleto/GestioneProfilo/Control/ControlTimbraturaRemoto.java	(date 1674637543963)
+@@ -23,15 +23,12 @@
+     }
+ 
+     public void clickConferma(LocalDate data, LocalTime orario, int matricola) throws SQLException {
+-        Boolean es= Daemon.controlloTimbr(data, matricola);
+-        if (es) {
+-            Boolean esito = Daemon.verifyTimbratura(data, orario, matricola);
+-            if (esito) {
++        if (Daemon.controlloTurno(data, matricola)) {
++            if (Daemon.verifyTimbratura(data, orario, matricola)) {
+                 //todo popup errore
+             } else {
+                 String tipoTurno= Daemon.getTurno(data, matricola);
+-                LocalDate dataTurno= Daemon.getDataTurno(data, matricola);
+-                Daemon.insertTimbratura(data, orario, matricola, tipoTurno, dataTurno);
++                Daemon.insertTimbratura(orario, matricola, tipoTurno, data);
+                 //todo popup informazione
+             }
+         }else {
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"a7933b5f-9b64-4c50-8359-5242a146b696\" name=\"Changes\" comment=\"festi vita e ferie\">\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Contenitori/RigaTurno.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Contenitori/Stipendio.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Contenitori/Turno.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Schermate/SchermataVisualizzaCalendarioImpiegati.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/FileDiSistema/Daemon.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/FileDiSistema/Daemon.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/FileDiSistema/EntityUtente.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/FileDiSistema/EntityUtente.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneAutenticazione/Control/ControlLogin.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneAutenticazione/Control/ControlLogin.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneAutenticazione/Schermate/SchermataLogin.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneAutenticazione/Schermate/SchermataLogin.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneAutenticazione/Schermate/SchermataPrincipaleAmministrativo.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneAutenticazione/Schermate/SchermataPrincipaleAmministrativo.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneAutenticazione/Schermate/SchermataPrincipaleDatore.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneAutenticazione/Schermate/SchermataPrincipaleDatore.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneAutenticazione/Schermate/SchermataPrincipaleImpiegato.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneAutenticazione/Schermate/SchermataPrincipaleImpiegato.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneAutenticazione/Schermate/SchermataRecuperoPassword.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneAutenticazione/Schermate/SchermataRecuperoPassword.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Control/ControlFestivitaFerie.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Control/ControlFestivitaFerie.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Control/ControlGestioneImpiegati.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Control/ControlGestioneImpiegati.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Schermate/SchermataFestivitaFerie.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Schermate/SchermataFestivitaFerie.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Schermate/SchermataGestioneImpiegati.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Schermate/SchermataGestioneImpiegati.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Schermate/SchermataRegistrazioneImpiegato.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Schermate/SchermataRegistrazioneImpiegato.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Control/ControlTimbraturaRemoto.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Control/ControlTimbraturaRemoto.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Control/ControlVisualizzaProfilo.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Control/ControlVisualizzaProfilo.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Control/ControlVisualizzaStipendio.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Control/ControlVisualizzaStipendio.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Schermate/SchermataModificaProfilo.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Schermate/SchermataModificaProfilo.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Schermate/SchermataTimbraturaRemoto.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Schermate/SchermataTimbraturaRemoto.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Schermate/SchermataVisualizzaProfilo.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Schermate/SchermataVisualizzaProfilo.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Schermate/SchermataVisualizzaStipendio.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Schermate/SchermataVisualizzaStipendio.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Control/ControlGestioneRichieste.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Control/ControlGestioneRichieste.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Control/ControlRichiesteRicevute.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Control/ControlRichiesteRicevute.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataCongedoLutto.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataCongedoLutto.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataCongedoParentale.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataCongedoParentale.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataGestioneRichieste.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataGestioneRichieste.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataRichiestaCambioTurno.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataRichiestaCambioTurno.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataRichiestaFerie.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataRichiestaFerie.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataRichiestaMalattia.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataRichiestaMalattia.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataRichiesteRicevute.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataRichiesteRicevute.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneAutenticazione/FXML/Login.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneAutenticazione/FXML/Login.fxml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/CSS/SchermataCalendarioImpiegati.css\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/CSS/SchermataVisualizzaCalendarioImpiegati.css\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataCalendarioImpiegati.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataCalendarioImpiegati.fxml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataGestioneImpiegati.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataGestioneImpiegati.fxml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataRegistrazioneImpiegato.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataRegistrazioneImpiegato.fxml\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"JavaFXApplication\" />\n        <option value=\"FxmlFile\" />\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"MavenImportPreferences\">\n    <option name=\"importingSettings\">\n      <MavenImportingSettings>\n        <option name=\"workspaceImportEnabled\" value=\"true\" />\n      </MavenImportingSettings>\n    </option>\n  </component>\n  <component name=\"ProjectId\" id=\"2KindtIP0UIXbqgrHY4Q9Ndl6ST\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\n    \"WebServerToolWindowFactoryState\": \"false\",\n    \"last_opened_file_path\": \"/Users/alessiacancemi/Desktop/ProgettoCompleto/src/main/resources/com/example/progettocompleto/Icon\",\n    \"node.js.detected.package.eslint\": \"true\",\n    \"node.js.detected.package.tslint\": \"true\",\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\n    \"project.structure.last.edited\": \"Libraries\",\n    \"project.structure.proportion\": \"0.0\",\n    \"project.structure.side.proportion\": \"0.0\",\n    \"vue.rearranger.settings.migration\": \"true\"\n  },\n  \"keyToStringList\": {\n    \"DatabaseDriversLRU\": [\n      \"mysql\"\n    ]\n  }\n}]]></component>\n  <component name=\"RecentsManager\">\n    <key name=\"CopyFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/Icon\" />\n      <recent name=\"$PROJECT_DIR$/src/main/resources/com/example/progettocompleto\" />\n      <recent name=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/FileDiSistema\" />\n      <recent name=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste\" />\n      <recent name=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Schermate\" />\n    </key>\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Contenitori\" />\n      <recent name=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Schermate\" />\n      <recent name=\"$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML\" />\n      <recent name=\"$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/CSS\" />\n      <recent name=\"$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Control\" />\n    </key>\n    <key name=\"MoveClassesOrPackagesDialog.RECENTS_KEY\">\n      <recent name=\"com.example.progettocompleto.GestioneImpiegati\" />\n      <recent name=\"com.example.progettocompleto.GestioneProfilo\" />\n      <recent name=\"com.example.progettocompleto\" />\n    </key>\n    <key name=\"CopyClassDialog.RECENTS_KEY\">\n      <recent name=\"com.example.progettocompleto.GestioneAutenticazione.Schermate\" />\n      <recent name=\"com.example.progettocompleto.FileDiSistema\" />\n    </key>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"a7933b5f-9b64-4c50-8359-5242a146b696\" name=\"Changes\" comment=\"\" />\n      <created>1674466363428</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1674466363428</updated>\n      <workItem from=\"1674466365946\" duration=\"40340000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\".\">\n      <created>1674474604861</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1674474604861</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\".\">\n      <created>1674475052401</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1674475052401</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\".\">\n      <created>1674475094773</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1674475094773</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"tutto ok\">\n      <created>1674475230427</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1674475230427</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"tutto ooono\">\n      <created>1674480859807</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1674480859807</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"festi vita e ferie\">\n      <created>1674507944228</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1674507944228</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"7\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\".\" />\n    <MESSAGE value=\"tutto ok\" />\n    <MESSAGE value=\"tutto ooono\" />\n    <MESSAGE value=\"festi vita e ferie\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"festi vita e ferie\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 38fb533bda47a6e07057b118bed1519c3dba124f)
++++ b/.idea/workspace.xml	(date 1674644451742)
+@@ -4,46 +4,20 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="a7933b5f-9b64-4c50-8359-5242a146b696" name="Changes" comment="festi vita e ferie">
+-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Contenitori/RigaTurno.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Contenitori/Stipendio.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Contenitori/Turno.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Schermate/SchermataVisualizzaCalendarioImpiegati.java" afterDir="false" />
++    <list default="true" id="a7933b5f-9b64-4c50-8359-5242a146b696" name="Changes" comment="tutto ok">
++      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/FileDiSistema/ControlInterface.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Popup/PopupErrore.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Popup/PopupInformazione.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/Popup/CSS/PopUpErrore.css" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/Popup/CSS/PopUpInformazione.css" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/Popup/FXML/PopUpErrore.fxml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/Popup/FXML/PopUpInformazione.fxml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/FileDiSistema/Daemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/FileDiSistema/Daemon.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/FileDiSistema/EntityUtente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/FileDiSistema/EntityUtente.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneAutenticazione/Control/ControlLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneAutenticazione/Control/ControlLogin.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneAutenticazione/Schermate/SchermataLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneAutenticazione/Schermate/SchermataLogin.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneAutenticazione/Schermate/SchermataPrincipaleAmministrativo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneAutenticazione/Schermate/SchermataPrincipaleAmministrativo.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneAutenticazione/Schermate/SchermataPrincipaleDatore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneAutenticazione/Schermate/SchermataPrincipaleDatore.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneAutenticazione/Schermate/SchermataPrincipaleImpiegato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneAutenticazione/Schermate/SchermataPrincipaleImpiegato.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneAutenticazione/Schermate/SchermataRecuperoPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneAutenticazione/Schermate/SchermataRecuperoPassword.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Control/ControlFestivitaFerie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Control/ControlFestivitaFerie.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Control/ControlGestioneImpiegati.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Control/ControlGestioneImpiegati.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Schermate/SchermataFestivitaFerie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Schermate/SchermataFestivitaFerie.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Schermate/SchermataGestioneImpiegati.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Schermate/SchermataGestioneImpiegati.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Schermate/SchermataRegistrazioneImpiegato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Schermate/SchermataRegistrazioneImpiegato.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Control/ControlTimbraturaRemoto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Control/ControlTimbraturaRemoto.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Control/ControlVisualizzaProfilo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Control/ControlVisualizzaProfilo.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Control/ControlVisualizzaStipendio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Control/ControlVisualizzaStipendio.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Schermate/SchermataModificaProfilo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Schermate/SchermataModificaProfilo.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Schermate/SchermataTimbraturaRemoto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Schermate/SchermataTimbraturaRemoto.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Schermate/SchermataVisualizzaProfilo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Schermate/SchermataVisualizzaProfilo.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Schermate/SchermataVisualizzaStipendio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Schermate/SchermataVisualizzaStipendio.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Control/ControlGestioneRichieste.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Control/ControlGestioneRichieste.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Control/ControlRichiesteRicevute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Control/ControlRichiesteRicevute.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataCongedoLutto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataCongedoLutto.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataCongedoParentale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataCongedoParentale.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataGestioneRichieste.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataGestioneRichieste.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataRichiestaCambioTurno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataRichiestaCambioTurno.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataRichiestaFerie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataRichiestaFerie.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataRichiestaMalattia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataRichiestaMalattia.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataRichiesteRicevute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataRichiesteRicevute.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneAutenticazione/FXML/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneAutenticazione/FXML/Login.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/CSS/SchermataCalendarioImpiegati.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/CSS/SchermataVisualizzaCalendarioImpiegati.css" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataCalendarioImpiegati.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataCalendarioImpiegati.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataGestioneImpiegati.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataGestioneImpiegati.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataRegistrazioneImpiegato.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataRegistrazioneImpiegato.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneTurni/Control/ControlVisualizzaPropostaTurni.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneTurni/Control/ControlVisualizzaPropostaTurni.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -56,6 +30,7 @@
+         <option value="JavaFXApplication" />
+         <option value="FxmlFile" />
+         <option value="Class" />
++        <option value="Interface" />
+       </list>
+     </option>
+   </component>
+@@ -84,7 +59,8 @@
+     "RunOnceActivity.ShowReadmeOnStart": "true",
+     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+     "WebServerToolWindowFactoryState": "false",
+-    "last_opened_file_path": "/Users/alessiacancemi/Desktop/ProgettoCompleto/src/main/resources/com/example/progettocompleto/Icon",
++    "dart.analysis.tool.window.visible": "false",
++    "last_opened_file_path": "/Users/giuseppebarone/Desktop/ProgettoCompleto/src/main/resources/com/example/progettocompleto/Popup/CSS",
+     "node.js.detected.package.eslint": "true",
+     "node.js.detected.package.tslint": "true",
+     "node.js.selected.package.eslint": "(autodetect)",
+@@ -102,18 +78,18 @@
+ }]]></component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
++      <recent name="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/Popup/CSS" />
++      <recent name="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/Popup" />
++      <recent name="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Popup" />
+       <recent name="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/Icon" />
+       <recent name="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto" />
+-      <recent name="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/FileDiSistema" />
+-      <recent name="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste" />
+-      <recent name="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Schermate" />
+     </key>
+     <key name="MoveFile.RECENT_KEYS">
+-      <recent name="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Contenitori" />
+-      <recent name="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Schermate" />
++      <recent name="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/Popup/FXML" />
++      <recent name="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto" />
++      <recent name="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/CSS" />
+       <recent name="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML" />
+-      <recent name="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/CSS" />
+-      <recent name="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Control" />
++      <recent name="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/FileDiSistema" />
+     </key>
+     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+       <recent name="com.example.progettocompleto.GestioneImpiegati" />
+@@ -133,7 +109,7 @@
+       <option name="number" value="Default" />
+       <option name="presentableId" value="Default" />
+       <updated>1674466363428</updated>
+-      <workItem from="1674466365946" duration="40340000" />
++      <workItem from="1674466365946" duration="10154000" />
+     </task>
+     <task id="LOCAL-00001" summary=".">
+       <created>1674474604861</created>
+@@ -163,21 +139,7 @@
+       <option name="project" value="LOCAL" />
+       <updated>1674475230427</updated>
+     </task>
+-    <task id="LOCAL-00005" summary="tutto ooono">
+-      <created>1674480859807</created>
+-      <option name="number" value="00005" />
+-      <option name="presentableId" value="LOCAL-00005" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1674480859807</updated>
+-    </task>
+-    <task id="LOCAL-00006" summary="festi vita e ferie">
+-      <created>1674507944228</created>
+-      <option name="number" value="00006" />
+-      <option name="presentableId" value="LOCAL-00006" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1674507944228</updated>
+-    </task>
+-    <option name="localTasksCounter" value="7" />
++    <option name="localTasksCounter" value="5" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -197,8 +159,6 @@
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="." />
+     <MESSAGE value="tutto ok" />
+-    <MESSAGE value="tutto ooono" />
+-    <MESSAGE value="festi vita e ferie" />
+-    <option name="LAST_COMMIT_MESSAGE" value="festi vita e ferie" />
++    <option name="LAST_COMMIT_MESSAGE" value="tutto ok" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: src/main/resources/com/example/progettocompleto/Popup/CSS/PopUpErrore.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/com/example/progettocompleto/Popup/CSS/PopUpErrore.css b/src/main/resources/com/example/progettocompleto/Popup/CSS/PopUpErrore.css
+new file mode 100644
+--- /dev/null	(date 1674643430005)
++++ b/src/main/resources/com/example/progettocompleto/Popup/CSS/PopUpErrore.css	(date 1674643430005)
+@@ -0,0 +1,18 @@
++#rettangolo{
++    -fx-border-color: #808080;
++    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);
++    -fx-opacity: 0.7;
++    -fx-border-color: white;
++}
++
++#OK{
++    -fx-background-color: #526475;
++    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);
++}
++
++#area{
++    -fx-background-color: white;
++    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);
++    -fx-opacity: 0.7;
++    -fx-border-color: white;
++}
+\ No newline at end of file
+Index: src/main/java/com/example/progettocompleto/FileDiSistema/ControlInterface.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/progettocompleto/FileDiSistema/ControlInterface.java b/src/main/java/com/example/progettocompleto/FileDiSistema/ControlInterface.java
+new file mode 100644
+--- /dev/null	(date 1674642958796)
++++ b/src/main/java/com/example/progettocompleto/FileDiSistema/ControlInterface.java	(date 1674642958796)
+@@ -0,0 +1,5 @@
++package com.example.progettocompleto.FileDiSistema;
++
++public interface ControlInterface {
++    void clickOK();
++}
+Index: src/main/java/com/example/progettocompleto/Popup/PopupInformazione.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/progettocompleto/Popup/PopupInformazione.java b/src/main/java/com/example/progettocompleto/Popup/PopupInformazione.java
+new file mode 100644
+--- /dev/null	(date 1674643779653)
++++ b/src/main/java/com/example/progettocompleto/Popup/PopupInformazione.java	(date 1674643779653)
+@@ -0,0 +1,51 @@
++package com.example.progettocompleto.Popup;
++
++import com.example.progettocompleto.FileDiSistema.ControlInterface;
++import com.example.progettocompleto.FileDiSistema.Util;
++import com.example.progettocompleto.Start;
++import javafx.event.ActionEvent;
++import javafx.fxml.FXML;
++import javafx.scene.control.Label;
++import javafx.stage.Stage;
++
++import java.io.IOException;
++
++public class PopupInformazione {
++    Stage stage = Start.mainStage;
++
++    private String message;
++
++    @FXML
++    Label messaggioInformazione;
++
++    @FXML
++     Label intestazione;
++
++   private  ControlInterface controlInterface;
++
++    @FXML
++    public void initialize(){
++        intestazione.setText("Informazione");
++        messaggioInformazione.setText(this.message);
++    }
++
++
++
++
++
++
++
++    public PopupInformazione(String message,ControlInterface controlInterface){
++        this.controlInterface = controlInterface;
++        this.message = message;
++        //messaggioInformazione.setText(this.message);
++
++    }
++
++    @FXML
++    public void clickOK(ActionEvent event) throws IOException {
++        stage.close();
++        controlInterface.clickOK();
++    }
++}
++
+Index: src/main/java/com/example/progettocompleto/Popup/PopupErrore.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/progettocompleto/Popup/PopupErrore.java b/src/main/java/com/example/progettocompleto/Popup/PopupErrore.java
+new file mode 100644
+--- /dev/null	(date 1674642958783)
++++ b/src/main/java/com/example/progettocompleto/Popup/PopupErrore.java	(date 1674642958783)
+@@ -0,0 +1,65 @@
++package com.example.progettocompleto.Popup;
++
++import com.example.progettocompleto.FileDiSistema.ControlInterface;
++import com.example.progettocompleto.FileDiSistema.Util;
++import com.example.progettocompleto.Start;
++import javafx.event.ActionEvent;
++import javafx.fxml.FXML;
++import javafx.scene.control.Label;
++import javafx.stage.Stage;
++import javafx.scene.control.Button;
++import javafx.scene.layout.AnchorPane;
++import javafx.scene.text.Text;
++
++import java.io.IOException;
++
++
++
++
++/*public void initialize(){
++        messaggioErrore.setText("Dati inseriti non corretti");
++
++    }*/
++
++
++public class PopupErrore {
++    Stage stage = Start.mainStage;
++    private String message;
++
++
++
++
++    @FXML
++    Label intestazione;
++
++    @FXML
++    Label messaggioErrore;
++
++    private ControlInterface controlInterface;
++@FXML
++public void initialize(){
++    intestazione.setText("Errore");
++    messaggioErrore.setText(this.message);
++}
++
++
++
++    public PopupErrore(String message, ControlInterface controlInterface) {
++        this.controlInterface = controlInterface;
++        //this.controlTimbratura = controlTimbratura;
++        this.message = message;
++    }
++
++
++
++    @FXML
++    public void clickOK(ActionEvent event)  {
++        stage.close();
++        controlInterface.clickOK();
++
++    }
++
++
++
++
++}
+Index: src/main/java/com/example/progettocompleto/FileDiSistema/Daemon.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.progettocompleto.FileDiSistema;\n\nimport com.example.progettocompleto.Contenitori.*;\n\nimport java.io.InputStream;\nimport java.sql.*;\nimport java.time.LocalDate;\nimport java.time.LocalTime;\nimport java.util.ArrayList;\nimport java.util.List;\n\n\npublic class Daemon {\n    public static long largeupdate;\n    private static Connection conn;\n\n    public Daemon() {\n        try {\n            conn = DriverManager.getConnection(URL, username, passwordDBMS);\n            System.out.println(\"Connessione Stabilita\");\n        } catch (SQLException e) {\n            throw new RuntimeException(e);\n        }\n    }\n\n    private static String URL = \"jdbc:mysql://localhost:3306/Azienda\";\n    private static String username = \"root\";\n    private static String passwordDBMS = \"root1234\";\n    private static PreparedStatement preparedStatement;\n    private static ResultSet resultSet;\n    private static List<Object> ritorno;\n\n    public static boolean verifyCredenziali(int matricola, String password) {\n\n        try {\n            //faccio la query\n            String sql = \"SELECT matricola FROM Utente WHERE matricola = ? AND password = ?\";\n            preparedStatement = conn.prepareStatement(sql);\n            preparedStatement.setInt(1, matricola);\n            preparedStatement.setString(2, password);\n            resultSet = preparedStatement.executeQuery();\n            if (resultSet.next()) {\n                return true;\n            } else {\n                return false;\n            }\n        } catch (SQLException e) {\n            System.out.println(\"Errore Comunicazione DBMS\");\n        }\n        //return fittizzio\n        return false;\n    }\n\n    public static List<Object> getDatiProfilo(int matricola) {\n        List<Object> ritorno = new ArrayList<>();\n        String sql = \"SELECT * FROM Utente WHERE matricola = ?\";\n        try (PreparedStatement preparedStatement = conn.prepareStatement(sql)) {\n\n            preparedStatement.setInt(1, matricola);\n            try (ResultSet resultSet = preparedStatement.executeQuery();) {\n                while (resultSet.next()) {\n                    ritorno.add(resultSet.getInt(\"matricola\"));\n                    ritorno.add(resultSet.getString(\"nome\"));\n                    ritorno.add(resultSet.getString(\"cognome\"));\n                    ritorno.add(resultSet.getString(\"cf\"));\n                    ritorno.add(resultSet.getDate(\"data_nascita\"));\n                    // ritorno.add(resultSet.getBlob(\"foto_profilo\"));\n                    ritorno.add(resultSet.getString(\"indirizzo_residenza\"));\n                    ritorno.add(resultSet.getString(\"ruolo\"));\n                    ritorno.add(resultSet.getString(\"mail\"));\n                    // ritorno.add(resultSet.getString(\"password\"));\n                    ritorno.add(resultSet.getString(\"IBAN\"));\n                    ritorno.add(resultSet.getLong(\"recapito_telefonico\"));\n                    ritorno.add(resultSet.getString(\"mail_personale\"));\n                   /* Blob blob = resultSet.getBlob(\"foto_profilo\");\n                    byte[] data = blob.getBinaryStream().readAllBytes();\n                    InputStream inputStream = new ByteArrayInputStream(data);\n                    ritorno.add(inputStream);\n                    /* Blob clob = resultSet.getBlob(\"foto_profilo\");\n                    byte[] byteArr = clob.getBytes(1, (int) clob.length());\n                    InputStream inputStream = new ByteArrayInputStream(byteArr);\n                    ritorno.add(inputStream);*/\n                    ritorno.add(resultSet.getString(\"sesso\"));\n                    ritorno.add(resultSet.getInt(\"servizio\"));\n\n\n                }\n\n\n                return ritorno;\n\n            } catch (SQLException ex) {\n                throw new RuntimeException(ex);\n            }\n        } catch (SQLException e) {\n            throw new RuntimeException(e);\n        }\n    }\n\n    public static InputStream getFotoProfilo(int matricola) {\n        String sql = \"SELECT foto_profilo FROM Utente WHERE matricola = ?\";\n        try (PreparedStatement preparedStatement = conn.prepareStatement(sql)) {\n            preparedStatement.setInt(1, matricola);\n            try (ResultSet resultSet = preparedStatement.executeQuery()) {\n                if (resultSet.next()) {\n                    Blob blob = resultSet.getBlob(\"foto_profilo\");\n                    return blob.getBinaryStream();\n                } else {\n                    throw new SQLException(\"Immagine non trovata\");\n                }\n            }\n        } catch (SQLException e) {\n            e.printStackTrace();\n            return null;\n        }\n    }\n\n\n    public static int getMatricola(String mail) {\n        ResultSet rs;\n        try {\n            String sql = \"SELECT * FROM Utente WHERE mail = ?\";\n            PreparedStatement pstm = conn.prepareStatement(sql);\n            pstm.setString(1, mail);\n            rs = pstm.executeQuery();\n            rs.next();\n            return rs.getInt(\"matricola\");\n        } catch (SQLException a) {\n            return 0;\n        }\n    }\n\n    public static boolean modificaDati(Double recapito, String indirizzo, String iban, String mail, InputStream path) {\n        int matricola = EntityUtente.getMatricola();\n\n        try {\n            String query = \"UPDATE Utente SET indirizzo_residenza=?, recapito_telefonico=?, IBAN=?, mail_personale=?, foto_profilo=?  WHERE matricola=?\";\n            PreparedStatement pstm1 = conn.prepareStatement(query);\n            pstm1.setString(1, indirizzo);\n            pstm1.setDouble(2, recapito);\n            pstm1.setString(3, iban);\n            pstm1.setString(4, mail);\n\n            pstm1.setBlob(5, path);\n            pstm1.setInt(6, matricola);\n\n            pstm1.execute();\n            return true;\n\n        } catch (SQLException a) {\n            return false;\n        }\n    }\n\n    public static boolean modificaPassword(String vecpass, String nuovapass) {\n        ResultSet rs;\n        int matricola = EntityUtente.getMatricola();\n\n        try {\n            String sql = \"SELECT password FROM Utente WHERE password=? AND matricola=?\";\n            PreparedStatement pstm = conn.prepareStatement(sql);\n            pstm.setString(1, vecpass);\n            pstm.setInt(2, matricola);\n            rs = pstm.executeQuery();\n\n\n            if (rs.next()) {\n                String query = \"UPDATE Utente SET password=? WHERE matricola=?\";\n                PreparedStatement pstm1 = conn.prepareStatement(query);\n                pstm1.setString(1, nuovapass);\n                pstm1.setInt(2, matricola);\n                pstm1.execute();\n                return true;\n            }\n        } catch (SQLException a) {\n            return false;\n        }\n        return false;\n    }\n\n\n    public static void delete(int ID_richiesta) throws SQLException {\n        Connection conn = DriverManager.getConnection(URL, username, passwordDBMS);\n        String deleteSQL = \"DELETE FROM Richiesta WHERE id = ?\";\n        PreparedStatement preparedStatement = conn.prepareStatement(deleteSQL);\n        preparedStatement.setInt(1, ID_richiesta);\n\n        preparedStatement.executeUpdate();\n\n    }\n\n    public static List<Richiesta> getRichieste(int matricola) {\n        ArrayList<Richiesta> listaRitorno = new ArrayList();\n\n        try {\n            System.out.println(matricola);\n            String sql = \"select id, categoria, stato, data_inizio, data_fine, ora_inizio, ora_fine, svolgimento, motivazione, tipologia, matricola_destinazione, tipo_turno_origine,tipo_turno_destinazione, data_turno_origine, data_turno_destinazione from Richiesta where ref_impiegato=?\";\n            preparedStatement = conn.prepareStatement(sql);\n            preparedStatement.setInt(1, matricola);\n            resultSet = preparedStatement.executeQuery();\n\n            while (resultSet.next()) {\n                listaRitorno.add(new Richiesta(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getDate(4).toLocalDate(), resultSet.getDate(5).toLocalDate(), resultSet.getTime(6).toLocalTime(), resultSet.getTime(7).toLocalTime(), resultSet.getString(8), resultSet.getString(9), resultSet.getString(10), resultSet.getInt(11), resultSet.getString(12), resultSet.getString(13), resultSet.getDate(14).toLocalDate(), resultSet.getDate(15).toLocalDate()));\n            }\n            return listaRitorno;\n        } catch (SQLException e) {\n            System.out.println(\"Errore Comunicazione DBMS\");\n        }\n        return null;\n    }\n\n\n    public static List<Impiegati> getImpiegati(int servizio, String ruolo) {\n        List<Impiegati> listaDaRitornare = new ArrayList<>();\n        try {\n            String sql = \"select matricola, nome,cognome,ref_servizio, ruolo from Impiegato where ref_servizio = ? and ruolo = ?\";\n            preparedStatement = conn.prepareStatement(sql);\n            preparedStatement.setInt(1, servizio);\n            preparedStatement.setString(2, ruolo);\n            resultSet = preparedStatement.executeQuery();\n            while (resultSet.next()) {\n                listaDaRitornare.add(new Impiegati(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getInt(4), resultSet.getString(5)));\n            }\n            return listaDaRitornare;\n        } catch (SQLException e) {\n            throw new RuntimeException(e);\n        }\n\n    }\n\n    public static List<Impiegati> getImpiegati(String ruolo) {\n        List<Impiegati> listaDaRitornare = new ArrayList<>();\n        try {\n            String sql = \"select matricola, nome,cognome,ref_servizio, ruolo from Impiegato where ruolo = ? ORDER BY ref_servizio\";\n            preparedStatement = conn.prepareStatement(sql);\n            preparedStatement.setString(1, ruolo);\n            resultSet = preparedStatement.executeQuery();\n            while (resultSet.next()) {\n                listaDaRitornare.add(new Impiegati(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getInt(4), resultSet.getString(5)));\n            }\n            return listaDaRitornare;\n        } catch (SQLException e) {\n            throw new RuntimeException(e);\n        }\n\n    }\n\n    public static List<Impiegati> getImpiegati() {\n        List<Impiegati> listaDaRitornare = new ArrayList<>();\n        try {\n            String sql = \"select matricola, nome,cognome,ref_servizio, ruolo from Impiegato ORDER BY ref_servizio\";\n            preparedStatement = conn.prepareStatement(sql);\n            resultSet = preparedStatement.executeQuery();\n            while (resultSet.next()) {\n                listaDaRitornare.add(new Impiegati(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getInt(4), resultSet.getString(5)));\n            }\n            return listaDaRitornare;\n        } catch (SQLException e) {\n            throw new RuntimeException(e);\n        }\n    }\n\n    public static List<LocalDate> getGiorniProibiti() {\n        List<LocalDate> listaRitorno = new ArrayList();\n        try {\n            String sql = \"select data_inizio, data_fine from FestivitaFerie\";\n            preparedStatement = conn.prepareStatement(sql);\n            resultSet = preparedStatement.executeQuery();\n            while (resultSet.next()) {\n                listaRitorno.add(resultSet.getDate(\"data_inizio\").toLocalDate());\n                listaRitorno.add(resultSet.getDate(\"data_fine\").toLocalDate());\n            }\n            return listaRitorno;\n        } catch (SQLException e) {\n            System.out.println(\"Errore Comunicazione DBMS\");\n        }\n        return null;\n    }\n\n\n    public static void insertMalattia(int matricola, LocalDate dataInizio, LocalDate dataFine, String motivazione, InputStream file) {\n\n        try {\n            String sql = \"INSERT INTO Richiesta(ref_impiegato,categoria,stato,data_inizio,data_fine,ora_inizio,ora_fine,svolgimento,motivazione,tipologia,matricola_destinazione,tipo_turno_origine,tipo_turno_destinazione,data_turno_origine,data_turno_destinazione,allegato)values (?,'malattia','accettata',?,?,'','','',?,'',0,'','','1970-01-01','1970-01-01',?) \";\n            preparedStatement = conn.prepareStatement(sql);\n            preparedStatement.setInt(1, matricola);\n            preparedStatement.setDate(2, Date.valueOf(dataInizio));\n            preparedStatement.setDate(3, Date.valueOf(dataFine));\n            preparedStatement.setBlob(5, file);\n            preparedStatement.setString(4, motivazione);\n            // preparedStatement.executeLargeUpdate();\n            largeupdate = preparedStatement.executeLargeUpdate();\n\n        } catch (SQLException e) {\n            throw new RuntimeException(e);\n        }\n\n    }\n\n    public static void insertLutto(int matricola, LocalDate dataInizio, LocalDate dataFine, InputStream file) {\n        try {\n            String sql = \"INSERT INTO Richiesta(ref_impiegato,categoria,stato,data_inizio,data_fine,ora_inizio,ora_fine,svolgimento,motivazione,tipologia,matricola_destinazione,tipo_turno_origine,tipo_turno_destinazione,data_turno_origine,data_turno_destinazione,allegato)values (?,'congedo per lutto','accettata',?,?,'','','','','',0,'','','1970-01-01','1970-01-01',?) \";\n            preparedStatement = conn.prepareStatement(sql);\n            preparedStatement.setInt(1, matricola);\n            preparedStatement.setDate(2, Date.valueOf(dataInizio));\n            preparedStatement.setDate(3, Date.valueOf(dataFine));\n            preparedStatement.setBlob(4, file);\n            largeupdate = preparedStatement.executeLargeUpdate();\n\n        } catch (SQLException e) {\n            throw new RuntimeException(e);\n        }\n    }\n\n    public static void insertCongedoParentale(int matricola, LocalDate dataInizio, LocalDate dataFine, InputStream file) {\n        try {\n            String sql = \"INSERT INTO Richiesta( ref_impiegato,categoria,stato,data_inizio,data_fine,ora_inizio,ora_fine,svolgimento,motivazione,tipologia,matricola_destinazione,tipo_turno_origine,tipo_turno_destinazione,data_turno_origine,data_turno_destinazione,allegato)values (?,'congedo parentale','accettata',?,?,'','','','','',0,'','','1970-01-01','1970-01-01',?) \";\n            preparedStatement = conn.prepareStatement(sql);\n            preparedStatement.setInt(1, matricola);\n            preparedStatement.setDate(2, Date.valueOf(dataInizio));\n            preparedStatement.setDate(3, Date.valueOf(dataFine));\n            preparedStatement.setBlob(4, file);\n            largeupdate = preparedStatement.executeLargeUpdate();\n\n        } catch (SQLException e) {\n            throw new RuntimeException(e);\n        }\n    }\n\n\n    public static void insertMaternita(int matricola, LocalDate dataInizio, LocalDate dataFine, InputStream file) {\n        try {\n            String sql = \"INSERT INTO Richiesta(ref_impiegato,categoria,stato,data_inizio,data_fine,ora_inizio,ora_fine,svolgimento,motivazione,tipologia,matricola_destinazione,tipo_turno_origine,tipo_turno_destinazione,data_turno_origine,data_turno_destinazione,allegato)values (?,'maternità','accettata',?,?,'','','','','',0,'','','1970-01-01','1970-01-01',?) \";\n            preparedStatement = conn.prepareStatement(sql);\n            preparedStatement.setInt(1, matricola);\n            preparedStatement.setDate(2, Date.valueOf(dataInizio));\n            preparedStatement.setDate(3, Date.valueOf(dataFine));\n            preparedStatement.setBlob(4, file);\n            largeupdate = preparedStatement.executeLargeUpdate();\n\n        } catch (SQLException e) {\n            throw new RuntimeException(e);\n        }\n    }\n\n    public static void insertSciopero(int matricola, LocalDate data, String motivazione, String svolgimento) {\n        try {\n            String s = \"SELECT matricola FROM Utente WHERE ruolo='Datore' \";\n            preparedStatement = conn.prepareStatement(s);\n            String sql = \"INSERT INTO Richiesta(ref_impiegato,categoria,stato,data_inizio,data_fine,ora_inizio,ora_fine,svolgimento,motivazione,tipologia,matricola_destinazione,tipo_turno_origine,tipo_turno_destinazione,data_turno_origine,data_turno_destinazione,allegato)values (?,'sciopero','in sospeso',?,'','','',?,?,'',?,'','','1970-01-01','1970-01-01',null) \";\n            preparedStatement = conn.prepareStatement(sql);\n            preparedStatement.setInt(1, matricola);\n            preparedStatement.setDate(2, Date.valueOf(data));\n            preparedStatement.setString(3, motivazione);\n            preparedStatement.setString(4, svolgimento);\n            preparedStatement.setInt(5, Integer.parseInt(s));\n            largeupdate = preparedStatement.executeLargeUpdate();\n\n        } catch (SQLException e) {\n            throw new RuntimeException(e);\n        }\n    }\n\n    public static List<Object> getTurni(int matricola) {\n        ArrayList<Object> listaRitorno = new ArrayList();\n        try {\n            String sql = \"select distinct t.* from Turno t where ref_impiegato=?\";\n            preparedStatement = conn.prepareStatement(sql);\n            preparedStatement.setInt(1, matricola);\n            resultSet = preparedStatement.executeQuery();\n            while (resultSet.next()) {\n                listaRitorno.add(resultSet.getString(1));\n                listaRitorno.add(resultSet.getTime(2));\n                listaRitorno.add(resultSet.getTime(3));\n                listaRitorno.add(resultSet.getDate(4));\n                listaRitorno.add(resultSet.getInt(5));\n                listaRitorno.add(resultSet.getInt(6));\n            }\n            return listaRitorno;\n        } catch (SQLException e) {\n            e.printStackTrace();\n        }\n        return null;\n    }\n\n    public static String getTurno(LocalDate turnoOrigine, int matricola) {\n        try {\n            String sql = \"select tipo_turno from Turno where data_turno=? and ref_impiegato=?\";\n            preparedStatement = conn.prepareStatement(sql);\n            preparedStatement.setDate(1, Date.valueOf(turnoOrigine));\n            preparedStatement.setInt(2, matricola);\n            resultSet = preparedStatement.executeQuery();\n            String a = null;\n            while (resultSet.next()) {\n                a = resultSet.getString(1);\n            }\n\n            return a;\n        } catch (SQLException ex) {\n            throw new RuntimeException(ex);\n        }\n    }\n\n    public static int getServizio(int matricola) {\n        try {\n            String sql = \"select ref_servizio from Impiegato where matricola=?\";\n            preparedStatement = conn.prepareStatement(sql);\n            preparedStatement.setInt(1, matricola);\n\n            resultSet = preparedStatement.executeQuery();\n            int a = 0;\n            while (resultSet.next()) {\n                a = resultSet.getInt(1);\n            }\n\n            return a;\n        } catch (SQLException ex) {\n            throw new RuntimeException(ex);\n        }\n    }\n\n    public static List<Integer> getMatricoleDestinazione(LocalDate turnoDestinazione, String tipo_turno, int servizio) {\n        ArrayList<Integer> listaRitorno = new ArrayList();\n        try {\n            int matricola = EntityUtente.getMatricola();\n            String sql = \"select ref_impiegato from Turno join Impiegato on matricola=ref_impiegato  where data_turno=? and tipo_turno=? and ref_servizio=? and ref_impiegato != ?\";\n            preparedStatement = conn.prepareStatement(sql);\n            preparedStatement.setDate(1, Date.valueOf(turnoDestinazione));\n            preparedStatement.setString(2, tipo_turno);\n            preparedStatement.setInt(3, servizio);\n            preparedStatement.setInt(4, matricola);\n\n            resultSet = preparedStatement.executeQuery();\n\n            while (resultSet.next()) {\n                listaRitorno.add(resultSet.getInt(\"ref_impiegato\"));\n            }\n\n            return listaRitorno;\n        } catch (SQLException ex) {\n            throw new RuntimeException(ex);\n        }\n    }\n\n    public static void insertCambioTurno(int matricola, LocalDate turnoOrigine, LocalDate turnoDestinazione, String turnoDesiderato, String turnoPrecedente) {\n        try {\n            String sql = \"INSERT INTO Richiesta(ref_impiegato,categoria,stato,data_inizio,data_fine,ora_inizio,ora_fine,svolgimento,motivazione,tipologia,matricola_destinazione,tipo_turno_origine,tipo_turno_destinazione,data_turno_origine,data_turno_destinazione,allegato)values (?,'cambio turno','in sospeso','1970-01-01','1970-01-01','','','','','',0,?,?,?,?,null) \";\n            preparedStatement = conn.prepareStatement(sql);\n            preparedStatement.setInt(1, matricola);\n            preparedStatement.setString(2, turnoPrecedente);\n            preparedStatement.setString(3, turnoDesiderato);\n            preparedStatement.setDate(4, Date.valueOf(turnoOrigine));\n            preparedStatement.setDate(5, Date.valueOf(turnoDestinazione));\n            preparedStatement.executeUpdate();\n\n        } catch (SQLException e) {\n            throw new RuntimeException(e);\n        }\n    }\n\n\n    public static List<Richiesta> getRichiesteRicevute(int matricola) {\n     /*   ArrayList<Richiesta> listaRitorno = new ArrayList();\n        try{\n            String sql=\"select id,categoria, tipo_turno_origine,tipo_turno_destinazione, data_turno_origine, data_turno_destinazione from Richiesta  where categoria='cambio turno' and stato='in sospeso'\";\n            preparedStatement = conn.prepareStatement(sql);\n           // preparedStatement.setInt(1,matricola);\n            resultSet = preparedStatement.executeQuery();\n            while(resultSet.next()){\n                listaRitorno.add(resultSet.getInt(1));\n                listaRitorno.add(resultSet.getInt(2));\n                listaRitorno.add(resultSet.getString(3));\n                listaRitorno.add(resultSet.getString(4));\n                listaRitorno.add(resultSet.getDate(5).toLocalDate());\n                listaRitorno.add(resultSet.getDate(6).toLocalDate());\n\n\n            }\n            return listaRitorno;\n        }catch (SQLException e){\n            System.out.println(\"Errore Comunicazione DBMS\");\n        }*/\n        return null;\n\n\n    }\n\n    // TODO: 21/01/23 i prossimi due metodi si potrebbero utilizzare per acc e rif sciopero\n    public static boolean accettaCambioTurno(int id) throws SQLException {\n        ResultSet rs = null;\n\n\n        if (rs.next()) {\n            String query = \"UPDATE Richiesta SET stato='accettata' WHERE id=?\";\n            PreparedStatement pstm1 = conn.prepareStatement(query);\n            pstm1.setInt(1, id);\n            pstm1.execute();\n            return true;\n        }\n\n        return false;\n    }\n\n    public static void updateTurni(int matricola, int matricolaOrigine) {\n        //todo implementare\n    }\n\n    public static boolean rifiutaCambioTurno(int id) throws SQLException {\n        ResultSet rs = null;\n        if (rs.next()) {\n            String query = \"UPDATE Richiesta SET stato='in sospeso' WHERE id=?\";\n            PreparedStatement pstm1 = conn.prepareStatement(query);\n            pstm1.setInt(1, id);\n            pstm1.execute();\n            return true;\n        }\n\n        return false;\n\n    }\n\n    public static List<Richiesta> getRichiesteSciopero(int matricola) {\n        ArrayList<Richiesta> listaRitorno = new ArrayList();\n        try {\n            String sql = \"select ref_impiegato,  data_inizio, data_fine,stato,  svolgimento, motivazione, id from Richiesta  where categoria='sciopero' and matricola_destinazione=?\";\n            preparedStatement = conn.prepareStatement(sql);\n            preparedStatement.setInt(1, matricola);\n            resultSet = preparedStatement.executeQuery();\n            while (resultSet.next()) {\n                listaRitorno.add(new Richiesta(resultSet.getInt(1), resultSet.getDate(2).toLocalDate(), resultSet.getDate(3).toLocalDate(), resultSet.getString(4), resultSet.getString(5), resultSet.getString(6), resultSet.getInt(7)));\n            }\n            return listaRitorno;\n        } catch (SQLException e) {\n            System.out.println(\"Errore Comunicazione DBMS\");\n        }\n        return null;\n\n\n    }\n\n    public static boolean accettaSciopero(int id) throws SQLException {\n\n        String query = \"UPDATE Richiesta SET stato='accettata' WHERE id=?\";\n        PreparedStatement pstm1 = conn.prepareStatement(query);\n        pstm1.setInt(1, id);\n        pstm1.execute();\n        return resultSet.next();\n    }\n\n    public static boolean rifiutaSciopero(int id) throws SQLException {\n        ResultSet rs = null;\n        if (rs.next()) {\n            String query = \"UPDATE Richiesta SET stato='rifiutata' WHERE id=?\";\n            PreparedStatement pstm1 = conn.prepareStatement(query);\n            pstm1.setInt(1, id);\n            pstm1.execute();\n            return true;\n        }\n\n        return false;\n    }\n//verifica se è già stata timbrata l'entrata per quel turno\n    public static boolean verifyTimbratura(LocalDate data, LocalTime orario, int matricola) throws SQLException {\n        ResultSet rs = null;\n\n        String query = \"SELECT * FROM Timbratura WHERE data_timbratura=? AND ora=? AND ref_impiegato=?\";\n        PreparedStatement pstm1 = conn.prepareStatement(query);\n        pstm1.setDate(1, Date.valueOf(data));\n        pstm1.setTime(2, Time.valueOf(orario));\n        pstm1.setInt(3, matricola);\n        pstm1.execute();\n        if (rs.next()) {\n            return true;\n        }\n        return false;\n    }\n\n    public static Boolean controlloTimbr(LocalDate data, int matricola) throws SQLException {\n        ResultSet rs = null;\n\n        String query = \"SELECT * FROM Turno WHERE data_turno=? AND ref_impiegato=?\";\n        PreparedStatement pstm1 = conn.prepareStatement(query);\n        pstm1.setDate(1, Date.valueOf(data));\n        pstm1.setInt(2, matricola);\n        pstm1.execute();\n        if (rs.next()) {\n            return true;\n        }\n        return false;\n    }\n\n    public static Boolean verifyDateProibite(LocalDate dataInizio, LocalDate dataFine, String categoria) throws SQLException {\n        ResultSet rs = null;\n\n        String query = \"SELECT * FROM FestivitaFerie WHERE data_inizio=? AND data_fine=? AND categoria=?\";\n        PreparedStatement pstm1 = conn.prepareStatement(query);\n\n        pstm1.setDate(1, Date.valueOf(dataInizio));\n        pstm1.setDate(2, Date.valueOf(dataFine));\n        pstm1.setString(3, categoria);\n\n        pstm1.execute();\n        if (rs.next()) {\n            return false;\n        }\n        return true;\n    }\n\n    public static void insertDateProibite(LocalDate dataInizio, LocalDate dataFine, String categoria) {\n        try {\n            String sql = \"INSERT INTO FestivitaFerie(ref_datore,categoria,data_inizio,data_fine)values (1001,?,?,?) \";\n            preparedStatement = conn.prepareStatement(sql);\n\n            preparedStatement.setString(1, categoria);\n            preparedStatement.setDate(2, Date.valueOf(dataInizio));\n            preparedStatement.setDate(3, Date.valueOf(dataFine));\n            preparedStatement.executeUpdate();\n\n        } catch (SQLException e) {\n            throw new RuntimeException(e);\n        }\n    }\n\n\n    public String getTipoTurno(LocalDate data, int matricola) throws SQLException {\n        ResultSet rs = null;\n        String query = \"SELECT tipo_turno FROM Turno WHERE data_turno=? AND ref_impiegato=?\";\n        PreparedStatement pstm1 = conn.prepareStatement(query);\n        pstm1.setDate(1, Date.valueOf(data));\n        pstm1.setInt(2, matricola);\n        pstm1.execute();\n        if (rs.next()) {\n            return rs.getString(\"tipo_turno\");\n        }\n        return null;\n    }\n\n\n//todo CONTROLLA IL METODO\n    public static void insertTimbratura(LocalDate data, LocalTime orario, int matricola, String tipoTurno, LocalDate dataTurno) {\n        try {\n            String sql = \"INSERT INTO Timbratura(ref_impiegato,tipo_timbratura,data_timbratura,ora)values (?,?,?,?,?) \";\n            preparedStatement = conn.prepareStatement(sql);\n            preparedStatement.setInt(1, matricola);\n            preparedStatement.setString(2, tipoTurno);\n            preparedStatement.setDate(3, Date.valueOf(data));\n            preparedStatement.setTime(4, Time.valueOf((orario)));\n            preparedStatement.executeUpdate();\n\n        } catch (SQLException e) {\n            throw new RuntimeException(e);\n        }\n    }\n\n    public static boolean verifyDati(String nome, String congome, int matricola) {\n\n        try {\n            String sql = \"Select * from Impiegato where nome =? and cognome = ? and matricola = ?\";\n            PreparedStatement pstm = conn.prepareStatement(sql);\n            pstm.setString(1, nome);\n            pstm.setString(2, congome);\n            pstm.setInt(3, matricola);\n            resultSet = pstm.executeQuery();\n            if (resultSet.next()) {\n                return true;\n            } else {\n                return false;\n            }\n        } catch (SQLException e) {\n            throw new RuntimeException(e);\n        }\n\n    }\n\n    public static List<Periodi> getPeriodi() {\n        List<Periodi> lista = new ArrayList<>();\n        try {\n            String sql = \"select data_inizio,data_fine,categoria, id from FestivitaFerie\";\n            preparedStatement = conn.prepareStatement(sql);\n            resultSet = preparedStatement.executeQuery();\n            while (resultSet.next()) {\n                lista.add(new Periodi(resultSet.getDate(\"data_inizio\").toLocalDate(), resultSet.getDate(\"data_fine\").toLocalDate(), resultSet.getString(\"categoria\"), resultSet.getInt(\"id\")));\n            }\n            return lista;\n        } catch (SQLException e) {\n            throw new RuntimeException(e);\n        }\n\n    }\n\n    public static Date getInizioturno(int matricola, Date date) {\n\n\n        try {\n            String sql = \"Select orario_Timbratura from Esegue where data_Timbratura = ? and ref_impiegato_timbratura = ?\";\n            PreparedStatement pstm = conn.prepareStatement(sql);\n            pstm.setDate(1, date);\n            pstm.setInt(2, matricola);\n            resultSet = pstm.executeQuery();\n            if (resultSet.next()) {\n                return resultSet.getDate(1);\n            }\n        } catch (SQLException e) {\n            throw new RuntimeException(e);\n        }\n        return null;\n    }\n\n    //TODO: rivedere nome cartella\n    public static void insertTimbratura(Date date, Time time, int matricola) {\n        //siccome devo inserire i dati in due tabelle, allora devo fare due insert, una su esegue e una timbratura\n        //ottengo prima l'ID del turno che voglio inserire così poi lo inseirsco\n    }\n\n\n    public static List<PropostaTurno> getPropostaTurni() {\n\n        ArrayList<PropostaTurno> listaRitorno = new ArrayList<>();\n        //todo mettere dataTurno\n        try {\n            String sql = \"Select tipo_turno,cognome, I.ref_servizio,I.ruolo,data_turno,nome from PropostaTurno PT,Impiegato I where PT.ref_impiegato = I.matricola\";\n            PreparedStatement pstm = conn.prepareStatement(sql);\n            resultSet = pstm.executeQuery();\n\n            while (resultSet.next()) {\n                listaRitorno.add(new PropostaTurno(resultSet.getString(1), resultSet.getString(2) + resultSet.getString(6), resultSet.getInt(3), resultSet.getString(4), resultSet.getDate(5).toLocalDate()));\n            }\n            return listaRitorno;\n\n        } catch (SQLException e) {\n            throw new RuntimeException(e);\n        }\n    }\n\n\n        public static int getMaxMatricola(){\n            //todo fare sia impiegato che amministrativo\n\n            try {\n                String sql = \"select max(matricola) from Impiegato\";\n                preparedStatement = conn.prepareStatement(sql);\n                resultSet = preparedStatement.executeQuery();\n                resultSet.next();\n                return resultSet.getInt(1);\n            } catch (SQLException e) {\n                throw new RuntimeException(e);\n            }\n\n\n        }\n\n        public static void updateImpiegato(int matricola, String nome, String cognome,char sesso, String cf, LocalDate dataNascita, String indirizzoResidenza,long recapitoTelefonico, String mailPersonale, String iban, String mail, String password, String ruolo,boolean reperibile, int servizio, LocalDate inizioServizio, LocalDate\n        fineServizio,int giorniFerieRimanenti, double orePermesso, double oreStraordinario, boolean disattivato, Blob\n        fotoProfilo){\n\n\n            try {\n                String sessoConvert = String.valueOf(sesso);\n                String sql = \"insert into Impiegato values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)\";\n                preparedStatement = conn.prepareStatement(sql);\n                preparedStatement.setInt(1, matricola);\n                preparedStatement.setString(2, nome);\n                preparedStatement.setString(3, cognome);\n                preparedStatement.setString(4, sessoConvert);\n                preparedStatement.setString(5, cf);\n                preparedStatement.setDate(6, Date.valueOf(dataNascita));\n                preparedStatement.setString(7, indirizzoResidenza);\n                preparedStatement.setLong(8, recapitoTelefonico);\n                preparedStatement.setString(9, mailPersonale);\n                preparedStatement.setString(10, iban);\n                preparedStatement.setString(11, mail);\n                preparedStatement.setString(12, password);\n                preparedStatement.setString(13, ruolo);\n                preparedStatement.setBoolean(14, reperibile);\n                preparedStatement.setInt(15, servizio);\n                preparedStatement.setDate(16, Date.valueOf(inizioServizio));\n                if (fineServizio == null) {\n                    preparedStatement.setDate(17, null);\n                } else {\n                    preparedStatement.setDate(17, Date.valueOf(fineServizio));\n                }\n                preparedStatement.setInt(18, giorniFerieRimanenti);\n                preparedStatement.setDouble(19, orePermesso);\n                preparedStatement.setDouble(20, oreStraordinario);\n                preparedStatement.setBoolean(21, disattivato);\n                preparedStatement.setBlob(22, fotoProfilo);\n\n\n                preparedStatement.execute();\n            } catch (SQLException e) {\n                throw new RuntimeException(e);\n            }\n\n\n        }\n        public static void rimuoviPeriodo(int id) throws SQLException {\n            Connection conn = DriverManager.getConnection(URL, username, passwordDBMS);\n            String deleteSQL = \"DELETE FROM FestivitaFerie WHERE id=?\";\n            PreparedStatement preparedStatement = conn.prepareStatement(deleteSQL);\n            preparedStatement.setInt(1, id);\n\n            preparedStatement.executeUpdate();\n        }\n\n    public static Stipendio getStipendio(int matricola, String mese, int anno){\n\n        try {\n            String sql = \"select * from Stipendio where ref_impiegato = ? and mese = ? and anno = ?\";\n            preparedStatement = conn.prepareStatement(sql);\n            preparedStatement.setInt(1,matricola);\n            preparedStatement.setString(2,mese);\n            preparedStatement.setInt(3,anno);\n            resultSet = preparedStatement.executeQuery();\n            if(resultSet.next()){\n                return new Stipendio(resultSet.getInt(1),resultSet.getString(2),resultSet.getInt(3),resultSet.getInt(4),resultSet.getInt(5),resultSet.getDouble(6),resultSet.getDouble(7),resultSet.getInt(8),resultSet.getInt(9),resultSet.getBoolean(10),resultSet.getDouble(11),resultSet.getDouble(12),resultSet.getDouble(13),resultSet.getInt(14),resultSet.getDouble(15));\n            }else{\n                System.out.println(\"nessun Stipendio caricato\");\n            }\n\n        } catch (SQLException e) {\n            throw new RuntimeException(e);\n        }\n        return null;\n    }\n\n\n\n\n    }\n\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/progettocompleto/FileDiSistema/Daemon.java b/src/main/java/com/example/progettocompleto/FileDiSistema/Daemon.java
+--- a/src/main/java/com/example/progettocompleto/FileDiSistema/Daemon.java	(revision 38fb533bda47a6e07057b118bed1519c3dba124f)
++++ b/src/main/java/com/example/progettocompleto/FileDiSistema/Daemon.java	(date 1674637543986)
+@@ -563,7 +563,7 @@
+     public static boolean verifyTimbratura(LocalDate data, LocalTime orario, int matricola) throws SQLException {
+         ResultSet rs = null;
+ 
+-        String query = "SELECT * FROM Timbratura WHERE data_timbratura=? AND ora=? AND ref_impiegato=?";
++        String query = "SELECT * FROM Timbratura,Turno WHERE data_turno= ? AND ora=? AND ref_impiegato=?";
+         PreparedStatement pstm1 = conn.prepareStatement(query);
+         pstm1.setDate(1, Date.valueOf(data));
+         pstm1.setTime(2, Time.valueOf(orario));
+@@ -575,7 +575,7 @@
+         return false;
+     }
+ 
+-    public static Boolean controlloTimbr(LocalDate data, int matricola) throws SQLException {
++    public static Boolean controlloTurno(LocalDate data, int matricola) throws SQLException {
+         ResultSet rs = null;
+ 
+         String query = "SELECT * FROM Turno WHERE data_turno=? AND ref_impiegato=?";
+@@ -637,14 +637,13 @@
+ 
+ 
+ //todo CONTROLLA IL METODO
+-    public static void insertTimbratura(LocalDate data, LocalTime orario, int matricola, String tipoTurno, LocalDate dataTurno) {
++    public static void insertTimbratura(LocalTime orario, int matricola, String tipoTurno, LocalDate dataTurno) {
+         try {
+-            String sql = "INSERT INTO Timbratura(ref_impiegato,tipo_timbratura,data_timbratura,ora)values (?,?,?,?,?) ";
++            String sql = "INSERT INTO Timbratura(ref_impiegato,tipo_timbratura,ora)values (?,?,?,?,?) ";
+             preparedStatement = conn.prepareStatement(sql);
+             preparedStatement.setInt(1, matricola);
+             preparedStatement.setString(2, tipoTurno);
+-            preparedStatement.setDate(3, Date.valueOf(data));
+-            preparedStatement.setTime(4, Time.valueOf((orario)));
++            preparedStatement.setTime(3, Time.valueOf((orario)));
+             preparedStatement.executeUpdate();
+ 
+         } catch (SQLException e) {
+@@ -822,10 +821,6 @@
+         }
+         return null;
+     }
+-
+-
+-
+-
+     }
+ 
+ 
+Index: src/main/resources/com/example/progettocompleto/Popup/FXML/PopUpErrore.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/com/example/progettocompleto/Popup/FXML/PopUpErrore.fxml b/src/main/resources/com/example/progettocompleto/Popup/FXML/PopUpErrore.fxml
+new file mode 100644
+--- /dev/null	(date 1674643593323)
++++ b/src/main/resources/com/example/progettocompleto/Popup/FXML/PopUpErrore.fxml	(date 1674643593323)
+@@ -0,0 +1,22 @@
++<?xml version="1.0" encoding="UTF-8"?>
++
++<?import javafx.scene.control.Button?>
++<?import javafx.scene.control.Label?>
++<?import javafx.scene.layout.AnchorPane?>
++<?import javafx.scene.text.Font?>
++
++<AnchorPane fx:id="rettangolo" prefHeight="200.0" prefWidth="300.0" stylesheets="@../CSS/PopUpErrore.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.progettocompleto.Popup.PopupErrore">
++   <children>
++      <Button fx:id="bottoneOK" focusTraversable="false" layoutX="194.0" layoutY="153.0" mnemonicParsing="false" onAction="#clickOK" prefHeight="30.0" prefWidth="85.0" text="OK" textFill="#b51212" />
++      <AnchorPane fx:id="area" layoutX="1.0" layoutY="1.0" prefHeight="50.0" prefWidth="300.0">
++         <children>
++            <Label fx:id="intestazione" alignment="CENTER" graphicTextGap="6.0" layoutX="121.0" layoutY="11.0" prefHeight="30.0" prefWidth="52.0" text="Errore" textAlignment="CENTER">
++               <font>
++                  <Font size="16.0" />
++               </font>
++            </Label>
++         </children>
++      </AnchorPane>
++      <Label fx:id="messaggioErrore" alignment="CENTER" layoutX="138.0" layoutY="90.0" />
++   </children>
++</AnchorPane>
+Index: src/main/resources/com/example/progettocompleto/Popup/FXML/PopUpInformazione.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/com/example/progettocompleto/Popup/FXML/PopUpInformazione.fxml b/src/main/resources/com/example/progettocompleto/Popup/FXML/PopUpInformazione.fxml
+new file mode 100644
+--- /dev/null	(date 1674643303453)
++++ b/src/main/resources/com/example/progettocompleto/Popup/FXML/PopUpInformazione.fxml	(date 1674643303453)
+@@ -0,0 +1,23 @@
++<?xml version="1.0" encoding="UTF-8"?>
++
++<?import javafx.scene.control.Button?>
++<?import javafx.scene.control.Label?>
++<?import javafx.scene.layout.AnchorPane?>
++<?import javafx.scene.text.Font?>
++<?import javafx.scene.text.Text?>
++
++<AnchorPane fx:id="rettangolo" prefHeight="200.0" prefWidth="300.0" stylesheets="@../CSS/PopUpInformazione.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
++   <children>
++      <Button fx:id="clickOK" focusTraversable="false" layoutX="201.0" layoutY="155.0" mnemonicParsing="false" onAction="#clickOK" prefHeight="30.0" prefWidth="85.0" text="OK" />
++      <AnchorPane fx:id="area" layoutX="1.0" prefHeight="50.0" prefWidth="300.0">
++         <children>
++            <Text fx:id="informazione" layoutX="109.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Informazione">
++               <font>
++                  <Font size="14.0" />
++               </font>
++            </Text>
++         </children>
++      </AnchorPane>
++      <Label fx:id="messaggioInformazione" alignment="CENTER" layoutX="124.0" layoutY="90.0" />
++   </children>
++</AnchorPane>

@@ -80,7 +80,7 @@ public class SchermataRegistrazioneImpiegato {
             controlGestioneImpiegati.clickRegistra(nome.getText(),cognome.getText(),Long.parseLong(recapito.getText()),mailPersonale.getText(),indirizzoResidenza.getText(),IBAN.getText(),servizio.getValue(),ruolo.getValue(),sesso,reperibile.isSelected(),dataPicker.getValue(),cf);
     }
     String cf;
-    public void calculate(){
+    public void calculate(ActionEvent event){
         nomeTesto = nome.getText();
         cognomeTesto = cognome.getText();
         dataNascitaTesto = dataPicker.getValue();
@@ -90,6 +90,9 @@ public class SchermataRegistrazioneImpiegato {
     }
     public void clickIndietro(ActionEvent e){
         Util.ritorno("/com/example/GestioneRemoto/GestioneImpiegato/FXML/SchermataGestioneImpiegati.fxml");
+    }
+    public void compilaDatiProfilo(){
+        controlGestioneImpiegati.clickRegistra(nome.getText(),cognome.getText(),Long.parseLong(recapito.getText()),mailPersonale.getText(),indirizzoResidenza.getText(),IBAN.getText(),servizio.getValue(),ruolo.getValue(),sesso,reperibile.isSelected(),dataPicker.getValue(),cf);
     }
    /* @FXML
     public void clickCarica(ActionEvent event) {

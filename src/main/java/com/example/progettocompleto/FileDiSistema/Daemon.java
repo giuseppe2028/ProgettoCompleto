@@ -563,7 +563,7 @@ public static boolean updatePassword(int matricola, String nuovapass) throws SQL
     public static boolean verifyTimbratura(LocalDate data, LocalTime orario, int matricola) throws SQLException {
         ResultSet rs = null;
 
-        String query = "SELECT * FROM Timbratura WHERE data_timbratura=? AND ora=? AND ref_impiegato=?";
+        String query = "SELECT * FROM Timbratura,Turno WHERE data_turno = ? AND ora=? AND ref_impiegato=?";
         PreparedStatement pstm1 = conn.prepareStatement(query);
         pstm1.setDate(1, Date.valueOf(data));
         pstm1.setTime(2, Time.valueOf(orario));
@@ -575,7 +575,7 @@ public static boolean updatePassword(int matricola, String nuovapass) throws SQL
         return false;
     }
 
-    public static Boolean controlloTimbr(LocalDate data, int matricola) throws SQLException {
+    public static Boolean controlloTurno(LocalDate data, int matricola) throws SQLException {
         ResultSet rs = null;
 
         String query = "SELECT * FROM Turno WHERE data_turno=? AND ref_impiegato=?";
