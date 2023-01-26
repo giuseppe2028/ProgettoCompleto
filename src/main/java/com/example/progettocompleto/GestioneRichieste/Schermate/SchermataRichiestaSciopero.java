@@ -8,18 +8,20 @@ import javafx.fxml.FXML;
 import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.text.Text;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 
 public class SchermataRichiestaSciopero {
-    ControlGestioneRichieste controlGestioneRichieste;
+    private ControlGestioneRichieste controlGestioneRichieste;
     @FXML
-    DatePicker dataPicker;
+    private DatePicker dataPicker;
     @FXML
-    Label motivazioneL;
+    private TextArea motivazioneText;
     @FXML
-    Label svolgimentoL;
+    private TextArea svolgimentoText;
     public SchermataRichiestaSciopero(ControlGestioneRichieste controlGestioneRichieste){
         this.controlGestioneRichieste=controlGestioneRichieste;
     }
@@ -43,8 +45,8 @@ public class SchermataRichiestaSciopero {
 
 public void clickInvia(ActionEvent e){
        LocalDate data= dataPicker.getValue();
-       String motivazione= motivazioneL.getText();
-       String svolgimento= svolgimentoL.getText();
+       String motivazione= motivazioneText.getText();
+       String svolgimento= svolgimentoText.getText();
         controlGestioneRichieste.clickInviaSciopero(data, motivazione,svolgimento);
 
 

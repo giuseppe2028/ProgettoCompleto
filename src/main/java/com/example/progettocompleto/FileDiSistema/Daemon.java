@@ -33,10 +33,14 @@ public class Daemon {
     public static boolean verifyCredenziali(int matricola, String password) {
 
         try {
-            String sql = "SELECT matricola FROM Impiegato WHERE matricola = ? AND password = ?";
+            String sql = "SELECT matricola FROM Impiegato WHERE matricola = ? AND password = ? UNION SELECT matricola FROM Amministrativo WHERE matricola = ? AND password = ? UNION SELECT matricola FROM Datore WHERE matricola = ? AND password = ?";
             preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setInt(1, matricola);
             preparedStatement.setString(2, password);
+            preparedStatement.setInt(3, matricola);
+            preparedStatement.setString(4, password);
+            preparedStatement.setInt(5, matricola);
+            preparedStatement.setString(6, password);
             resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 return true;
@@ -55,6 +59,8 @@ public class Daemon {
         String sql = "SELECT matricola,nome,cognome,cf,data_nascita,indirizzo_residenza,ruolo,mail,iban,recapito_telefonico,mail_personale,sesso FROM Datore WHERE matricola = ? UNION SELECT matricola,nome,cognome,cf,data_nascita,indirizzo_residenza,ruolo,mail,iban,recapito_telefonico,mail_personale,sesso FROM Amministrativo WHERE matricola = ? UNION SELECT matricola,nome,cognome,cf,data_nascita,indirizzo_residenza,ruolo,mail,iban,recapito_telefonico,mail_personale,sesso FROM Impiegato WHERE matricola = ?";
         try (PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
             preparedStatement.setInt(1, matricola);
+            preparedStatement.setInt(2, matricola);
+            preparedStatement.setInt(3, matricola);
             try (ResultSet resultSet = preparedStatement.executeQuery();) {
                 while (resultSet.next()) {
                     ritorno.add(resultSet.getInt("matricola"));
@@ -86,6 +92,8 @@ public class Daemon {
         String sql = "SELECT foto_profilo FROM Impiegato WHERE matricola = ? UNION SELECT foto_profilo FROM Amministrativo WHERE matricola = ? UNION SELECT foto_profilo FROM Datore WHERE matricola = ?";
         try (PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
             preparedStatement.setInt(1, matricola);
+            preparedStatement.setInt(2, matricola);
+            preparedStatement.setInt(3, matricola);
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 if (resultSet.next()) {
                     Blob blob = resultSet.getBlob("foto_profilo");
@@ -635,15 +643,19 @@ public static boolean verifyPassword2(String vecpass, int matricola) throws SQLE
         //TODO
     }
 
-    public static int getOrePermesso(int matricola) throws SQLException {
-        ResultSet rs = null;
-        String query = "SELECT ore_permesso_rimanenti FROM Impiegato WHERE matricola=?";
-        PreparedStatement pstm1 = conn.prepareStatement(query);
+    public static int getOrePermesso(int matricola){
+        try{
+            ResultSet rs = null;
+            String query = "SELECT ore_permesso_rimanenti FROM Impiegato WHERE matricola=?";
+            PreparedStatement pstm1 = conn.prepareStatement(query);
 
-        pstm1.setInt(1, matricola);
-        pstm1.execute();
-        if (rs.next()) {
-            return rs.getInt("ore_permesso_rimanenti");
+            pstm1.setInt(1, matricola);
+            pstm1.execute();
+            if (rs.next()) {
+                return rs.getInt("ore_permesso_rimanenti");
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
         }
         return 0;
     }
@@ -872,26 +884,8 @@ try{
 }
     return false;
     }
-
-public static void updatePassword(String password,int matricola){
-
-    try {
-        String sql = "UPDATE Impiegato I,Amministrativo A,Datore D SET I.password = ?, A.password = ?, D.password = ? where A.matricola = ? and I.matricola = ? and D.matricola = ? ";
-        preparedStatement = conn.prepareStatement(sql);
-        preparedStatement.setString(1,password);
-        preparedStatement.setString(2,password);
-        preparedStatement.setString(3,password);
-        preparedStatement.setInt(4,matricola);
-        preparedStatement.setInt(5,matricola);
-        preparedStatement.setInt(6,matricola);
-        preparedStatement.execute();
-
-    } catch (SQLException e) {
-        throw new RuntimeException(e);
-    }
-
 }
 
-    }
+
 
 

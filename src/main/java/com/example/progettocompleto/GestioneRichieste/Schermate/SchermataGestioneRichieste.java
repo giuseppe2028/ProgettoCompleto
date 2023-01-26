@@ -27,15 +27,15 @@ import java.util.List;
 
 public class SchermataGestioneRichieste  {
     private final ControlGestioneRichieste controlGestioneRichieste;
-    ObservableList<Richiesta> richiesteList;
+    private ObservableList<Richiesta> richiesteList;
     @FXML
     private TableView<Richiesta> richiesteTableView;
     @FXML
     private TableColumn<Richiesta, Integer> idCol;
     @FXML
     private TableColumn<Richiesta, Integer> matrCol;
-@FXML
-        private TableColumn<Richiesta, LocalTime> oraInCol;
+    @FXML
+    private TableColumn<Richiesta, LocalTime> oraInCol;
     @FXML
     private TableColumn<Richiesta, LocalTime> oraFCol;
 
@@ -63,10 +63,10 @@ public class SchermataGestioneRichieste  {
     @FXML
     private TableColumn<Richiesta, LocalDate> datafCol;
     @FXML
-    private TableColumn<Richiesta, Integer> statoCol;
+    private TableColumn<Richiesta, String> statoCol;
     @FXML
     private TableColumn editCol;
-    Richiesta richiesta;
+    private Richiesta richiesta;
 
    public SchermataGestioneRichieste(ControlGestioneRichieste controlGestioneRichieste){
     this.controlGestioneRichieste=controlGestioneRichieste;
@@ -123,7 +123,7 @@ public class SchermataGestioneRichieste  {
 
 //TODO getRichieste prima di schermtata richieste
 
-    public void loadDate() throws SQLException {
+    public void loadDate() {
         richiesteList = FXCollections.observableArrayList();
         List<Richiesta> richieste= Daemon.getRichieste(EntityUtente.getMatricola());
         for (int i = 0; i<richieste.size();i++) {
@@ -259,7 +259,7 @@ public void clickRichiestaMalattia(ActionEvent e){
 public void clickRichiestaCambio(ActionEvent e){
        controlGestioneRichieste.clickRichiestaCambio();
 }
-    public void updateTable() throws SQLException {
+    public void updateTable() {
         richiesteList.clear();
         loadDate();
         richiesteTableView.setItems(richiesteList);

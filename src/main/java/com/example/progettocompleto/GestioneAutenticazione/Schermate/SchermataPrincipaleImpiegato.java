@@ -36,23 +36,17 @@ public class SchermataPrincipaleImpiegato implements Runnable {
     @FXML
     Label ruolo;
     ControlLogin controlLogin;
+    @FXML
+    Label dataCorrente;
+    @FXML
+    ImageView ImmagineProfilo;
+    Stage stage = Start.mainStage;
+    private  Timer timer = new Timer();
     public SchermataPrincipaleImpiegato(ControlLogin controlLogin, List<Object> datiProfilo){
         this.datiProfilo = datiProfilo;
         this.controlLogin = controlLogin;
     }
 
-    @FXML
-    ImageView Iconlogout;
-    @FXML
-    Label dataCorrente;
-    @FXML
-    private ImageView ImmagineProfilo;
-    @FXML
-    MenuButton menuButtonGestioneProfilo = new MenuButton();
-    @FXML
-    MenuButton menuButtonGestioneTimbratura = new MenuButton();
-    Stage stage = Start.mainStage;
-    private  Timer timer = new Timer();
     @FXML
     public void initialize() throws IOException {
 
@@ -129,6 +123,7 @@ public class SchermataPrincipaleImpiegato implements Runnable {
         ControlTimbraturaRemoto controlTimbraturaRemoto= new ControlTimbraturaRemoto();
 
     }
+
 
 }
 

@@ -27,20 +27,19 @@ import static jdk.jfr.consumer.EventStream.openFile;
 
 
 public class SchermataModificaProfilo  {
+
     @FXML
-    Button indietro;
+    private TextField recapitoField;
     @FXML
-    TextField recapitoField;
+    private TextField indirizzoField;
     @FXML
-    TextField indirizzoField;
+    private TextField ibanField;
     @FXML
-    TextField ibanField;
+    private TextField mailField;
     @FXML
-    TextField mailField;
+    private Button carica;
     @FXML
-    Button carica;
-    @FXML
-    ImageView immagineView;
+    private ImageView immagineView;
 
     private ControlVisualizzaProfilo controlVisualizzaProfilo;
 

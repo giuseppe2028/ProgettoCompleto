@@ -1,7 +1,7 @@
 package com.example.progettocompleto.GestioneImpiegati.Control;
 
 import com.example.progettocompleto.Contenitori.Impiegati;
-import com.example.progettocompleto.FileDiSistema.ControlInterface;
+import com.example.progettocompleto.FileDiSistema.ControlInterfaceErrore;
 import com.example.progettocompleto.FileDiSistema.Daemon;
 import com.example.progettocompleto.FileDiSistema.EntityUtente;
 import com.example.progettocompleto.FileDiSistema.Util;
@@ -16,7 +16,7 @@ import java.time.LocalTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ControlGestioneImpiegati implements ControlInterface {
+public class ControlGestioneImpiegati implements ControlInterfaceErrore {
     Stage stage = Start.mainStage;
     public ControlGestioneImpiegati() {
         Util.setScene("/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataGestioneImpiegati.fxml",stage, c->new SchermataGestioneImpiegati(this));
@@ -108,7 +108,7 @@ public class ControlGestioneImpiegati implements ControlInterface {
 
     }
     @Override
-    public void clickOK(){
+    public void clickOKErrore(){
         System.out.println("Suca");
     }
 }

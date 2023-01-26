@@ -16,38 +16,38 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-public class SchermataVisualizzaStipendio implements Initializable {
+public class SchermataVisualizzaStipendio  {
     @FXML
-    ChoiceBox <String> meseBox;
+    private ChoiceBox <String> meseBox;
     @FXML
-    Label oreLavLabel;
+    private Label oreLavLabel;
     @FXML
-    Label gratLabel;
+    private Label gratLabel;
     @FXML
-    Label oreStraoLabel;
+    private Label oreStraoLabel;
     @FXML
-    Label repLabel;
+    private Label repLabel;
     @FXML
-    Label valOrelav;
+    private Label valOrelav;
     @FXML
-    Label valGrat;
+    private Label valGrat;
     @FXML
-    Label valOreStrao;
+    private Label valOreStrao;
     @FXML
-    Label valRep;
+    private Label valRep;
     @FXML
-    Label stipLordo;
+    private Label stipLordo;
     @FXML
-    Label trattenuteLabel;
+    private Label trattenuteLabel;
     @FXML
-    Label stipNetto;
+    private Label stipNetto;
     @FXML
-    Label tredicLabel;
+    private Label tredicLabel;
 
     @FXML
-    ChoiceBox <Integer>annoBox;
+    private ChoiceBox <Integer> annoBox;
 private String[] mesi={"Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"};
-    List<Integer> listaAnni = new ArrayList<>();
+    private List<Integer> listaAnni = new ArrayList<>();
     private ControlVisualizzaStipendio controlVisualizzaStipendio;
     private Stipendio stipendio;
     public SchermataVisualizzaStipendio(ControlVisualizzaStipendio controlVisualizzaStipendio,Stipendio stipendio){
@@ -63,8 +63,8 @@ private String[] mesi={"Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giug
         }
 
     }
-    @Override
-    public void initialize(URL arg, ResourceBundle arg1){
+
+    public void initialize(){
         meseBox.getItems().addAll(mesi);
         annoBox.getItems().addAll(listaAnni);
         annoBox.setValue(LocalDate.now().getYear());

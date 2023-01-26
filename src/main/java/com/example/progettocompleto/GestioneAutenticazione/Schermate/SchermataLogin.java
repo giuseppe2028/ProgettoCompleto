@@ -13,17 +13,13 @@ import java.io.IOException;
 public class SchermataLogin {
     private static Stage stage = Start.mainStage;
     @FXML
-   TextField matricola;
+   private TextField matricola;
     @FXML
     private PasswordField passwordField;
     private ControlLogin controlLogin;
 
     public SchermataLogin() {
-        try {
             controlLogin = new ControlLogin();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
     }
     public void clickRecuperaPassword(ActionEvent e) throws IOException {
         controlLogin.clickRecuperaPassword();
@@ -31,7 +27,7 @@ public class SchermataLogin {
 
 
     public void clickLogin(ActionEvent e) throws IOException {
-        controlLogin.clickLogin(Integer.parseInt(matricola.getText()),passwordField.getText());
+        controlLogin = new ControlLogin(Integer.parseInt(matricola.getText()),passwordField.getText());
     }
 
     @FXML

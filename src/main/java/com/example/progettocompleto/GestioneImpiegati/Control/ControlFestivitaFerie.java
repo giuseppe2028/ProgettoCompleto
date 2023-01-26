@@ -2,7 +2,7 @@ package com.example.progettocompleto.GestioneImpiegati.Control;
 
 
 
-import com.example.progettocompleto.FileDiSistema.ControlInterface;
+import com.example.progettocompleto.FileDiSistema.ControlInterfaceErrore;
 import com.example.progettocompleto.FileDiSistema.Daemon;
 import com.example.progettocompleto.GestioneImpiegati.Schermate.SchermataFestivitaFerie;
 
@@ -16,7 +16,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 
-public class ControlFestivitaFerie implements ControlInterface {
+public class ControlFestivitaFerie implements ControlInterfaceErrore {
     private List<Periodi> periodi;
     Stage stage = Start.mainStage;
     public ControlFestivitaFerie(){
@@ -40,7 +40,7 @@ public class ControlFestivitaFerie implements ControlInterface {
     }
 
     @Override
-    public void clickOK(){
+    public void clickOKErrore(){
         System.out.println("ragù");
     }
 }

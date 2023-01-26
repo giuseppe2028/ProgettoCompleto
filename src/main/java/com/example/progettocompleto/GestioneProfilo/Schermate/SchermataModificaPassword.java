@@ -4,6 +4,7 @@ package com.example.progettocompleto.GestioneProfilo.Schermate;
 
 
 import com.example.progettocompleto.FileDiSistema.EntityUtente;
+import com.example.progettocompleto.FileDiSistema.InterfacciaSchermata;
 import com.example.progettocompleto.GestioneProfilo.Control.ControlVisualizzaProfilo;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,21 +16,20 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 
-public class SchermataModificaPassword {
+public class SchermataModificaPassword implements InterfacciaSchermata {
     @FXML
-    Button confermaButton;
-    private final ControlVisualizzaProfilo controlVisualizzaProfilo;
-
-    public SchermataModificaPassword(ControlVisualizzaProfilo controlVisualizzaProfilo) {
-        this.controlVisualizzaProfilo = controlVisualizzaProfilo;
-    }
-
+    private Button confermaButton;
     @FXML
     private PasswordField vecchiaPassword;
     @FXML
     private PasswordField nuovaPassword;
     @FXML
     private PasswordField confermaNuovaPassword;
+    private final ControlVisualizzaProfilo controlVisualizzaProfilo;
+
+    public SchermataModificaPassword(ControlVisualizzaProfilo controlVisualizzaProfilo) {
+        this.controlVisualizzaProfilo = controlVisualizzaProfilo;
+    }
     public void verificaPassword() {
         nuovaPassword.setOnKeyPressed(event -> {
             String nuovapassword = nuovaPassword.getText();
@@ -49,7 +49,7 @@ public class SchermataModificaPassword {
 
 
     public void clickconfermaPassword(ActionEvent e) throws IOException, SQLException {
-int matricola= EntityUtente.getMatricola();
+        int matricola= EntityUtente.getMatricola();
         String vecpass= vecchiaPassword.getText();
         String nuovapass= nuovaPassword.getText();
         String confpass= confermaNuovaPassword.getText();

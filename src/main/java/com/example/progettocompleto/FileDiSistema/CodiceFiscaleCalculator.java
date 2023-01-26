@@ -23,7 +23,6 @@ public class CodiceFiscaleCalculator {
 
     ArrayList<Integer> arrayList = new ArrayList<>();
     ArrayList<Integer> arrayListVocali = new ArrayList<>();
-    //TODO sistemare la stampa sbagliata + aggiungere comune e codice di controllo
     public String computeCodiceFiscale(String nome, String cognome, LocalDate dataNascita, boolean sesso, String comune){
         String codiceFiscale = "";
         codiceFiscale = computeNomeCognome(nome,cognome);

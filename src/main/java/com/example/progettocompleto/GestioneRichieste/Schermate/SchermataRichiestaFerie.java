@@ -16,14 +16,14 @@ import java.util.List;
 
 public class SchermataRichiestaFerie {
     private ControlGestioneRichieste controlGestioneRichieste;
-    List<LocalDate> dataI;
-    List<LocalDate> dataF;
+    private List<LocalDate> dataI;
+    private List<LocalDate> dataF;
     @FXML
-    AnchorPane rettangolo1;
+    private AnchorPane rettangolo1;
     @FXML
-    DatePicker dataInizioDatePicker;
+    private DatePicker dataInizioDatePicker;
     @FXML
-    DatePicker dataFineDatePicker;
+    private DatePicker dataFineDatePicker;
 
     public SchermataRichiestaFerie(ControlGestioneRichieste controlGestioneRichieste, List<LocalDate> dataI, List<LocalDate> dataF) {
         this.controlGestioneRichieste = controlGestioneRichieste;
@@ -104,11 +104,5 @@ public class SchermataRichiestaFerie {
 
         controlGestioneRichieste.clickInviaFerie(dataInizio, dataFine);
     }
-    public void clickIndietro(){
-       // controlGestioneRichieste.clickIndietro();
-
-    }
-
-
 }
 

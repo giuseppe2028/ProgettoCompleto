@@ -16,32 +16,32 @@ import java.util.ArrayList;
 
 public class SchermataVisualizzaProfilo {
     @FXML
-    ImageView ImmagineProfilo;
+    private ImageView ImmagineProfilo;
     @FXML
-    Label nomeLabel;
+    private Label nomeLabel;
     @FXML
-    Label cognomeLabel;
+    private Label cognomeLabel;
     @FXML
-    Label matricolaLabel;
+    private Label matricolaLabel;
     @FXML
-    Label dataNascitaLabel;
+    private Label dataNascitaLabel;
     @FXML
-    Label mailLabel;
+    private Label mailLabel;
 
     @FXML
-    Label cfLabel;
+    private Label cfLabel;
     @FXML
-    Label recapitoLabel;
+    private Label recapitoLabel;
     @FXML
-    Label indirizzoLabel;
+    private Label indirizzoLabel;
     @FXML
-    Label ruoloLabel;
+    private Label ruoloLabel;
     @FXML
-    Label IbanLabel;
+    private Label ibanLabel;
     @FXML
-    Label mailPLabel;
-    ControlVisualizzaProfilo controlVisualizzaProfilo;
-    ArrayList<Object> datiProfilo;
+    private Label mailPLabel;
+    private ControlVisualizzaProfilo controlVisualizzaProfilo;
+    private ArrayList<Object> datiProfilo;
 
     public SchermataVisualizzaProfilo(ControlVisualizzaProfilo controlVisualizzaProfilo, ArrayList<Object> datiProfilo) {
         this.controlVisualizzaProfilo = controlVisualizzaProfilo;
@@ -62,7 +62,7 @@ public class SchermataVisualizzaProfilo {
         indirizzoLabel.setText(datiProfilo.get(5).toString());
         ruoloLabel.setText(datiProfilo.get(6).toString());
         mailLabel.setText(datiProfilo.get(7).toString());
-        IbanLabel.setText(datiProfilo.get(8).toString());
+        ibanLabel.setText(datiProfilo.get(8).toString());
         String recapito = datiProfilo.get(9).toString();
         recapitoLabel.setText(recapito);
         mailPLabel.setText(datiProfilo.get(10).toString());

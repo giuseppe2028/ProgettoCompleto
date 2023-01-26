@@ -2,14 +2,12 @@ package com.example.progettocompleto.GestioneProfilo.Control;
 
 
 
-import com.example.progettocompleto.FileDiSistema.Daemon;
-import com.example.progettocompleto.FileDiSistema.EntityUtente;
-import com.example.progettocompleto.FileDiSistema.Util;
+import com.example.progettocompleto.FileDiSistema.*;
 import com.example.progettocompleto.GestioneProfilo.Schermate.SchermataModificaPassword;
 import com.example.progettocompleto.GestioneProfilo.Schermate.SchermataModificaProfilo;
 import com.example.progettocompleto.GestioneProfilo.Schermate.SchermataVisualizzaProfilo;
+import com.example.progettocompleto.Popup.PopupInformazione;
 import com.example.progettocompleto.Start;
-import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -18,24 +16,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ControlVisualizzaProfilo {
+public class ControlVisualizzaProfilo implements ControlInterfaceInformazione {
+    private Stage stagePopup = new Stage();
     private Stage stage = Start.mainStage;
-
-    //TODO update l'entity
-    Parent root;
-    private int matricola;
-    private boolean esito;
-    private String vecchia;
-    private String nuova;
-    private String conferma;
-
-
-    List<Object> datiProfilo;
-    List<String> datiModificati;
-
-    /*  public controlVisualizzaProfilo(){
-
-      }*/
+    private List<Object> datiProfilo;
     public ControlVisualizzaProfilo() {
         datiProfilo = EntityUtente.getDatiProfilo();
         Util.setScene("/com/example/progettocompleto/GestioneProfilo/FXML/SchermataVisualizzaProfilo.fxml", stage, c->new SchermataVisualizzaProfilo(this, (ArrayList<Object>) datiProfilo));
@@ -57,10 +41,10 @@ public class ControlVisualizzaProfilo {
         if (verifyPassword(nuovapass, confpass)) {
 
             if (Daemon.verifyPassword2(vecpass, matricola)) {
-                Daemon.updatePassword(nuovapass, matricola);
-                Alert a= new Alert(Alert.AlertType.INFORMATION);
-                a.setContentText("Password cambiata con successo!");
-                a.showAndWait();
+                //todo Daemon.updatePassword(nuovapass, matricola);
+                //Daemon.updatePassword(nuovapass, matricola);
+                Util.setScenePopup("/com/example/progettocompleto/Popup/FXML/PopupInformazione.fxml",stagePopup,c->new PopupInformazione("Password modificata con successo!",this,stagePopup));
+                stagePopup.show();
             } else {
                 Alert a= new Alert(Alert.AlertType.ERROR);
                 a.setTitle("Errore");
@@ -75,13 +59,6 @@ public class ControlVisualizzaProfilo {
         }
 
     }
-
-
-    public void clickOK(){
-//TODO implementare
-
-    }
-
     public boolean verifyInsert(String recapito, String iban){
         boolean isValid= recapito.length()<=12;
         boolean isVali= iban.length()>26 ;
@@ -123,6 +100,10 @@ public class ControlVisualizzaProfilo {
     }
 
 
+    @Override
+    public void clickOKInformazione() {
+
+    }
 }
 
 

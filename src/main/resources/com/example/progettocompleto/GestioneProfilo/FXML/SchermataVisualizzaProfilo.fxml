@@ -127,7 +127,7 @@
                     </image>
                 </ImageView>
                 <Text layoutX="84.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IBAN" wrappingWidth="30.5" />
-                <Label fx:id="IbanLabel" layoutX="78.0" layoutY="82.0" prefHeight="20.0" prefWidth="248.0" text="IBAN" />
+                <Label fx:id="ibanLabel" layoutX="78.0" layoutY="82.0" prefHeight="20.0" prefWidth="248.0" text="IBAN" />
             </children>
         </AnchorPane>
         <AnchorPane layoutX="556.0" layoutY="393.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="204.0" prefWidth="364.0">

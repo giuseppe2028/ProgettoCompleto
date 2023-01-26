@@ -30,21 +30,10 @@ public class SchermataPrincipaleDatore implements Runnable{
     private Label matricola;
     @FXML
     private Label ruolo;
-
-    @FXML
-    private ImageView Iconlogout;
     @FXML
     private Label dataCorrente;
-
     @FXML
     private ImageView immagineView;
-
-    @FXML
-    private MenuButton menuButtonGestioneProfilo = new MenuButton();
-    @FXML
-    private MenuButton menuButtonGestioneTimbratura = new MenuButton();
-    Stage stage = Start.mainStage;
-
     private Timer timer = new Timer();
     public SchermataPrincipaleDatore(ControlLogin controlLogin, ArrayList<Object> lista){
         this.controlLogin = controlLogin;

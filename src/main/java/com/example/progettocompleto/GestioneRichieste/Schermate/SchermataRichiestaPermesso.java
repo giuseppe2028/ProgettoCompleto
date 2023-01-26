@@ -17,26 +17,21 @@ import java.time.LocalDate;
 public class SchermataRichiestaPermesso {
     private ControlGestioneRichieste controlGestioneRichieste;
     @FXML
-    ChoiceBox<String> oraInizio;
+    private ChoiceBox<String> oraInizio;
     @FXML
-    ChoiceBox<String> minutoInizio;
+    private ChoiceBox<String> minutoInizio;
     @FXML
-    ChoiceBox<String> oraFine;
+    private ChoiceBox<String> oraFine;
     @FXML
-    ChoiceBox<String> minutoFine;
+    private ChoiceBox<String> minutoFine;
     @FXML
-    DatePicker dataPicker;
+    private DatePicker dataPicker;
     private String[] oraIn = {"08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"};
-
-
     private String[] oraFin = {"08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"};
     private String[] minutoIn = {"00", "30"};
     private String[] minutoFin = {"00", "30"};
-
     public SchermataRichiestaPermesso(ControlGestioneRichieste controlGestioneRichieste) {
         this.controlGestioneRichieste = controlGestioneRichieste;
-
-
     }
 
     public void initialize() {
@@ -109,10 +104,10 @@ public class SchermataRichiestaPermesso {
     }
     public void clickIndietro(ActionEvent e)
     {
-
         Util.ritorno("/com/example/GestioneRemoto/GestioneRichieste/FXML/SchermataGestioneRichieste.fxml");
     }
 }
+//todo prestaci attenzione
 /*
     public void clickInvia(ActionEvent e){
 LocalDate data= dataPicker.getValue();

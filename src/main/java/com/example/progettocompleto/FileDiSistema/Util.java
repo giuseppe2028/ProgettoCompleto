@@ -43,7 +43,7 @@ public class Util {
             scene = new Scene(root);
             //lo stage che ho passato lo trasformo come main stage, ovvero lo inizializzo al mainstage
             stage.setScene(scene);
-            stage.show();
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

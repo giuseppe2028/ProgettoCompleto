@@ -15,17 +15,11 @@ import javafx.stage.Stage;
 public class SchermataRecuperoPassword {
 
     private ControlLogin controlLogin;
-
-
-    public SchermataRecuperoPassword(ControlLogin controlLogin){
-    this.controlLogin = controlLogin;
-    }
-
     @FXML
     private TextField mailText;
-
-
-
+    public SchermataRecuperoPassword(ControlLogin controlLogin){
+        this.controlLogin = controlLogin;
+    }
     @FXML
     public void clickIndietro(ActionEvent e){
     controlLogin.clickIndietro();

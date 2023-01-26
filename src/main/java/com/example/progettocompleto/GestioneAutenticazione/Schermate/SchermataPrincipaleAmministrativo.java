@@ -21,8 +21,7 @@ import java.io.InputStream;
 import java.util.List;
 
 public class SchermataPrincipaleAmministrativo extends SchermataPrincipaleImpiegato {
-    @FXML
-    ImageView ImmagineProfilo;
+
     public SchermataPrincipaleAmministrativo(ControlLogin controlLogin, List<Object> datiProfilo){
         super(controlLogin,datiProfilo);
     }
@@ -53,12 +52,12 @@ public class SchermataPrincipaleAmministrativo extends SchermataPrincipaleImpieg
     public void clickVisualizzaCalendario(){
 
     }
+    public void clickLogout(ActionEvent e){
+        controlLogin.clickLogout(e);
+    }
     @FXML
     public void clickVisualizzaProfilo(ActionEvent e){
         ControlVisualizzaProfilo controlVisualizzaProfilo=new ControlVisualizzaProfilo();
-
-
-
     }
     @FXML
     public void clickVisualizzaStipendio(ActionEvent e){

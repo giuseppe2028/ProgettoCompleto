@@ -21,7 +21,10 @@ import java.util.List;
 
 
 public class ControlGestioneRichieste {
-int matricola;
+    private Stage stage = Start.mainStage;
+    public ControlGestioneRichieste() {
+        Util.setSpecificScene("/com/example/progettocompleto/GestioneRichieste/FXML/SchermataGestioneRichieste.fxml", stage, c -> new SchermataGestioneRichieste(this));
+    }
     public void clickCongedoLutto() {
         Util.setScene("/com/example/progettocompleto/GestioneRichieste/FXML/SchermataCongedoLutto.fxml", stage, c -> new SchermataCongedoLutto(this));
     }
@@ -35,24 +38,6 @@ int matricola;
         Daemon.delete(id);
         //TODO popup info.
     }
-
-
-    public class CustomTableRowSkin<T> extends TableRowSkin<T> {
-        public CustomTableRowSkin(TableRow<T> tableRow) {
-            super(tableRow);
-        }
-
-    }
-
-    private Stage stage = Start.mainStage;
-
-    public ControlGestioneRichieste() {
-
-        Util.setSpecificScene("/com/example/progettocompleto/GestioneRichieste/FXML/SchermataGestioneRichieste.fxml", stage, c -> new SchermataGestioneRichieste(this));
-    }
-
-
-
     public void clickInviaFerie(LocalDate dI, LocalDate dF) throws SQLException {
        int matricola= EntityUtente.getMatricola();
         Period periodo = Period.between(dI, dF);
@@ -101,7 +86,7 @@ int matricola;
     }
 
 
-   public void clickInviaPermesso(LocalDate data, String oraInizio, String minutiInizio, String oraFine, String minutiFine) throws SQLException {
+   public void clickInviaPermesso(LocalDate data, String oraInizio, String minutiInizio, String oraFine, String minutiFine){
         int matricola= EntityUtente.getMatricola();
         //TODO aggiungere i controlli sulla data
         int orePermesso= Daemon.getOrePermesso(matricola);

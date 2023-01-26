@@ -1,10 +1,10 @@
 package com.example.progettocompleto.Popup;
 
-import com.example.progettocompleto.FileDiSistema.ControlInterface;
+import com.example.progettocompleto.FileDiSistema.ControlInterfaceErrore;
+import com.example.progettocompleto.FileDiSistema.ControlInterfaceInformazione;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -20,7 +20,7 @@ public class PopupInformazione {
     @FXML
     Label informazione;
 
-   private  ControlInterface controlInterface;
+   private ControlInterfaceInformazione controlInterface;
 
     @FXML
     public void initialize(){
@@ -34,7 +34,7 @@ public class PopupInformazione {
 
 
 
-    public PopupInformazione(String message,ControlInterface controlInterface,Stage stage){
+    public PopupInformazione(String message, ControlInterfaceInformazione controlInterface, Stage stage){
         this.stage = stage;
         this.controlInterface = controlInterface;
         this.message = message;
@@ -44,7 +44,7 @@ public class PopupInformazione {
 
     @FXML
     public void clickOK(ActionEvent event) throws IOException {
-        controlInterface.clickOK();
+        controlInterface.clickOKInformazione();
         stage.close();
     }
 }
