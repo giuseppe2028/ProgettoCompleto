@@ -22,41 +22,34 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class SchermataPrincipaleDatore implements Runnable{
-
-    List<Object> lista;
-
-    ControlLogin controlLogin;
-    public SchermataPrincipaleDatore(ControlLogin controlLogin, ArrayList<Object> lista){
-        this.controlLogin = controlLogin;
-        this.lista = lista;
-
-
-    }
+    private List<Object> lista;
+    private ControlLogin controlLogin;
     @FXML
-    Label nomeCognome;
+    private Label nomeCognome;
     @FXML
-    Label matricola;
+    private Label matricola;
     @FXML
-    Label ruolo;
+    private Label ruolo;
 
     @FXML
-    ImageView Iconlogout;
+    private ImageView Iconlogout;
     @FXML
-    Label dataCorrente;
+    private Label dataCorrente;
 
     @FXML
     private ImageView immagineView;
 
     @FXML
-    MenuButton menuButtonGestioneProfilo = new MenuButton();
+    private MenuButton menuButtonGestioneProfilo = new MenuButton();
     @FXML
-    MenuButton menuButtonGestioneTimbratura = new MenuButton();
+    private MenuButton menuButtonGestioneTimbratura = new MenuButton();
     Stage stage = Start.mainStage;
 
     private Timer timer = new Timer();
-
-
-
+    public SchermataPrincipaleDatore(ControlLogin controlLogin, ArrayList<Object> lista){
+        this.controlLogin = controlLogin;
+        this.lista = lista;
+    }
     @FXML
     public void initialize() throws IOException {
         String stringNomeCognome =lista.get(1).toString() +" " +  lista.get(2).toString();
@@ -73,14 +66,11 @@ public class SchermataPrincipaleDatore implements Runnable{
         is.close();
 
     }
-
-
     public void run() {
         int x = 0;
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-
                 String oraCorrente;
                 int secondo = DatePicker.getSecond();
                 int minuto = DatePicker.getMinute();
@@ -119,7 +109,7 @@ public class SchermataPrincipaleDatore implements Runnable{
     }
     @FXML
     public void clickGestioneFestivitaFerie(ActionEvent e){
- ControlFestivitaFerie controlFestivitaFerie= new ControlFestivitaFerie();
+        ControlFestivitaFerie controlFestivitaFerie= new ControlFestivitaFerie();
 
     }
 

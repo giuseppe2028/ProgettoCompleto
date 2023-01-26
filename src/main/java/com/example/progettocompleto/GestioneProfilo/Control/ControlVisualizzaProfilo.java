@@ -57,7 +57,7 @@ public class ControlVisualizzaProfilo {
         if (verifyPassword(nuovapass, confpass)) {
 
             if (Daemon.verifyPassword2(vecpass, matricola)) {
-                Daemon.updatePassword(matricola, nuovapass);
+                Daemon.updatePassword(nuovapass, matricola);
                 Alert a= new Alert(Alert.AlertType.INFORMATION);
                 a.setContentText("Password cambiata con successo!");
                 a.showAndWait();

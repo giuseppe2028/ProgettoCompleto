@@ -1,11 +1,10 @@
 package com.example.progettocompleto.Popup;
 
 import com.example.progettocompleto.FileDiSistema.ControlInterface;
-import com.example.progettocompleto.FileDiSistema.Util;
-import com.example.progettocompleto.Start;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -19,13 +18,13 @@ public class PopupInformazione {
     Label messaggioInformazione;
 
     @FXML
-     Label intestazione;
+    Label informazione;
 
    private  ControlInterface controlInterface;
 
     @FXML
     public void initialize(){
-        intestazione.setText("Informazione");
+        informazione.setText("Informazione");
         messaggioInformazione.setText(this.message);
     }
 

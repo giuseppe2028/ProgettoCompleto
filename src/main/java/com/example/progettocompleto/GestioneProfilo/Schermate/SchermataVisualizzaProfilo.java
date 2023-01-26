@@ -88,8 +88,6 @@ controlVisualizzaProfilo.clickModificaPassword();
                controlVisualizzaProfilo.clickIndietro("/com/example/GestioneRemoto/GestioneAutenticazione/FXML/SchermataPrincipaleAmministrativo.fxml");
            }
    }
-
-
         public void clickModifica(ActionEvent event){
             controlVisualizzaProfilo.clickModifica();
         }

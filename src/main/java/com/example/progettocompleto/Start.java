@@ -2,7 +2,9 @@ package com.example.progettocompleto;
 
 
 
+import com.example.progettocompleto.FileDiSistema.Daemon;
 import com.example.progettocompleto.FileDiSistema.DatePicker;
+import com.example.progettocompleto.GestioneAutenticazione.Schermate.SchermataLogin;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -20,6 +22,7 @@ public class Start extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        new Daemon();
         DatePicker datePicker = new DatePicker();
         Thread orologio = new Thread(datePicker);
         orologio.start();
@@ -31,6 +34,8 @@ public class Start extends Application {
         stage.setScene(scene);
         stage.show();
 stage.setResizable(false);
+
+
     }
 
     public static void main(String[] args) {

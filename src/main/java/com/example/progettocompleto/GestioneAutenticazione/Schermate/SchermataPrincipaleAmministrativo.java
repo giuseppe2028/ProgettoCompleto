@@ -49,9 +49,7 @@ public class SchermataPrincipaleAmministrativo extends SchermataPrincipaleImpieg
         ControlGestioneRichieste controlGestioneRichieste= new ControlGestioneRichieste();
 
     }
-    public void clickTimbraturaImpiegati(){
-
-    }
+    //todo giuseppe da fare
     public void clickVisualizzaCalendario(){
 
     }
@@ -65,19 +63,17 @@ public class SchermataPrincipaleAmministrativo extends SchermataPrincipaleImpieg
     @FXML
     public void clickVisualizzaStipendio(ActionEvent e){
         ControlVisualizzaStipendio controlVisualizzaStipendio= new ControlVisualizzaStipendio();
-
     }
     @FXML
     public void clickGestioneImpiegati(ActionEvent e){
         ControlGestioneImpiegati controlGestioneImpiegati = new ControlGestioneImpiegati();
-
     }
     public void clickTimbraEntrata(ActionEvent e){
         ControlTimbraturaRemoto controlTimbraturaRemoto= new ControlTimbraturaRemoto();
-
     }
     @FXML
     public void clickTurnazioneTrimestrale(ActionEvent e){
         ControlVisualizzaPropostaTurni controlVisualizzaPropostaTurni= new ControlVisualizzaPropostaTurni();
     }
+
 }

@@ -33,8 +33,7 @@ public class Daemon {
     public static boolean verifyCredenziali(int matricola, String password) {
 
         try {
-            //faccio la query
-            String sql = "SELECT matricola FROM Utente WHERE matricola = ? AND password = ?";
+            String sql = "SELECT matricola FROM Impiegato WHERE matricola = ? AND password = ?";
             preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setInt(1, matricola);
             preparedStatement.setString(2, password);
@@ -53,9 +52,8 @@ public class Daemon {
 
     public static List<Object> getDatiProfilo(int matricola) {
         List<Object> ritorno = new ArrayList<>();
-        String sql = "SELECT * FROM Utente WHERE matricola = ?";
+        String sql = "SELECT matricola,nome,cognome,cf,data_nascita,indirizzo_residenza,ruolo,mail,iban,recapito_telefonico,mail_personale,sesso FROM Datore WHERE matricola = ? UNION SELECT matricola,nome,cognome,cf,data_nascita,indirizzo_residenza,ruolo,mail,iban,recapito_telefonico,mail_personale,sesso FROM Amministrativo WHERE matricola = ? UNION SELECT matricola,nome,cognome,cf,data_nascita,indirizzo_residenza,ruolo,mail,iban,recapito_telefonico,mail_personale,sesso FROM Impiegato WHERE matricola = ?";
         try (PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
-
             preparedStatement.setInt(1, matricola);
             try (ResultSet resultSet = preparedStatement.executeQuery();) {
                 while (resultSet.next()) {
@@ -64,26 +62,13 @@ public class Daemon {
                     ritorno.add(resultSet.getString("cognome"));
                     ritorno.add(resultSet.getString("cf"));
                     ritorno.add(resultSet.getDate("data_nascita"));
-                    // ritorno.add(resultSet.getBlob("foto_profilo"));
                     ritorno.add(resultSet.getString("indirizzo_residenza"));
                     ritorno.add(resultSet.getString("ruolo"));
                     ritorno.add(resultSet.getString("mail"));
-                    // ritorno.add(resultSet.getString("password"));
                     ritorno.add(resultSet.getString("IBAN"));
                     ritorno.add(resultSet.getLong("recapito_telefonico"));
                     ritorno.add(resultSet.getString("mail_personale"));
-                   /* Blob blob = resultSet.getBlob("foto_profilo");
-                    byte[] data = blob.getBinaryStream().readAllBytes();
-                    InputStream inputStream = new ByteArrayInputStream(data);
-                    ritorno.add(inputStream);
-                    /* Blob clob = resultSet.getBlob("foto_profilo");
-                    byte[] byteArr = clob.getBytes(1, (int) clob.length());
-                    InputStream inputStream = new ByteArrayInputStream(byteArr);
-                    ritorno.add(inputStream);*/
                     ritorno.add(resultSet.getString("sesso"));
-                //    ritorno.add(resultSet.getInt("servizio"));
-
-
                 }
 
 
@@ -98,7 +83,7 @@ public class Daemon {
     }
 
     public static InputStream getFotoProfilo(int matricola) {
-        String sql = "SELECT foto_profilo FROM Utente WHERE matricola = ?";
+        String sql = "SELECT foto_profilo FROM Impiegato WHERE matricola = ? UNION SELECT foto_profilo FROM Amministrativo WHERE matricola = ? UNION SELECT foto_profilo FROM Datore WHERE matricola = ?";
         try (PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
             preparedStatement.setInt(1, matricola);
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
@@ -119,7 +104,7 @@ public class Daemon {
     public static int getMatricola(String mail) {
         ResultSet rs;
         try {
-            String sql = "SELECT * FROM Utente WHERE mail = ?";
+            String sql = "SELECT matricola FROM Impiegato WHERE mail = ? UNION SELECT matricola FROM Amministrativo WHERE mail = ? UNION SELECT matricola FROM Datore WHERE mail = ?";
             PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setString(1, mail);
             rs = pstm.executeQuery();
@@ -134,15 +119,27 @@ public class Daemon {
 
 
         try {
-            String query = "UPDATE Utente SET indirizzo_residenza=?, recapito_telefonico=?, IBAN=?, mail_personale=?, foto_profilo=?  WHERE matricola=?";
+            String query = "UPDATE Impiegato I,Amministrativo A,Datore D SET I.indirizzo_residenza=?, I.recapito_telefonico=?, I.IBAN=?, I.mail_personale=?, I.foto_profilo=?, A.indirizzo_residenza=?, A.recapito_telefonico=?, A.IBAN=?, A.mail_personale=?, A.foto_profilo=?, D.indirizzo_residenza=?, D.recapito_telefonico=?, D.IBAN=?, D.mail_personale=?, D.foto_profilo=?   WHERE I.matricola=? and D.matricola=? and A.matricola=?";
             PreparedStatement pstm1 = conn.prepareStatement(query);
             pstm1.setString(1, indirizzo);
             pstm1.setDouble(2, recapito);
             pstm1.setString(3, iban);
             pstm1.setString(4, mail);
-
             pstm1.setBlob(5, path);
             pstm1.setInt(6, matricola);
+            pstm1.setString(7, indirizzo);
+            pstm1.setDouble(8, recapito);
+            pstm1.setString(9, iban);
+            pstm1.setString(10, mail);
+            pstm1.setBlob(11, path);
+            pstm1.setInt(12, matricola);
+            pstm1.setString(13, indirizzo);
+            pstm1.setDouble(14, recapito);
+            pstm1.setString(15, iban);
+            pstm1.setString(16, mail);
+            pstm1.setBlob(17, path);
+            pstm1.setInt(18, matricola);
+
 
             pstm1.execute();
             return true;
@@ -153,32 +150,19 @@ public class Daemon {
     }
 public static boolean verifyPassword2(String vecpass, int matricola) throws SQLException {
         resultSet=null;
-        String sql = "SELECT password FROM Utente WHERE password=? AND matricola=?";
+        String sql = "SELECT password FROM Impiegato WHERE password=? AND matricola=? UNION SELECT password FROM Amministrativo WHERE password=? AND matricola=? UNION SELECT password FROM Datore WHERE password=? AND matricola=?";
     if(resultSet.next()) {
         PreparedStatement pstm = conn.prepareStatement(sql);
         pstm.setString(1, vecpass);
         pstm.setInt(2, matricola);
+        pstm.setString(3, vecpass);
+        pstm.setInt(4, matricola);
+        pstm.setString(5, vecpass);
+        pstm.setInt(6, matricola);
         resultSet = pstm.executeQuery();
         return true;
     }return false;
 }
-
-public static boolean updatePassword(int matricola, String nuovapass) throws SQLException {
-        resultSet=null;
-            if (resultSet.next()) {
-                String query = "UPDATE Utente SET password=? WHERE matricola=?";
-                PreparedStatement pstm1 = conn.prepareStatement(query);
-                pstm1.setString(1, nuovapass);
-                pstm1.setInt(2, matricola);
-                pstm1.execute();
-                return true;
-            }
-        return false;
-    }
-
-
-
-
     public static void delete(int ID_richiesta) throws SQLException {
         Connection conn = DriverManager.getConnection(URL, username, passwordDBMS);
         String deleteSQL = "DELETE FROM Richiesta WHERE id = ?";
@@ -345,15 +329,14 @@ public static boolean updatePassword(int matricola, String nuovapass) throws SQL
 
     public static void insertSciopero(int matricola, LocalDate data, String motivazione, String svolgimento) {
         try {
-            String s = "SELECT matricola FROM Utente WHERE ruolo='Datore' ";
-            preparedStatement = conn.prepareStatement(s);
-            String sql = "INSERT INTO Richiesta(ref_impiegato,categoria,stato,data_inizio,data_fine,ora_inizio,ora_fine,svolgimento,motivazione,tipologia,matricola_destinazione,tipo_turno_origine,tipo_turno_destinazione,data_turno_origine,data_turno_destinazione,allegato)values (?,'sciopero','in sospeso',?,'','','',?,?,'',?,'','','1970-01-01','1970-01-01',null) ";
+
+            String sql = "INSERT INTO Richiesta(ref_impiegato,categoria,stato,data_inizio,data_fine,ora_inizio,ora_fine,svolgimento,motivazione,tipologia,matricola_destinazione,tipo_turno_origine,tipo_turno_destinazione,data_turno_origine,data_turno_destinazione,allegato)values (?,'sciopero','in sospeso',?,'','','',?,?,'',1001,'','','1970-01-01','1970-01-01',null) ";
             preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setInt(1, matricola);
             preparedStatement.setDate(2, Date.valueOf(data));
             preparedStatement.setString(3, motivazione);
             preparedStatement.setString(4, svolgimento);
-            preparedStatement.setInt(5, Integer.parseInt(s));
+
             largeupdate = preparedStatement.executeLargeUpdate();
 
         } catch (SQLException e) {
@@ -418,7 +401,7 @@ public static boolean updatePassword(int matricola, String nuovapass) throws SQL
             throw new RuntimeException(ex);
         }
     }
-
+//todo alessia la platessa deve modificare l'errore madronale che ha fatto
     public static List<Integer> getMatricoleDestinazione(LocalDate turnoDestinazione, String tipo_turno, int servizio) {
         ArrayList<Integer> listaRitorno = new ArrayList();
         try {
@@ -867,9 +850,47 @@ public static boolean updatePassword(int matricola, String nuovapass) throws SQL
         }
         return null;
     }
+    public static boolean verifyMailPersonale( String  mailPersonale) {
+        ResultSet rs;
+        //da amministrativo e da impiegato
 
+try{
+    String query = "SELECT mail_personale FROM Amministrativo WHERE mail_Personale=? UNION SELECT mail_personale FROM Datore WHERE mail_Personale=? UNION SELECT Impiegato.mail_personale FROM Impiegato WHERE mail_Personale=?";
+    PreparedStatement prepareStatement = conn.prepareStatement(query);
+    prepareStatement.setString(1, mailPersonale);
+    prepareStatement.setString(2, mailPersonale);
+    prepareStatement.setString(3, mailPersonale);
+    rs = prepareStatement.executeQuery();
+    if (rs.next()) {
+        return true;
+    }else{
+        return false;
+    }
 
+}catch (SQLException e){
+    e.printStackTrace();
+}
+    return false;
+    }
 
+public static void updatePassword(String password,int matricola){
+
+    try {
+        String sql = "UPDATE Impiegato I,Amministrativo A,Datore D SET I.password = ?, A.password = ?, D.password = ? where A.matricola = ? and I.matricola = ? and D.matricola = ? ";
+        preparedStatement = conn.prepareStatement(sql);
+        preparedStatement.setString(1,password);
+        preparedStatement.setString(2,password);
+        preparedStatement.setString(3,password);
+        preparedStatement.setInt(4,matricola);
+        preparedStatement.setInt(5,matricola);
+        preparedStatement.setInt(6,matricola);
+        preparedStatement.execute();
+
+    } catch (SQLException e) {
+        throw new RuntimeException(e);
+    }
+
+}
 
     }
 

@@ -1,17 +1,10 @@
 package com.example.progettocompleto.Popup;
 
 import com.example.progettocompleto.FileDiSistema.ControlInterface;
-import com.example.progettocompleto.FileDiSistema.Util;
-import com.example.progettocompleto.Start;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.text.Text;
-
-import java.io.IOException;
 
 
 

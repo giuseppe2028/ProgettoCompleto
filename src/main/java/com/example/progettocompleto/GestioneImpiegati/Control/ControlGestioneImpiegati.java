@@ -6,7 +6,6 @@ import com.example.progettocompleto.FileDiSistema.Daemon;
 import com.example.progettocompleto.FileDiSistema.EntityUtente;
 import com.example.progettocompleto.FileDiSistema.Util;
 import com.example.progettocompleto.GestioneImpiegati.Schermate.*;
-import com.example.progettocompleto.GestioneTurni.Schermate.SchermataPianificazioneTurni;
 import com.example.progettocompleto.Popup.PopupErrore;
 import com.example.progettocompleto.Start;
 import javafx.stage.Stage;
@@ -78,7 +77,7 @@ public class ControlGestioneImpiegati implements ControlInterface {
         String mail = nome+"."+cognome+"@azienda.it";
         String password = nome+cognome+"123";
         Daemon.updateImpiegato(matricola,nome,cognome,sesso,coficeFiscale,dataNascita,indirizzo,recapito,mailPersonale,iban,mail,password,ruolo,reperibile,servizio,LocalDate.now(),null,26,30,6,false,null);
-        Util.setScenePopup("/com/example/progettocompleto/Popup/FXML/PopUpErrore.fxml",stage1,c-> new PopupErrore("Succhiami la ciolla", this,stage1));
+        Util.setScenePopup("/com/example/progettocompleto/Popup/FXML/PopupErrore.fxml",stage1,c-> new PopupErrore("Succhiami la ciolla", this,stage1));
         stage1.show();
         //todo mettere che viene inserita la mail
     }

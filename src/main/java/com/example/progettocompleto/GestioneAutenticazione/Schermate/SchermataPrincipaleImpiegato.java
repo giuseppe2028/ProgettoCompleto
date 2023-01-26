@@ -27,11 +27,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-
-
-//TODO implementare la classe schermata Principale Dipendente
 public class SchermataPrincipaleImpiegato implements Runnable {
-
     List<Object> datiProfilo;
     @FXML
     Label nomeCognome;
@@ -39,11 +35,8 @@ public class SchermataPrincipaleImpiegato implements Runnable {
     Label matricola;
     @FXML
     Label ruolo;
-
     ControlLogin controlLogin;
-
     public SchermataPrincipaleImpiegato(ControlLogin controlLogin, List<Object> datiProfilo){
-
         this.datiProfilo = datiProfilo;
         this.controlLogin = controlLogin;
     }
@@ -54,15 +47,6 @@ public class SchermataPrincipaleImpiegato implements Runnable {
     Label dataCorrente;
     @FXML
     private ImageView ImmagineProfilo;
-    @FXML
-    private AnchorPane bottone;
-
-    @FXML
-    private Button logout;
-    @FXML
-    private AnchorPane rettangoloUP;
-    @FXML
-    private AnchorPane sfondoDropDownButton;
     @FXML
     MenuButton menuButtonGestioneProfilo = new MenuButton();
     @FXML
@@ -92,7 +76,6 @@ public class SchermataPrincipaleImpiegato implements Runnable {
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-
                 String oraCorrente;
                 int secondo = DatePicker.getSecond();
                 int minuto = DatePicker.getMinute();
@@ -110,7 +93,6 @@ public class SchermataPrincipaleImpiegato implements Runnable {
                     throw new RuntimeException(e);
                 }
                 Platform.runLater(()->{
-
                     dataCorrente.setText(oraCorrente);
 
                 });
@@ -118,28 +100,16 @@ public class SchermataPrincipaleImpiegato implements Runnable {
         },0,1000);
 
     }
-    @FXML
-    public void clickGestioneProfilo(ActionEvent e){
 
-    }@FXML
-    public void clickGestioneTimbratura(){
-
-    }
-    @FXML
-    public void clickDropDownButton(ActionEvent e){
-
-    }
     @FXML
     public void clickVisualizzaProfilo(ActionEvent e){
         ControlVisualizzaProfilo controlVisualizzaProfilo=new ControlVisualizzaProfilo();
-
-
-
     }
     @FXML
     public void clickLogout(ActionEvent e){
         controlLogin.clickLogout(e);
     }
+    //todo da implementare giuseppe
     @FXML
     public void clickVisualizzaCalendario(ActionEvent e){
 
@@ -147,7 +117,6 @@ public class SchermataPrincipaleImpiegato implements Runnable {
     @FXML
     public void clickGestioneRichieste(ActionEvent e){
         ControlGestioneRichieste controlGestioneRichieste= new ControlGestioneRichieste();
-
     }
 
     @FXML

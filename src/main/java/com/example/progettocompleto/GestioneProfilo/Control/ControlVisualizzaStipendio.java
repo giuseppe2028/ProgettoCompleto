@@ -13,16 +13,10 @@ import javafx.stage.Stage;
 import java.time.LocalDate;
 
 public class ControlVisualizzaStipendio {
-    private String mese;
-    private int anno;
     private Stage stage = Start.mainStage;
-    private SchermataVisualizzaStipendio schermataVisualizzaStipendio;
     public ControlVisualizzaStipendio(){
         int matricola = EntityUtente.getMatricola();
-        System.out.println(convertMese(LocalDate.now().getMonthValue()));
-
         Stipendio stipendio =  Daemon.getStipendio(matricola, convertMese(LocalDate.now().getMonthValue()),LocalDate.now().getYear());
-        System.out.println(stipendio.toString());
         Util.setScene("/com/example/progettocompleto/GestioneProfilo/FXML/SchermataVisualizzaStipendio.fxml",stage, c->new SchermataVisualizzaStipendio(this,stipendio));
     }
     private String convertMese(int mese){

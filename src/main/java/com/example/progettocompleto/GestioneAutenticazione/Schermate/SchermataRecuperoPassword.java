@@ -32,7 +32,7 @@ public class SchermataRecuperoPassword {
     }
     @FXML
     public void clickInvia(ActionEvent e) throws Exception {
-//TOdo compila mail personale
+
        controlLogin.clickInvia(mailText.getText());
 
     }
