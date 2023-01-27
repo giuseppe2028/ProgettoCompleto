@@ -2,7 +2,9 @@ package com.example.progettocompleto.GestioneProfilo.Schermate;
 
 
 import com.example.progettocompleto.FileDiSistema.Daemon;
+import com.example.progettocompleto.FileDiSistema.Util;
 import com.example.progettocompleto.GestioneProfilo.Control.ControlVisualizzaProfilo;
+import com.example.progettocompleto.Start;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -13,6 +15,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class SchermataVisualizzaProfilo {
     @FXML
@@ -41,7 +44,7 @@ public class SchermataVisualizzaProfilo {
     @FXML
     private Label mailPLabel;
     private ControlVisualizzaProfilo controlVisualizzaProfilo;
-    private ArrayList<Object> datiProfilo;
+    private static ArrayList<Object> datiProfilo;
 
     public SchermataVisualizzaProfilo(ControlVisualizzaProfilo controlVisualizzaProfilo, ArrayList<Object> datiProfilo) {
         this.controlVisualizzaProfilo = controlVisualizzaProfilo;
@@ -91,5 +94,7 @@ controlVisualizzaProfilo.clickModificaPassword();
         public void clickModifica(ActionEvent event){
             controlVisualizzaProfilo.clickModifica();
         }
-
+        public static void show(List<Object> datiProfiloAggiornati){
+            Util.setScene("/com/example/progettocompleto/GestioneProfilo/FXML/SchermataVisualizzaProfilo.fxml", Start.mainStage,c->new SchermataVisualizzaProfilo(new ControlVisualizzaProfilo(),(ArrayList<Object>) datiProfiloAggiornati));
+        }
     }

@@ -32,7 +32,6 @@ public class PopupErrore {
     @FXML
     Label messaggioErrore;
 
-    private ControlInterfaceErrore controlInterface;
 @FXML
 public void initialize(){
     intestazione.setText("Errore");
@@ -41,9 +40,8 @@ public void initialize(){
 
 
 
-    public PopupErrore(String message, ControlInterfaceErrore controlInterface, Stage stage) {
+    public PopupErrore(String message,Stage stage) {
         this.stage = stage;
-        this.controlInterface = controlInterface;
         //this.controlTimbratura = controlTimbratura;
         this.message = message;
 
@@ -51,7 +49,6 @@ public void initialize(){
     @FXML
     public void clickOK(ActionEvent event)  {
         stage.close();
-        //controlInterface.clickShowLogin();
     }
 
 

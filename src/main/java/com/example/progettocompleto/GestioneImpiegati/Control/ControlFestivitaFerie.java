@@ -28,7 +28,7 @@ public class ControlFestivitaFerie implements ControlInterfaceErrore {
     public void clickInvia(LocalDate dataInizio, LocalDate dataFine, String categoria) throws SQLException {
         Stage stagePopup=new Stage();
         if(Daemon.verifyDateProibite(dataInizio, dataFine, categoria)){
-            Util.setScenePopup("/com/example/progettocompleto/Popup/FXML/PopupErrore.fxml",stagePopup, c-> new PopupErrore("Le date da lei inserite sono già state registrate",this,stagePopup ));
+            //todo da fare pop up errore "le date da lei inserite sono già registrate"
         }else {
             Daemon.insertDateProibite(dataInizio, dataFine, categoria);
 //todo popup inf.

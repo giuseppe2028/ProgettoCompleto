@@ -77,7 +77,7 @@ public class ControlGestioneImpiegati implements ControlInterfaceErrore {
         String mail = nome+"."+cognome+"@azienda.it";
         String password = nome+cognome+"123";
         Daemon.updateImpiegato(matricola,nome,cognome,sesso,coficeFiscale,dataNascita,indirizzo,recapito,mailPersonale,iban,mail,password,ruolo,reperibile,servizio,LocalDate.now(),null,26,30,6,false,null);
-        Util.setScenePopup("/com/example/progettocompleto/Popup/FXML/PopupErrore.fxml",stage1,c-> new PopupErrore("Succhiami la ciolla", this,stage1));
+        Util.setScenePopup("/com/example/progettocompleto/Popup/FXML/PopupErrore.fxml",stage1,c-> new PopupErrore("Succhiami la ciolla",stage1));
         stage1.show();
         //todo mettere che viene inserita la mail
     }

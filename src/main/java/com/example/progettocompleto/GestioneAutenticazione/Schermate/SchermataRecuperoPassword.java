@@ -1,7 +1,9 @@
 package com.example.progettocompleto.GestioneAutenticazione.Schermate;
 
 
+import com.example.progettocompleto.FileDiSistema.Util;
 import com.example.progettocompleto.GestioneAutenticazione.Control.ControlLogin;
+import com.example.progettocompleto.Start;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
@@ -13,8 +15,9 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class SchermataRecuperoPassword {
+    private static Stage stage = Start.mainStage;
 
-    private ControlLogin controlLogin;
+    private  ControlLogin controlLogin;
     @FXML
     private TextField mailText;
     public SchermataRecuperoPassword(ControlLogin controlLogin){
@@ -29,6 +32,9 @@ public class SchermataRecuperoPassword {
 
        controlLogin.clickInvia(mailText.getText());
 
+    }
+    public static void show(){
+        Util.setScene("/com/example/progettocompleto/GestioneAutenticazione/FXML/SchermataRecuperoPassword.fxml",stage,c->new SchermataRecuperoPassword(new ControlLogin()));
     }
 
 }

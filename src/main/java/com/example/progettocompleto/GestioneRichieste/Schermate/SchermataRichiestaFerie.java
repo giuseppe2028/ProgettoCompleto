@@ -2,6 +2,7 @@ package com.example.progettocompleto.GestioneRichieste.Schermate;
 
 import com.example.progettocompleto.FileDiSistema.Util;
 import com.example.progettocompleto.GestioneRichieste.Control.ControlGestioneRichieste;
+import com.example.progettocompleto.Start;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.DateCell;
@@ -12,12 +13,13 @@ import javafx.scene.layout.AnchorPane;
 import java.sql.SQLException;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SchermataRichiestaFerie {
-    private ControlGestioneRichieste controlGestioneRichieste;
-    private List<LocalDate> dataI;
-    private List<LocalDate> dataF;
+    private static ControlGestioneRichieste controlGestioneRichieste;
+    private static List<LocalDate> dataI;
+    private static List<LocalDate> dataF;
     @FXML
     private AnchorPane rettangolo1;
     @FXML
@@ -103,6 +105,10 @@ public class SchermataRichiestaFerie {
         LocalDate dataFine = dataFineDatePicker.getValue();
 
         controlGestioneRichieste.clickInviaFerie(dataInizio, dataFine);
+    }
+    public static void show(){
+            Util.setScene("/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiestaFerie.fxml", Start.mainStage,c->new SchermataRichiestaFerie(controlGestioneRichieste,dataI,dataF));
+
     }
 }
 

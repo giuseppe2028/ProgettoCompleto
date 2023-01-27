@@ -159,7 +159,7 @@ public class Daemon {
 public static boolean verifyPassword2(String vecpass, int matricola) throws SQLException {
         resultSet=null;
         String sql = "SELECT password FROM Impiegato WHERE password=? AND matricola=? UNION SELECT password FROM Amministrativo WHERE password=? AND matricola=? UNION SELECT password FROM Datore WHERE password=? AND matricola=?";
-    if(resultSet.next()) {
+
         PreparedStatement pstm = conn.prepareStatement(sql);
         pstm.setString(1, vecpass);
         pstm.setInt(2, matricola);
@@ -168,8 +168,10 @@ public static boolean verifyPassword2(String vecpass, int matricola) throws SQLE
         pstm.setString(5, vecpass);
         pstm.setInt(6, matricola);
         resultSet = pstm.executeQuery();
+    if(resultSet.next()) {
         return true;
-    }return false;
+    }
+    else{return false;}
 }
     public static void delete(int ID_richiesta) throws SQLException {
         Connection conn = DriverManager.getConnection(URL, username, passwordDBMS);
@@ -338,7 +340,7 @@ public static boolean verifyPassword2(String vecpass, int matricola) throws SQLE
     public static void insertSciopero(int matricola, LocalDate data, String motivazione, String svolgimento) {
         try {
 
-            String sql = "INSERT INTO Richiesta(ref_impiegato,categoria,stato,data_inizio,data_fine,ora_inizio,ora_fine,svolgimento,motivazione,tipologia,matricola_destinazione,tipo_turno_origine,tipo_turno_destinazione,data_turno_origine,data_turno_destinazione,allegato)values (?,'sciopero','in sospeso',?,'','','',?,?,'',1001,'','','1970-01-01','1970-01-01',null) ";
+            String sql = "INSERT INTO Richiesta(ref_impiegato,categoria,stato,data_inizio,data_fine,ora_inizio,ora_fine,svolgimento,motivazione,tipologia,matricola_destinazione,tipo_turno_origine,tipo_turno_destinazione,data_turno_origine,data_turno_destinazione,allegato)values (?,'sciopero','in sospeso',?,'1970-01-01','','',?,?,'',1001,'','','1970-01-01','1970-01-01',null) ";
             preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setInt(1, matricola);
             preparedStatement.setDate(2, Date.valueOf(data));
@@ -612,15 +614,18 @@ public static boolean verifyPassword2(String vecpass, int matricola) throws SQLE
         }
     }
 //TODO aggiungere la union con l'amministrativo
-    public static int getGiorniFerie(int matricola) throws SQLException {
-        ResultSet rs = null;
-        String query = "SELECT giorni_ferie_rimanenti FROM Impiegato WHERE matricola=?";
-        PreparedStatement pstm1 = conn.prepareStatement(query);
-
-        pstm1.setInt(1, matricola);
-        pstm1.execute();
-        if (rs.next()) {
-            return rs.getInt("giorni_ferie_rimanenti");
+    public static int getGiorniFerie(int matricola) {
+        try {
+            String query = "SELECT giorni_ferie_rimanenti FROM Impiegato WHERE matricola=?";
+            preparedStatement = conn.prepareStatement(query);
+            preparedStatement.setInt(1, matricola);
+            resultSet = preparedStatement.executeQuery();
+            if(resultSet.next()) {
+                return resultSet.getInt(1);
+            }
+        }
+        catch (SQLException e){
+            e.printStackTrace();
         }
         return 0;
     }
@@ -640,19 +645,37 @@ public static boolean verifyPassword2(String vecpass, int matricola) throws SQLE
     }
 
     public static void updateGiorniFerie(int matricola, int giorniInseriti) {
-        //TODO
+        try{
+            String sql="UPDATE Impiegato SET giorni_ferie_rimanenti = giorni_ferie_rimanenti - ? WHERE matricola=?";
+            preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setInt(1, giorniInseriti);
+            preparedStatement.setInt(2, matricola);
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void updateOrePermesso(int matricola, int oreInserite) {
+        try{
+            String sql="UPDATE Impiegato SET ore_permesso_rimanenti = ore_permesso_rimanenti - ? WHERE matricola=?";
+            preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setInt(1, oreInserite);
+            preparedStatement.setInt(2, matricola);
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public static int getOrePermesso(int matricola){
         try{
-            ResultSet rs = null;
             String query = "SELECT ore_permesso_rimanenti FROM Impiegato WHERE matricola=?";
-            PreparedStatement pstm1 = conn.prepareStatement(query);
-
-            pstm1.setInt(1, matricola);
-            pstm1.execute();
-            if (rs.next()) {
-                return rs.getInt("ore_permesso_rimanenti");
+             preparedStatement = conn.prepareStatement(query);
+            preparedStatement.setInt(1, matricola);
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                return resultSet.getInt("ore_permesso_rimanenti");
             }
         }catch(SQLException e){
             e.printStackTrace();
@@ -883,6 +906,57 @@ try{
     e.printStackTrace();
 }
     return false;
+    }
+ public static void updatePassword(String nuovaPass,int matricola){
+
+     try {
+         String sql = "update Impiegato set password = ? where matricola = ?";
+         preparedStatement = conn.prepareStatement(sql);
+         preparedStatement.setString(1,nuovaPass);
+         preparedStatement.setInt(2,matricola);
+         preparedStatement.execute();
+         String sql1 = "update Datore set password = ? where matricola = ?";
+         preparedStatement = conn.prepareStatement(sql1);
+         preparedStatement.setString(1,nuovaPass);
+         preparedStatement.setInt(2,matricola);
+         preparedStatement.execute();
+         String sql2 = "update Amministrativo set password = ? where matricola = ?";
+         preparedStatement = conn.prepareStatement(sql2);
+         preparedStatement.setString(1,nuovaPass);
+         preparedStatement.setInt(2,matricola);
+         preparedStatement.execute();
+
+     } catch (SQLException e) {
+         throw new RuntimeException(e);
+     }
+
+ }
+    public static void insertPermesso(LocalDate data, LocalTime inizio, LocalTime fine, int matricola) {
+        try {
+            String sql = "INSERT INTO Richiesta(ref_impiegato,categoria,stato,data_inizio,data_fine,ora_inizio,ora_fine,svolgimento,motivazione,tipologia,matricola_destinazione,tipo_turno_origine,tipo_turno_destinazione,data_turno_origine,data_turno_destinazione,allegato)values (?,'permesso','accettata',?,'1970-01-01',?,?,'','','',0,'','','1970-01-01','1970-01-01',null) ";
+            preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setInt(1, matricola);
+            preparedStatement.setDate(2, Date.valueOf(data));
+            preparedStatement.setTime(3, Time.valueOf((inizio)));
+            preparedStatement.setTime(4, Time.valueOf((fine)));
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public static String getMailDatore(){
+
+        try {
+            String sql = "select mail_personale from Datore";
+            preparedStatement = conn.prepareStatement(sql);
+            resultSet = preparedStatement.executeQuery();
+            resultSet.next();
+            return resultSet.getString(1);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }
 

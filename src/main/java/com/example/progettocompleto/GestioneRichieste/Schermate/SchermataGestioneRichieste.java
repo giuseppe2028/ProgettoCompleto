@@ -3,8 +3,10 @@ package com.example.progettocompleto.GestioneRichieste.Schermate;
 import com.example.progettocompleto.Contenitori.Richiesta;
 import com.example.progettocompleto.FileDiSistema.Daemon;
 import com.example.progettocompleto.FileDiSistema.EntityUtente;
+import com.example.progettocompleto.FileDiSistema.Util;
 import com.example.progettocompleto.GestioneRichieste.Control.ControlGestioneRichieste;
 import com.example.progettocompleto.GestioneRichieste.Control.ControlRichiesteRicevute;
+import com.example.progettocompleto.Start;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -26,6 +28,7 @@ import java.time.LocalTime;
 import java.util.List;
 
 public class SchermataGestioneRichieste  {
+    private List<Richiesta> richieste;
     private final ControlGestioneRichieste controlGestioneRichieste;
     private ObservableList<Richiesta> richiesteList;
     @FXML
@@ -68,9 +71,9 @@ public class SchermataGestioneRichieste  {
     private TableColumn editCol;
     private Richiesta richiesta;
 
-   public SchermataGestioneRichieste(ControlGestioneRichieste controlGestioneRichieste){
+   public SchermataGestioneRichieste(ControlGestioneRichieste controlGestioneRichieste,List<Richiesta> richieste){
     this.controlGestioneRichieste=controlGestioneRichieste;
-
+    this.richieste = richieste;
    }
 
 
@@ -125,7 +128,6 @@ public class SchermataGestioneRichieste  {
 
     public void loadDate() {
         richiesteList = FXCollections.observableArrayList();
-        List<Richiesta> richieste= Daemon.getRichieste(EntityUtente.getMatricola());
         for (int i = 0; i<richieste.size();i++) {
             richiesteList.add(new Richiesta(richieste.get(i).getId(),richieste.get(i).getCategoria(),richieste.get(i).getStato(), richieste.get(i).getData_inizio(),richieste.get(i).getData_fine(),richieste.get(i).getOra_inizio(),richieste.get(i).getOra_fine(),
                     richieste.get(i).getSvolgimento(),richieste.get(i).getMotivazione(), richieste.get(i).getTipologia() , richieste.get(i).getMatricola_destinazione(),richieste.get(i).getTipo_turno_origine(),
@@ -269,4 +271,8 @@ public void clickRichiesteRicevute(ActionEvent e){
     ControlRichiesteRicevute controlRichiesteRicevute=new ControlRichiesteRicevute();
 
 }
+public static void show(ControlGestioneRichieste controlGestioneRichieste,List<Richiesta> richieste){
+    Util.setScene("/com/example/progettocompleto/GestioneRichieste/FXML/SchermataGestioneRichieste.fxml", Start.mainStage,c->new SchermataGestioneRichieste(controlGestioneRichieste,richieste));
+}
+
 }

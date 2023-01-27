@@ -6,6 +6,7 @@ import com.example.progettocompleto.FileDiSistema.*;
 import com.example.progettocompleto.GestioneProfilo.Schermate.SchermataModificaPassword;
 import com.example.progettocompleto.GestioneProfilo.Schermate.SchermataModificaProfilo;
 import com.example.progettocompleto.GestioneProfilo.Schermate.SchermataVisualizzaProfilo;
+import com.example.progettocompleto.Popup.PopupErrore;
 import com.example.progettocompleto.Popup.PopupInformazione;
 import com.example.progettocompleto.Start;
 import javafx.scene.control.Alert;
@@ -41,21 +42,19 @@ public class ControlVisualizzaProfilo implements ControlInterfaceInformazione {
         if (verifyPassword(nuovapass, confpass)) {
 
             if (Daemon.verifyPassword2(vecpass, matricola)) {
-                //todo Daemon.updatePassword(nuovapass, matricola);
-                //Daemon.updatePassword(nuovapass, matricola);
-                Util.setScenePopup("/com/example/progettocompleto/Popup/FXML/PopupInformazione.fxml",stagePopup,c->new PopupInformazione("Password modificata con successo!",this,stagePopup));
-                stagePopup.show();
+                Daemon.updatePassword(nuovapass, matricola);
+                Util.setScenePopup("/com/example/progettocompleto/Popup/FXML/PopupInformazione.fxml",stagePopup,c->new PopupInformazione("Password modificata con successo!",stagePopup));
+                stagePopup.showAndWait();
+                SchermataVisualizzaProfilo.show(Daemon.getDatiProfilo(EntityUtente.getMatricola()));
             } else {
-                Alert a= new Alert(Alert.AlertType.ERROR);
-                a.setTitle("Errore");
-                a.setContentText("la vecchia password non corrisponde");
-                a.showAndWait();
+                Util.setScenePopup("/com/example/progettocompleto/Popup/FXML/PopupErrore.fxml",stagePopup,c->new PopupErrore("Vecchia passwrod non corretta",stagePopup));
+                stagePopup.showAndWait();
+                SchermataModificaPassword.show();
             }
         } else {
-            Alert a= new Alert(Alert.AlertType.ERROR);
-            a.setTitle("Errore");
-            a.setContentText("le password non sono valide");
-            a.showAndWait();
+            Util.setScenePopup("/com/example/progettocompleto/Popup/FXML/PopupErrore.fxml",stagePopup,c->new PopupErrore("Le due password non corrispondono",stagePopup));
+            stagePopup.showAndWait();
+            SchermataModificaPassword.show();
         }
 
     }
@@ -74,23 +73,28 @@ public class ControlVisualizzaProfilo implements ControlInterfaceInformazione {
             int matricola = EntityUtente.getMatricola();
 
             if(Daemon.updateDatiProfilo(Double.valueOf(recapito), iban, indi, mail, path, matricola)){
-                Alert a= new Alert(Alert.AlertType.INFORMATION);
-                a.setContentText("Dati cambiati con successo!");
-                a.showAndWait();
+
                 ArrayList<Object> datiProfilo;
                 datiProfilo=(ArrayList<Object>) EntityUtente.getDatiProfilo();
+                Util.setScenePopup("",stagePopup,c-> new PopupInformazione("Dati modificati Correttamente",stagePopup));
+                stagePopup.showAndWait();
                 Util.setSpecificScene("/com/example/progettocompleto/GestioneAutenticazione/FXML/SchermataVisualizzaProfilo.fxml", stage, c-> new SchermataVisualizzaProfilo(this,datiProfilo ));
+
             }else {
-                Alert a= new Alert(Alert.AlertType.ERROR);
-                a.setTitle("Errore");
-                a.setContentText("Impossibile cambiare i dati");
-                a.showAndWait();
+                ArrayList<Object> datiProfilo;
+                datiProfilo=(ArrayList<Object>) Daemon.getDatiProfilo(EntityUtente.getMatricola());
+                Util.setScenePopup("",stagePopup,c-> new PopupInformazione("Impossibile cambiare i dati",stagePopup));
+                stagePopup.showAndWait();
+                Util.setSpecificScene("/com/example/progettocompleto/GestioneAutenticazione/FXML/SchermataVisualizzaProfilo.fxml", stage, c-> new SchermataVisualizzaProfilo(this,datiProfilo ));
+
             }
         }else{
-            Alert a= new Alert(Alert.AlertType.ERROR);
-            a.setTitle("Errore");
-            a.setContentText("l'iban o il recapito telefonico sono sbagliati");
-            a.showAndWait();
+            ArrayList<Object> datiProfilo;
+            datiProfilo=(ArrayList<Object>) Daemon.getDatiProfilo(EntityUtente.getMatricola());
+            Util.setScenePopup("",stagePopup,c-> new PopupInformazione("Impossibile cambiare i dati",stagePopup));
+            stagePopup.showAndWait();
+            Util.setSpecificScene("/com/example/progettocompleto/GestioneAutenticazione/FXML/SchermataVisualizzaProfilo.fxml", stage, c-> new SchermataVisualizzaProfilo(this,datiProfilo ));
+
         }
 
     }

@@ -3,10 +3,14 @@ package com.example.progettocompleto.GestioneRichieste.Control;
 
 import com.example.progettocompleto.FileDiSistema.Daemon;
 import com.example.progettocompleto.FileDiSistema.EntityUtente;
+import com.example.progettocompleto.FileDiSistema.JavaMail;
 import com.example.progettocompleto.FileDiSistema.Util;
 import com.example.progettocompleto.GestioneRichieste.Schermate.*;
+import com.example.progettocompleto.Popup.PopupErrore;
+import com.example.progettocompleto.Popup.PopupInformazione;
 import com.example.progettocompleto.Start;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Control;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.skin.TableRowSkin;
 import javafx.stage.Stage;
@@ -21,9 +25,10 @@ import java.util.List;
 
 
 public class ControlGestioneRichieste {
+    private Stage stagePopup = new Stage();
     private Stage stage = Start.mainStage;
     public ControlGestioneRichieste() {
-        Util.setSpecificScene("/com/example/progettocompleto/GestioneRichieste/FXML/SchermataGestioneRichieste.fxml", stage, c -> new SchermataGestioneRichieste(this));
+        Util.setSpecificScene("/com/example/progettocompleto/GestioneRichieste/FXML/SchermataGestioneRichieste.fxml", stage, c -> new SchermataGestioneRichieste(this,Daemon.getRichieste(EntityUtente.getMatricola())));
     }
     public void clickCongedoLutto() {
         Util.setScene("/com/example/progettocompleto/GestioneRichieste/FXML/SchermataCongedoLutto.fxml", stage, c -> new SchermataCongedoLutto(this));
@@ -34,34 +39,43 @@ public class ControlGestioneRichieste {
     }
 
     public void clickElimina(int id) throws SQLException {
-        //TODO popup conferma
         Daemon.delete(id);
-        //TODO popup info.
+        Util.setScenePopup("/com/example/progettocompleto/Popup/FXML/PopupInformazione.fxml",stagePopup,c-> new PopupInformazione("Richiesta eliminata correttamente",stagePopup));
+        stagePopup.showAndWait();
+        SchermataGestioneRichieste.show(this,Daemon.getRichieste(EntityUtente.getMatricola()));
     }
-    public void clickInviaFerie(LocalDate dI, LocalDate dF) throws SQLException {
+    public void clickInviaFerie(LocalDate dI, LocalDate dF){
        int matricola= EntityUtente.getMatricola();
+        System.out.println("matricola"+matricola);
         Period periodo = Period.between(dI, dF);
+        System.out.println("periodo selezionato" + periodo);
         int giorniInseriti = periodo.getDays();
+        System.out.println("giorniInseriti" + giorniInseriti);
         List<LocalDate> giorniProibiti= Daemon.getGiorniProibiti();
-        for(LocalDate date: giorniProibiti){
+       /* for(LocalDate date:giorniProibiti){
              if (date.isAfter(dI) && date.isBefore(dF)) {
-             Alert a= new Alert(Alert.AlertType.ERROR);
-             a.setContentText("Il periodo selezionato corrisponde con i giorni proibiti");
-             a.showAndWait();
+
+                Util.setScenePopup("/com/example/progettocompleto/Popup/FXML/PopupErrore.fxml",stagePopup,c->new PopupErrore("Il periodo selezionato corrisponde con i giorni proibiti",stagePopup));
+                stagePopup.showAndWait();
+                SchermataRichiestaFerie.show();
+
             }
-        }
+        }*/
 
        int giorniFerie =Daemon.getGiorniFerie(matricola);
+        System.out.println("giorni ferie"+ giorniFerie);
         if (giorniFerie>= giorniInseriti){
+            System.out.println("ciaoasd");
+
          Daemon.insertRichiestaFerie(matricola, dI, dF);
          Daemon.updateGiorniFerie(matricola, giorniInseriti);
-         Alert a= new Alert(Alert.AlertType.INFORMATION);
-         a.setContentText("Richiesta accettata");
-         a.showAndWait();
+            Util.setScenePopup("/com/example/progettocompleto/Popup/FXML/PopupInformazione.fxml",stagePopup,c-> new PopupInformazione("Richiesta Accettata",stagePopup));
+            stagePopup.showAndWait();
+            SchermataGestioneRichieste.show(this,Daemon.getRichieste(EntityUtente.getMatricola()));
         }else{
-         Alert a= new Alert(Alert.AlertType.ERROR);
-        a.setContentText("Non hai giorni sufficienti per effettuare la richiesta!");
-        a.showAndWait();
+            Util.setScenePopup("/com/example/progettocompleto/Popup/FXML/PopupErrore.fxml",stagePopup,c->new PopupErrore("Non hai giorni sufficienti per effettuare la richiesta",stagePopup));
+            stagePopup.showAndWait();
+            SchermataRichiestaFerie.show();
     }
 
     }
@@ -86,25 +100,23 @@ public class ControlGestioneRichieste {
     }
 
 
-   public void clickInviaPermesso(LocalDate data, String oraInizio, String minutiInizio, String oraFine, String minutiFine){
+    public void clickInviaPermesso(LocalDate data, String oraInizio, String oraFine)  {
         int matricola= EntityUtente.getMatricola();
-        //TODO aggiungere i controlli sulla data
         int orePermesso= Daemon.getOrePermesso(matricola);
-        LocalDateTime inizio = LocalDateTime.of(data, LocalTime.of(Integer.parseInt(oraInizio), Integer.parseInt(minutiInizio)));
-        LocalDateTime fine = LocalDateTime.of(data, LocalTime.of(Integer.parseInt(oraFine), Integer.parseInt(minutiFine)));
+        LocalTime inizio =LocalTime.of(Integer.parseInt(oraInizio), 00);
+        LocalTime fine = LocalTime.of(Integer.parseInt(oraFine), 00);
         Duration duration = Duration.between(inizio, fine);
-        //non minuti ma ore
-        long minutiInseriti = duration.toMinutes();
-        System.out.println("I minuti inseriti sono: " + minutiInseriti);
-        if(orePermesso>= minutiInseriti){
-        //TODO inserire l'insert richiesta e l'update
-            Alert a= new Alert(Alert.AlertType.INFORMATION);
-            a.setContentText("Richiesta accettata");
-            a.showAndWait();
+        int oreInserite = (int) duration.toHours();
+        if(orePermesso>= oreInserite){
+            Daemon.insertPermesso(data, inizio, fine, matricola);
+            Daemon.updateOrePermesso(matricola, oreInserite);
+            Util.setScenePopup("/com/example/progettocompleto/Popup/FXML/PopupInformazione.fxml",stagePopup,c-> new PopupInformazione("Richiesta Accettata",stagePopup));
+            stagePopup.showAndWait();
+            SchermataGestioneRichieste.show(this,Daemon.getRichieste(EntityUtente.getMatricola()));
         }else{
-            Alert a= new Alert(Alert.AlertType.ERROR);
-            a.setContentText("Non hai ore sufficienti per effettuare la richiesta!");
-            a.showAndWait();
+            Util.setScenePopup("/com/example/progettocompleto/Popup/FXML/PopupErrore.fxml",stagePopup,c->new PopupErrore("Non hai ore sufficienti per effettuare la richiesta",stagePopup));
+            stagePopup.showAndWait();
+            SchermataRichiestaPermesso.show();
         }
 
     }
@@ -114,12 +126,20 @@ public class ControlGestioneRichieste {
     }
     public void clickInviaSciopero(LocalDate data, String motivazione, String svolgimento){
         int matricola= EntityUtente.getMatricola();
-      //int matricolaDatore=  Daemon.getMatricolaDatore();
-      //TODO implementare l'invio della mail al datore
+      String mailDatore = Daemon.getMailDatore();
+      JavaMail javaMail = new JavaMail();
+        try {
+            javaMail.setOggetto("Hai una richesta sciopero da parte di un impiegato");
+            javaMail.setTesto("L'utente " + EntityUtente.getMatricola() + " sta richiedendo uno sciopero in data "+ data.toString()+ " con la seguente motivazione: "+ motivazione+" con il seguente svolgimento: " + svolgimento);
+            JavaMail.sendMail(mailDatore);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
         Daemon.insertSciopero(matricola,data, motivazione, svolgimento);
-        Alert a= new Alert(Alert.AlertType.INFORMATION);
-        a.setContentText("Richiesta inoltrata");
-        a.showAndWait();
+        Util.setScenePopup("/com/example/progettocompleto/Popup/FXML/PopupInformazione.fxml",stagePopup,c-> new PopupInformazione("Richiesta Accettata",stagePopup));
+        stagePopup.showAndWait();
+        SchermataGestioneRichieste.show(this,Daemon.getRichieste(EntityUtente.getMatricola()));
+
         //TODO inserire la richiesta in sciopero DBMS
 
     }
@@ -131,14 +151,20 @@ public class ControlGestioneRichieste {
     public void clickInviaParentale(LocalDate dataInizio, LocalDate dataFine, InputStream file){
         int matricola= EntityUtente.getMatricola();
         Daemon.insertCongedoParentale(matricola, dataInizio, dataFine, file);
-        //TODO inserire nel DBMS la richiesta ed il popup
+        Util.setScenePopup("/com/example/progettocompleto/Popup/FXML/PopupInformazione.fxml",stagePopup,c-> new PopupInformazione("Richiesta Accettata",stagePopup));
+        stagePopup.showAndWait();
+        SchermataGestioneRichieste.show(this,Daemon.getRichieste(EntityUtente.getMatricola()));
+
 
     }
 
     public void clickInviaLutto(LocalDate dataInizio, LocalDate dataFine, InputStream file) {
         int matricola=EntityUtente.getMatricola();
         Daemon.insertLutto(matricola, dataInizio,dataFine,file);
-        //TODO inserire il popup
+        Util.setScenePopup("/com/example/progettocompleto/Popup/FXML/PopupInformazione.fxml",stagePopup,c-> new PopupInformazione("Richiesta Accettata",stagePopup));
+        stagePopup.showAndWait();
+        SchermataGestioneRichieste.show(this,Daemon.getRichieste(EntityUtente.getMatricola()));
+
     }
 
 
@@ -153,14 +179,17 @@ Daemon.insertMaternita(matricola, dataInizio, dataFine, file);
     }
     public void clickRichiestaMalattia() {
         Util.setScene("/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiestaMalattia.fxml", stage, c -> new SchermataRichiestaMalattia(this));
-    }
+       }
 
     public void clickInviaMalattia(LocalDate dataInizio, LocalDate dataFine, String motivazione, InputStream file) {
         int matricola = EntityUtente.getMatricola();
 
         Daemon.insertMalattia(matricola, dataInizio, dataFine, motivazione, file);
      /*   if (esito) {
-            // TODO: 20/01/23 inserire il popup richiesta effettuata
+             Util.setScenePopup("/com/example/progettocompleto/Popup/FXML/PopupInformazione.fxml",stagePopup,c-> new PopupInformazione("Richiesta Accettata",stagePopup));
+        stagePopup.showAndWait();
+        SchermataGestioneRichieste.show(this,Daemon.getRichieste(EntityUtente.getMatricola()));
+
 
         }*/
     }
@@ -180,7 +209,10 @@ public void clickRichiestaCambio(){
         }
         Daemon.insertCambioTurno(matricola, turnoOrigine, turnoDestinazione, turnoDesiderato, turnoPrecedente);
 
-        //TODO  l'invio della mail ed il popup inform.
+        //TODO  l'invio della mail
+        Util.setScenePopup("/com/example/progettocompleto/Popup/FXML/PopupInformazione.fxml",stagePopup,c-> new PopupInformazione("Richiesta Accettata",stagePopup));
+        stagePopup.showAndWait();
+        SchermataGestioneRichieste.show(this,Daemon.getRichieste(EntityUtente.getMatricola()));
     }
 
 

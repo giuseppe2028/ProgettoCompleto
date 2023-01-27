@@ -5,7 +5,9 @@ package com.example.progettocompleto.GestioneProfilo.Schermate;
 
 import com.example.progettocompleto.FileDiSistema.EntityUtente;
 import com.example.progettocompleto.FileDiSistema.InterfacciaSchermata;
+import com.example.progettocompleto.FileDiSistema.Util;
 import com.example.progettocompleto.GestioneProfilo.Control.ControlVisualizzaProfilo;
+import com.example.progettocompleto.Start;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -61,6 +63,8 @@ public class SchermataModificaPassword implements InterfacciaSchermata {
     }
 
 
-
+public static void show(){
+    Util.setScene("/com/example/progettocompleto/GestioneProfilo/FXML/SchermataModificaPassword.fxml", Start.mainStage,c->new SchermataModificaPassword(new ControlVisualizzaProfilo()));
+}
 
 }

@@ -42,7 +42,7 @@ import java.util.Properties;
                 throw new RuntimeException(e);
             }
         }
-        public void setTesto(String text){
+        public  void setTesto(String text){
             this.text = text;
         }
         public void setOggetto(String oggetto){

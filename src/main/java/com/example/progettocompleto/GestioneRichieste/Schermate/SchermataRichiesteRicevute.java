@@ -4,7 +4,9 @@ package com.example.progettocompleto.GestioneRichieste.Schermate;
 import com.example.progettocompleto.Contenitori.Richiesta;
 import com.example.progettocompleto.FileDiSistema.Daemon;
 import com.example.progettocompleto.FileDiSistema.EntityUtente;
+import com.example.progettocompleto.FileDiSistema.Util;
 import com.example.progettocompleto.GestioneRichieste.Control.ControlRichiesteRicevute;
+import com.example.progettocompleto.Start;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -148,5 +150,8 @@ public class SchermataRichiesteRicevute {
         loadDate();
         richiesteTableView.setItems(richiesteList);
         richiesteTableView.refresh();
+    }
+    public static void show(ControlRichiesteRicevute controlRichiesteRicevute){
+        Util.setScene("/com/example/progettocompleto/GestioneRichieste/FXML/SchermataGestioneRichieste.fxml", Start.mainStage,c->new SchermataRichiesteRicevute(controlRichiesteRicevute));
     }
 }

@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ControlLogin implements ControlInterfaceInformazione,ControlInterfaceErrore{
+public class ControlLogin{
     private Stage stage = Start.mainStage;
     private Stage stagePopup = new Stage();
 
@@ -42,7 +42,7 @@ public class ControlLogin implements ControlInterfaceInformazione,ControlInterfa
         }
         else{
             Stage stagePopup = new Stage();
-            Util.setScenePopup("/com/example/progettocompleto/Popup/FXML/PopupErrore.fxml",stagePopup, c-> new PopupErrore("Dati inseriti non corretti",this,stagePopup));
+            Util.setScenePopup("/com/example/progettocompleto/Popup/FXML/PopupErrore.fxml",stagePopup, c-> new PopupErrore("Dati inseriti non corretti",stagePopup));
             stagePopup.showAndWait();
             SchermataLogin.show();
         }
@@ -72,9 +72,10 @@ public class ControlLogin implements ControlInterfaceInformazione,ControlInterfa
 
             try {
                 JavaMail.sendMail(mailText);
-                Util.setScenePopup("/com/example/progettocompleto/Popup/FXML/PopupInformazione.fxml",stagePopup, c-> new PopupInformazione("Controlla la tua mail, la nuova password è stata inviata",this,stagePopup));
+                Util.setScenePopup("/com/example/progettocompleto/Popup/FXML/PopupInformazione.fxml",stagePopup, c-> new PopupInformazione("Controlla la tua mail, la nuova password è stata inviata",stagePopup));
+                stagePopup.showAndWait();
                 //todo mettere il recupera password dbms aggiornare
-                stagePopup.show();
+                SchermataLogin.show();
 
                 //Daemon.updatePassword(password,matricola);
             } catch (Exception ex) {
@@ -82,15 +83,17 @@ public class ControlLogin implements ControlInterfaceInformazione,ControlInterfa
             }
         }
         else {
-            Util.setScenePopup("/com/example/progettocompleto/Popup/FXML/PopupErrore.fxml",stagePopup, c->new PopupErrore("Mail Errata, riprova",this,stagePopup));
-            stagePopup.show();
+            Util.setScenePopup("/com/example/progettocompleto/Popup/FXML/PopupErrore.fxml",stagePopup, c->new PopupErrore("Mail Errata, riprova",stagePopup));
+            stagePopup.showAndWait();
+            SchermataRecuperoPassword.show();
         }
 
     }
     public void clickLogout(ActionEvent e){
         Util.setScene("/com/example/progettocompleto/GestioneAutenticazione/FXML/Login.fxml", stage, c-> new SchermataLogin());
-        Util.setScenePopup("/com/example/progettocompleto/Popup/FXML/PopupInformazione.fxml",stagePopup,c->new PopupInformazione("Logout effettuato con successo",this,stagePopup));
-        stagePopup.show();
+        Util.setScenePopup("/com/example/progettocompleto/Popup/FXML/PopupInformazione.fxml",stagePopup,c->new PopupInformazione("Logout effettuato con successo",stagePopup));
+        stagePopup.showAndWait();
+        SchermataLogin.show();
     }
     private String generaPassword(){
         String passwordGenerata = "";
@@ -101,14 +104,6 @@ public class ControlLogin implements ControlInterfaceInformazione,ControlInterfa
             passwordGenerata += caratteri.charAt(randomIndexCharInAlphabet);
         }
         return passwordGenerata;
-    }
-    @Override
-    public void clickOKInformazione(){
-
-    }
-    @Override
-    public void clickOKErrore(){
-        SchermataRecuperoPassword schermataRecuperoPassword;
     }
 
 }

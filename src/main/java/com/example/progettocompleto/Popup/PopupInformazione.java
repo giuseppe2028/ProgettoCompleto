@@ -34,9 +34,8 @@ public class PopupInformazione {
 
 
 
-    public PopupInformazione(String message, ControlInterfaceInformazione controlInterface, Stage stage){
+    public PopupInformazione(String message,Stage stage){
         this.stage = stage;
-        this.controlInterface = controlInterface;
         this.message = message;
         //messaggioInformazione.setText(this.message);
 
@@ -44,7 +43,6 @@ public class PopupInformazione {
 
     @FXML
     public void clickOK(ActionEvent event) throws IOException {
-        controlInterface.clickOKInformazione();
         stage.close();
     }
 }

@@ -13,7 +13,7 @@
             <children>
                 <DatePicker fx:id="dataInizioDatePicker" focusTraversable="false" layoutX="141.0" layoutY="317.0" prefHeight="39.0" prefWidth="188.0" promptText="data inizio" />
                 <DatePicker fx:id="dataFineDatePicker" focusTraversable="false" layoutX="141.0" layoutY="377.0" prefHeight="39.0" prefWidth="188.0" promptText="data fine" />
-                <Button fx:id="bottoneInvia" focusTraversable="false" layoutX="329.0" layoutY="436.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="62.0" text="invia" />
+                <Button fx:id="bottoneInvia" focusTraversable="false" layoutX="329.0" layoutY="436.0" mnemonicParsing="false" onAction="#clickInvia" prefHeight="29.0" prefWidth="62.0" text="invia" />
                 <Button fx:id="bottoneIndietro" focusTraversable="false" layoutX="78.0" layoutY="436.0" mnemonicParsing="false" onAction="#clickIndietro" prefHeight="29.0" prefWidth="62.0" text="indietro" />
                 <Text fill="WHITE" layoutX="154.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Richiesta Ferie">
                     <font>

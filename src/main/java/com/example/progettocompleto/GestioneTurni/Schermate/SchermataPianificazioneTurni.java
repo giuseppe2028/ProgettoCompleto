@@ -25,15 +25,9 @@ public class SchermataPianificazioneTurni {
     private TableColumn<PropostaTurno, String> ruolo;
     @FXML
     private TableView<RigaPropostaTurnazione> tabella;
-    LocalDate dataAttuale;
-    @FXML
-    private Label ciao;
-    @FXML
-    private Button bottoneVedi;
-
+    private LocalDate dataAttuale;
     @FXML
     private Button b1;
-
     @FXML
     private Button b10;
 
@@ -152,7 +146,7 @@ public class SchermataPianificazioneTurni {
     private Button b43;
     @FXML
     private ChoiceBox<String> selezionaMese;
-    private String[] giorniSettimana = {"Gen", "Feb", "Mar", "Apr", "Mag", "Giu", "Lug", "Ago", "Set", "Ott", "Nov", "Dic"};
+    private String[] mesi = {"Gen", "Feb", "Mar", "Apr", "Mag", "Giu", "Lug", "Ago", "Set", "Ott", "Nov", "Dic"};
     private ObservableList<RigaPropostaTurnazione> propostaTurniTabella;
     private Date first;
     /*TurnoImpiegato turnoImpiegato;
@@ -180,9 +174,9 @@ public class SchermataPianificazioneTurni {
         dataAttuale = LocalDate.now();
 
         //lavoro sul choiche box aggiungenedo i mesi che vengono dopo il mese attuale
-        selezionaMese.getItems().add(giorniSettimana[dataAttuale.getMonthValue()-1]);
-        selezionaMese.getItems().add(giorniSettimana[dataAttuale.getMonthValue()]);
-        selezionaMese.getItems().add(giorniSettimana[dataAttuale.getMonthValue()+1]);
+        selezionaMese.getItems().add(mesi[dataAttuale.getMonthValue()-1]);
+        selezionaMese.getItems().add(mesi[dataAttuale.getMonthValue()]);
+        selezionaMese.getItems().add(mesi[dataAttuale.getMonthValue()+1]);
 
 
 
@@ -195,30 +189,12 @@ public class SchermataPianificazioneTurni {
 
          */
         //imposto i valori di default sul choichebox
-        selezionaMese.setValue(giorniSettimana[dataAttuale.getMonthValue()-1]);
+        selezionaMese.setValue(mesi[dataAttuale.getMonthValue()-1]);
         //imposto il calendario di default
         visualizzaCalendarioBase(dataAttuale.getMonthValue()-1,dataAttuale.getYear());
         //setto la scelta dell'utente
         System.out.println("ciaooooooooooooooo");
         selezionaMese.setOnAction(this::visualizzaCalendario);
-/*
-        turnoImpiegatoes = FXCollections.observableArrayList();
-        turnoImpiegatoes.add(new TurnoImpiegato(1,"Isabella Greco",1,"Impiegato"));
-        turnoImpiegatoes.add(new TurnoImpiegato(1,"Marco Rossi", 2, "Amministrativo"));
-        turnoImpiegatoes.add(new TurnoImpiegato(1,"Giacomo Neri", 2, "Amministrativo"));
-        turnoImpiegatoes.add(new TurnoImpiegato(1,"Alice Verdi", 2, "Amministrativo"));
-        turnoImpiegatoes.add(new TurnoImpiegato(2,"Gabriele Ciano", 2, "Amministrativo"));
-        turnoImpiegatoes.add(new TurnoImpiegato(2,"Marco Russo", 2, "Amministrativo"));
-        turnoImpiegatoes.add(new TurnoImpiegato(2,"Aldo di Pasquale", 2, "Amministrativo"));
-        turnoImpiegatoes.add(new TurnoImpiegato(2,"Luisa Trapani", 2, "Amministrativo"));
-        turno.setCellValueFactory(new PropertyValueFactory<>("Turno"));
-        dipendente.setCellValueFactory(new PropertyValueFactory<>("Dipendente"));
-        servizio.setCellValueFactory(new PropertyValueFactory<>("Servizio"));
-        ruolo.setCellValueFactory(new PropertyValueFactory<>("Ruolo"));
-        tabella.setItems(turnoImpiegatoes);
-
-*/
-
     }
 
     private void visualizzaCalendario(ActionEvent actionEvent) {
@@ -226,8 +202,6 @@ public class SchermataPianificazioneTurni {
         visualizzaCalendarioBase(valoreMese(selezionaMese.getValue())-1,dataAttuale.getYear());
         selezionaMese.setOnAction(this::visualizzaCalendario);
     }
-
-
     //trasformo il giorno del primo giorno del mese in giorno della settimana
     private int ottieniInizio(Date first){
         //mi faccio dare la data e prendo solamento il giorno a parola
