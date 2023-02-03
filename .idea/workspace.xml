@@ -4,28 +4,146 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7933b5f-9b64-4c50-8359-5242a146b696" name="Changes" comment="rutto">
+    <list default="true" id="a7933b5f-9b64-4c50-8359-5242a146b696" name="Changes" comment="Sto sistemando ancora codici">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Controller/ControlGestioneImpiegati/ControlFestivitaFerie.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Controller/ControlGestioneProfilo/ControlVisualizzaCalendario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/View/Popup/PopupConferma.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/View/Popup/PopupConfermaPassword.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/View/SchermateGestioneImpiegati/SchermataDisattivaImpiegato.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/View/SchermateGestioneImpiegati/SchermataVisualizzaStipendioImpiegato.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/View/SchermateGestioneProfilo/SchermataVisualizzaCalendario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/CSS/View.Popup/PopUpConferma.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/FXML/GestioneProfilo/VisualizzaCalendario.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/Icon/LOGO.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/View/Popup/PopupConferma.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/View/Popup/PopupConfermaPassword.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2ddb71e8-3fbb-48ec-9a7c-9915faf0290c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2ddb71e8-3fbb-48ec-9a7c-9915faf0290c.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_01_23,_09_53_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_01_23,_12_07_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_01_23,_15_24_[Changes]/calcolatrice.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_01_23,_15_24_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_01_23__09_53__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_01_23__12_07__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_01_23__15_24__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/FileDiSistema/Daemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/FileDiSistema/Daemon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/FileDiSistema/JavaMail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/FileDiSistema/JavaMail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneAutenticazione/Control/ControlLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneAutenticazione/Control/ControlLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneAutenticazione/Schermate/SchermataRecuperoPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneAutenticazione/Schermate/SchermataRecuperoPassword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Control/ControlFestivitaFerie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Control/ControlFestivitaFerie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Control/ControlGestioneImpiegati.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Control/ControlGestioneImpiegati.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Control/ControlVisualizzaProfilo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Control/ControlVisualizzaProfilo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Schermate/SchermataModificaPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Schermate/SchermataModificaPassword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Schermate/SchermataVisualizzaProfilo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Schermate/SchermataVisualizzaProfilo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Control/ControlGestioneRichieste.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Control/ControlGestioneRichieste.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Control/ControlRichiesteRicevute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Control/ControlRichiesteRicevute.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataGestioneRichieste.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataGestioneRichieste.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataRichiestaFerie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataRichiestaFerie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataRichiestaPermesso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataRichiestaPermesso.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataRichiesteRicevute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataRichiesteRicevute.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneTurni/Schermate/SchermataPianificazioneTurni.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneTurni/Schermate/SchermataPianificazioneTurni.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Popup/PopupErrore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Popup/PopupErrore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Popup/PopupInformazione.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Popup/PopupInformazione.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiestaFerie.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiestaFerie.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiestaPermesso.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiestaPermesso.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Contenitori/PropostaTurno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Contenitori/PropostaTurno.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/FileDiSistema/CodiceFiscaleCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/CodiceFiscale/CodiceFiscaleCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/FileDiSistema/ControlInterfaceErrore.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/FileDiSistema/ControlInterfaceInformazione.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/FileDiSistema/Daemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Model/Daemon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/FileDiSistema/DatePicker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Timer/Timer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/FileDiSistema/EntityUtente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Model/EntityUtente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/FileDiSistema/ErrorMex.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/FileDiSistema/InterfacciaSchermata.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/FileDiSistema/JavaMail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Mail/JavaMail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/FileDiSistema/Messaggio.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/FileDiSistema/NavigationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Model/NavigationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/FileDiSistema/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Model/Util.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/FileDiSistema/datiGenerati.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneAutenticazione/Control/ControlLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Controller/ControlGestioneAutenticazione/ControlLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneAutenticazione/Schermate/SchermataLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/View/SchermateGestioneAutenticazione/SchermataLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneAutenticazione/Schermate/SchermataPrincipaleAmministrativo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/View/SchermateGestioneAutenticazione/SchermataPrincipaleAmministrativo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneAutenticazione/Schermate/SchermataPrincipaleDatore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/View/SchermateGestioneAutenticazione/SchermataPrincipaleDatore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneAutenticazione/Schermate/SchermataPrincipaleImpiegato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/View/SchermateGestioneAutenticazione/SchermataPrincipaleImpiegato.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneAutenticazione/Schermate/SchermataRecuperoPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/View/SchermateGestioneAutenticazione/SchermataRecuperoPassword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Control/ControlFestivitaFerie.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Control/ControlGestioneImpiegati.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Controller/ControlGestioneImpiegati/ControlGestioneImpiegati.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Control/ControlRichiesteSciopero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Controller/ControlGestioneImpiegati/ControlRichiesteSciopero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Schermate/SchermataFestivitaFerie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/View/SchermateGestioneImpiegati/SchermataFestivitaFerie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Schermate/SchermataGestioneImpiegati.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/View/SchermateGestioneImpiegati/SchermataGestioneImpiegati.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Schermate/SchermataRegistrazioneImpiegato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/View/SchermateGestioneImpiegati/SchermataRegistrazioneImpiegato.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Schermate/SchermataRichiesteSciopero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/View/SchermateGestioneImpiegati/SchermataRichiesteSciopero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Schermate/SchermataTimbraturaImpiegato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/View/SchermateGestioneImpiegati/SchermataTimbraturaImpiegato.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Schermate/SchermataVisualizzaCalendarioImpiegati.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/View/SchermateGestioneImpiegati/SchermataVisualizzaCalendarioImpiegati.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Schermate/SchermataVisualizzaImpiegato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/View/SchermateGestioneImpiegati/SchermataVisualizzaImpiegato.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Schermate/SchermataVisualizzaStipendio.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Control/ControlTimbraturaRemoto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Controller/ControlGestioneProfilo/ControlTimbraturaRemoto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Control/ControlVisualizzaProfilo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Controller/ControlGestioneProfilo/ControlVisualizzaProfilo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Control/ControlVisualizzaStipendio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Controller/ControlGestioneProfilo/ControlVisualizzaStipendio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Schermate/SchermataModificaPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/View/SchermateGestioneProfilo/SchermataModificaPassword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Schermate/SchermataModificaProfilo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/View/SchermateGestioneProfilo/SchermataModificaProfilo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Schermate/SchermataTimbraturaRemoto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/View/SchermateGestioneProfilo/SchermataTimbraturaRemoto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Schermate/SchermataVisualizzaProfilo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/View/SchermateGestioneProfilo/SchermataVisualizzaProfilo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Schermate/SchermataVisualizzaStipendio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/View/SchermateGestioneProfilo/SchermataVisualizzaStipendio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Control/ControlGestioneRichieste.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Controller/ControlGestioneRichieste/ControlGestioneRichieste.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Control/ControlRichiesteRicevute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Controller/ControlGestioneRichieste/ControlRichiesteRicevute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataCongedoLutto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/View/SchermateGestioneRichieste/SchermataCongedoLutto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataCongedoParentale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/View/SchermateGestioneRichieste/SchermataCongedoParentale.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataGestioneRichieste.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/View/SchermateGestioneRichieste/SchermataGestioneRichieste.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataRichiestaCambioTurno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/View/SchermateGestioneRichieste/SchermataRichiestaCambioTurno.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataRichiestaFerie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/View/SchermateGestioneRichieste/SchermataRichiestaFerie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataRichiestaMalattia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/View/SchermateGestioneRichieste/SchermataRichiestaMalattia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataRichiestaMaternita.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/View/SchermateGestioneRichieste/SchermataRichiestaMaternita.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataRichiestaPermesso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/View/SchermateGestioneRichieste/SchermataRichiestaPermesso.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataRichiestaSciopero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/View/SchermateGestioneRichieste/SchermataRichiestaSciopero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste/Schermate/SchermataRichiesteRicevute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/View/SchermateGestioneRichieste/SchermataRichiesteRicevute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneTurni/Control/ControlVisualizzaPropostaTurni.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Controller/ControlGestioneTurni/ControlVisualizzaPropostaTurni.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneTurni/Schermate/SchermataPianificazioneTurni.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/View/SchermateGestioneTurni/SchermataPianificazioneTurni.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Popup/PopupErrore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/View/Popup/PopupErrore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Popup/PopupInformazione.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/View/Popup/PopupInformazione.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Start.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Start.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneAutenticazione/CSS/Login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/CSS/GestioneAutenticazione/Login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneAutenticazione/CSS/SchermataPrincipaleDatore.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/CSS/GestioneAutenticazione/SchermataPrincipaleDatore.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneAutenticazione/CSS/SchermataPrincipaleImpiegato.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/CSS/GestioneAutenticazione/SchermataPrincipaleImpiegato.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneAutenticazione/CSS/SchermataRecuperoPassword.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/CSS/GestioneAutenticazione/SchermataRecuperoPassword.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneAutenticazione/FXML/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/FXML/GestioneAutenticazione/Login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneAutenticazione/FXML/SchermataPrincipaleAmministrativo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/FXML/GestioneAutenticazione/SchermataPrincipaleAmministrativo.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneAutenticazione/FXML/SchermataPrincipaleDatore.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/FXML/GestioneAutenticazione/SchermataPrincipaleDatore.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneAutenticazione/FXML/SchermataPrincipaleImpiegato.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/FXML/GestioneAutenticazione/SchermataPrincipaleImpiegato.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneAutenticazione/FXML/SchermataRecuperoPassword.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/FXML/GestioneAutenticazione/SchermataRecuperoPassword.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/CSS/SchermataDisattivaImpiegato.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/CSS/GestioneImpiegati/SchermataDisattivaImpiegato.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/CSS/SchermataFestivitaFerie.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/CSS/GestioneImpiegati/SchermataFestivitaFerie.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/CSS/SchermataGestioneImpiegati.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/CSS/GestioneImpiegati/SchermataGestioneImpiegati.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/CSS/SchermataRegistrazioneImpiegato.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/CSS/GestioneImpiegati/SchermataRegistrazioneImpiegato.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/CSS/SchermataRichiesteSciopero.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/CSS/GestioneImpiegati/SchermataRichiesteSciopero.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/CSS/SchermataTimbraturaEntrata.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/CSS/GestioneImpiegati/SchermataTimbraturaEntrata.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/CSS/SchermataTimbraturaImpiegato.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/CSS/GestioneImpiegati/SchermataTimbraturaImpiegato.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/CSS/SchermataVisualizzaCalendarioImpiegati.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/CSS/GestioneImpiegati/SchermataVisualizzaCalendarioImpiegati.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/CSS/SchermataVisualizzaImpiegato.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/CSS/GestioneImpiegati/SchermataVisualizzaImpiegato.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataCalendarioImpiegati.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/FXML/GestioneImpiegati/SchermataCalendarioImpiegati.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataDisattivaImpiegato.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/FXML/GestioneImpiegati/SchermataDisattivaImpiegato.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataFesitivitaFerie.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/FXML/GestioneImpiegati/SchermataFesitivitaFerie.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataGestioneImpiegati.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/FXML/GestioneImpiegati/SchermataGestioneImpiegati.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataRegistrazioneImpiegato.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/FXML/GestioneImpiegati/SchermataRegistrazioneImpiegato.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataRichiesteSciopero.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/FXML/GestioneImpiegati/SchermataRichiesteSciopero.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataTimbraturaImpiegato.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/FXML/GestioneImpiegati/SchermataTimbraturaImpiegato.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataVisualizzaImpiegato.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/FXML/GestioneImpiegati/SchermataVisualizzaImpiegato.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML/SchermataVisualizzaStipendio.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/FXML/GestioneImpiegati/SchermataVisualizzaStipendio.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneProfilo/CSS/SchermataModificaPassword.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/CSS/GestioneProfilo/SchermataModificaPassword.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneProfilo/CSS/SchermataModificaProfilo.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/CSS/GestioneProfilo/SchermataModificaProfilo.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneProfilo/CSS/SchermataTimbraturaEntrataRemoto.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/CSS/GestioneProfilo/SchermataTimbraturaEntrataRemoto.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneProfilo/CSS/SchermataVisualizzaProfilo.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/CSS/GestioneProfilo/SchermataVisualizzaProfilo.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneProfilo/FXML/SchermataModificaPassword.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/FXML/GestioneProfilo/SchermataModificaPassword.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneProfilo/FXML/SchermataModificaProfilo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/FXML/GestioneProfilo/SchermataModificaProfilo.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneProfilo/FXML/SchermataTimbraturaRemoto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/FXML/GestioneProfilo/SchermataTimbraturaRemoto.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneProfilo/FXML/SchermataVisualizzaProfilo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/FXML/GestioneProfilo/SchermataVisualizzaProfilo.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneProfilo/FXML/SchermataVisualizzaStipendio.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/FXML/GestioneProfilo/SchermataVisualizzaStipendio.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/CSS/SchermataCongedoLutto.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/CSS/GestioneRichieste/SchermataCongedoLutto.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/CSS/SchermataCongedoParentale.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/CSS/GestioneRichieste/SchermataCongedoParentale.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/CSS/SchermataRichiestaCambioTurno.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/CSS/GestioneRichieste/SchermataRichiestaCambioTurno.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/CSS/SchermataRichiestaFerie.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/CSS/GestioneRichieste/SchermataRichiestaFerie.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/CSS/SchermataRichiestaMalattia.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/CSS/GestioneRichieste/SchermataRichiestaMalattia.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/CSS/SchermataRichiestaMaternita.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/CSS/GestioneRichieste/SchermataRichiestaMaternita.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/CSS/SchermataRichiestaPermesso.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/CSS/GestioneRichieste/SchermataRichiestaPermesso.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/CSS/SchermataRichiestaSciopero.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/CSS/GestioneRichieste/SchermataRichiestaSciopero.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/FXML/SchermataCongedoLutto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/FXML/GestioneRichieste/SchermataCongedoLutto.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/FXML/SchermataCongedoParentale.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/FXML/GestioneRichieste/SchermataCongedoParentale.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/FXML/SchermataGestioneRichieste.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/FXML/GestioneRichieste/SchermataGestioneRichieste.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiestaCambioTurno.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/FXML/GestioneRichieste/SchermataRichiestaCambioTurno.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiestaFerie.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/FXML/GestioneRichieste/SchermataRichiestaFerie.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiestaMalattia.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/FXML/GestioneRichieste/SchermataRichiestaMalattia.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiestaMaternita.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/FXML/GestioneRichieste/SchermataRichiestaMaternita.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiestaPermesso.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/FXML/GestioneRichieste/SchermataRichiestaPermesso.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiestaSciopero.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/FXML/GestioneRichieste/SchermataRichiestaSciopero.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneRichieste/FXML/SchermataRichiesteRicevute.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/FXML/GestioneRichieste/SchermataRichiesteRicevute.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneTurni/CSS/Calendario.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/CSS/GestioneTurni/Calendario.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneTurni/FXML/Calendario.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/FXML/GestioneTurni/Calendario.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/Popup/CSS/PopUpErrore.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/CSS/View.Popup/PopUpErrore.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/Popup/CSS/PopUpInformazione.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/CSS/View.Popup/PopUpInformazione.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/Popup/FXML/PopupErrore.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/View/Popup/PopupErrore.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/Popup/FXML/PopupInformazione.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/View/Popup/PopupInformazione.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,14 +154,17 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaFXApplication" />
+        <option value="Interface" />
         <option value="FxmlFile" />
         <option value="Class" />
-        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -68,14 +189,15 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "dart.analysis.tool.window.visible": "false",
-    "last_opened_file_path": "/Users/alessiacancemi/Desktop/ProgettoCompleto/src/main/resources/com/example/progettocompleto/Icon",
+    "last_opened_file_path": "/Users/giuseppebarone/Desktop/ProgettoCompleto/src/main/resources/com/example/progettocompleto/View/Popup",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "database.query.execution",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -86,23 +208,25 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/View/Popup" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/View/Popup" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/View/SchermateGestioneImpiegati" />
+      <recent name="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/FXML" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/Icon" />
-      <recent name="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto" />
-      <recent name="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/FileDiSistema" />
-      <recent name="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneRichieste" />
-      <recent name="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Schermate" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/Contenitori" />
-      <recent name="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneImpiegati/Schermate" />
-      <recent name="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/FXML" />
-      <recent name="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/GestioneImpiegati/CSS" />
-      <recent name="$PROJECT_DIR$/src/main/java/com/example/progettocompleto/GestioneProfilo/Control" />
+      <recent name="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/Icon" />
+      <recent name="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/FXML/GestioneAutenticazione" />
+      <recent name="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto" />
+      <recent name="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/FXML" />
+      <recent name="$PROJECT_DIR$/src/main/resources/com/example/progettocompleto/CSS/View.Popup" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.example.progettocompleto.GestioneImpiegati" />
-      <recent name="com.example.progettocompleto.GestioneProfilo" />
       <recent name="com.example.progettocompleto" />
+      <recent name="com.example.progettocompleto.View" />
+      <recent name="com.example.progettocompleto.View.Popup" />
+      <recent name="CodiceFiscaleCalculator" />
+      <recent name="com.example.progettocompleto.GestioneImpiegati" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.example.progettocompleto.GestioneAutenticazione.Schermate" />
@@ -118,6 +242,15 @@
       <option name="presentableId" value="Default" />
       <updated>1674466363428</updated>
       <workItem from="1674466365946" duration="51684000" />
+      <workItem from="1675098025438" duration="7553000" />
+      <workItem from="1675159510272" duration="542000" />
+      <workItem from="1675160068193" duration="312000" />
+      <workItem from="1675160428472" duration="848000" />
+      <workItem from="1675161306972" duration="111000" />
+      <workItem from="1675161562672" duration="300000" />
+      <workItem from="1675161878131" duration="1123000" />
+      <workItem from="1675163017592" duration="34247000" />
+      <workItem from="1675430511655" duration="14419000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <created>1674474604861</created>
@@ -196,7 +329,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674771936440</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Sto sistemando ancora codici">
+      <created>1674836675554</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1674836675554</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,6 +375,7 @@
     <MESSAGE value="prova" />
     <MESSAGE value="Commit di check" />
     <MESSAGE value="rutto" />
-    <option name="LAST_COMMIT_MESSAGE" value="rutto" />
+    <MESSAGE value="Sto sistemando ancora codici" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sto sistemando ancora codici" />
   </component>
 </project>

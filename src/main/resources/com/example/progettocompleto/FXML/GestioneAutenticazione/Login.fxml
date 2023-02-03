@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="640.0" prefWidth="900.0" stylesheets="@../../CSS/GestioneAutenticazione/Login.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.progettocompleto.View.SchermateGestioneAutenticazione.SchermataLogin">
+    <children>
+        <AnchorPane fx:id="rettangolo" layoutX="214.0" layoutY="20.0" opacity="0.6" prefHeight="600.0" prefWidth="470.0">
+            <children>
+                <AnchorPane layoutX="100.0" layoutY="216.0" prefHeight="225.0" prefWidth="270.0">
+                    <children>
+                        <TextField fx:id="matricola" alignment="CENTER" layoutX="17.0" layoutY="63.0" prefHeight="35.0" prefWidth="235.0" promptText="matricola" />
+                        <PasswordField fx:id="passwordField" accessibleRole="CHECK_BOX" alignment="CENTER" layoutX="17.0" layoutY="125.0" prefHeight="35.0" prefWidth="235.0" promptText="password" />
+                        <ImageView fitHeight="26.0" fitWidth="28.0" layoutX="29.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../Icon/key_FILL0_wght400_GRAD0_opsz48.png" />
+                            </image>
+                        </ImageView>
+                        <Hyperlink fx:id="PasswordDimenticata" layoutX="105.0" layoutY="173.0" onAction="#clickRecuperaPassword" text="PasswordDimenticata?" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Hyperlink>
+                      <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="23.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@../../Icon/Profilo.png" />
+                          </image>
+                      </ImageView>
+                    </children>
+                </AnchorPane>
+                <Button fx:id="bottoneLogin" layoutX="159.0" layoutY="442.0" mnemonicParsing="false" onAction="#clickLogin" prefHeight="35.0" prefWidth="152.0" text="Login" />
+            <ImageView fitHeight="251.0" fitWidth="247.0" layoutX="123.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Icon/LOGO.PNG" />
+               </image>
+            </ImageView>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

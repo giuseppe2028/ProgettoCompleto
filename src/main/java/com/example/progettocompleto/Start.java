@@ -2,9 +2,8 @@ package com.example.progettocompleto;
 
 
 
-import com.example.progettocompleto.FileDiSistema.Daemon;
-import com.example.progettocompleto.FileDiSistema.DatePicker;
-import com.example.progettocompleto.GestioneAutenticazione.Schermate.SchermataLogin;
+import com.example.progettocompleto.Model.Daemon;
+import com.example.progettocompleto.Timer.Timer;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -23,17 +22,17 @@ public class Start extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         new Daemon();
-        DatePicker datePicker = new DatePicker();
-        Thread orologio = new Thread(datePicker);
+        Timer timer = new Timer();
+        Thread orologio = new Thread(timer);
         orologio.start();
         mainStage = stage;
         Parent root;
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/progettocompleto/GestioneAutenticazione/FXML/Login.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/progettocompleto/FXML/GestioneAutenticazione/Login.fxml"));
         root = fxmlLoader.load();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-stage.setResizable(false);
+        stage.setResizable(false);
 
 
     }
